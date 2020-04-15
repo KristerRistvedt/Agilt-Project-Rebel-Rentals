@@ -2,4 +2,4 @@
 
 Fixar git commits så dom syns i JIRA LIKE A BAUHSS
 
-Lägge till text här allt eftersom jag fixar commitsen.
+Lägger till och tar bort text här allt eftersom jag fixar commitsen.
