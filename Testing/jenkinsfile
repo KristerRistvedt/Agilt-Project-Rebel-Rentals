@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout') {
                 steps {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/josost/dotnet.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/KristerRistvedt/Agilt-Project-Rebel-Rentals.git']]])
                 }
         }
         stage('Restore') {
