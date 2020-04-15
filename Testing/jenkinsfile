@@ -5,29 +5,29 @@ pipeline {
     stages {
         stage('Checkout') {
                 steps {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/KristerRistvedt/Agilt-Project-Rebel-Rentals.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/KristerRistvedt/dotnet.git']]])
                 }
-        }
-        stage('Restore') {
-            steps {
-                bat 'dotnet restore'
-            }
         }
         stage('Build') {
             steps {
-                bat '"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/msbuild.exe" RazorPagesMovie.sln'
+                bat 'dotnet build RazorPagesMovie.sln'
             }
         }
         stage('Run') {
             steps {
-                bat 'START /B dotnet C:/Users/josost/.jenkins/workspace/msbuild_pipeline/RazorPagesMovie/bin/Debug/netcoreapp3.1/RazorPagesMovie.dll'
+                bat 'START /B dotnet C:/Jenkins/workspace/AgiltProjektDotNetTest/RazorPagesMovie/bin/Debug/netcoreapp3.1/RazorPagesMovie.dll'
             }
         }
         stage('UI tests') {
             steps {
-                    bat 'sleep 10s'
-                    bat 'robot Tests'
+                    bat 'waitfor SomethingThatIsNeverHappening /t 10 2>NUL || type nul>nul'
+                    bat 'robot --variable BROWSER:headlesschrome ./Tests/razor.robot'
             }
         }
     }
+	post{
+	    always{
+            bat 'TASKKILL /F /IM dotnet.exe'
+	}
+}
 }
