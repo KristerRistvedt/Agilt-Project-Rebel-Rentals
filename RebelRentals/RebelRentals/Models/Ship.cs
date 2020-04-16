@@ -38,5 +38,6 @@ namespace RebelRentals.Models
         [Required]
         [DataType(DataType.Currency)]
         public double? Price { get; set; }
+        public string About { get; set; }
     }
 }
