@@ -9,7 +9,7 @@ namespace RebelRentals.Models
     public class Ship
     {
         public int Id { get; set; }
-        
+
         [Required]
         public string Model { get; set; }
         
@@ -38,10 +38,5 @@ namespace RebelRentals.Models
         [Required]
         [DataType(DataType.Currency)]
         public double? Price { get; set; }
-
-
-
-
-
     }
 }
