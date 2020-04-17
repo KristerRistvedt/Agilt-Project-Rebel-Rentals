@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RebelRentals.Models;
 
 namespace RebelRentals.Data
 {
@@ -12,5 +13,6 @@ namespace RebelRentals.Data
             : base(options)
         {
         }
+        public DbSet<RebelRentals.Models.Ship> Ship { get; set; }
     }
 }

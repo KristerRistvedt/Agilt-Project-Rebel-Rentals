@@ -1,0 +1,90 @@
+﻿@page
+@model RebelRentals.Pages.Ships.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<style>
+    .trMiddle {
+        
+    }
+</style>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].NumberOfPopulation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+        <tbody class="trMiddle">
+            @foreach (var item in Model.Ship)
+            {
+                <tr>
+                    <td>
+                        @{ switch (item.Model)
+                            {
+                                case "X-Wing":
+                                    <img src="~/Images/XWing.jpg" height="100" width="100" />
+                                    break;
+                                case "A-Wing":
+                                    <img src="~/Images/AWing.png" height="100" width="100" />
+                                    break;
+                                case "Death Star":
+                                    <img src="~/Images/DeathStar.jpg" height="100" width="100" />
+                                    break;
+                                case "Salvation":
+                                    <img src="~/Images/Salvation.jpg" height="100" width="100" />
+                                    break;
+                                case "Star Destroyer":
+                                    <img src="~/Images/StarDestroyer.jpeg" height="100" width="100" />
+                                    break;
+                                case "Tie Fighter":
+                                    <img src="~/Images/TieFighter.jpg" height="100" width="100" />
+                                    break;
+                                case "Y-Wing":
+                                    <img src="~/Images/YWing.jpeg" height="100" width="100" />
+                                    break;
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfPopulation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Class)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
