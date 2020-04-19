@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.2 on win32)" generated="20200419 18:52:36.644" rpa="false">
+<suite id="s1" name="Tests" source="C:\Users\SpEEk0Desktop\PycharmProjects\JenkinsSourceRedact\Tests">
+<suite id="s1-s1" name="RebelRentals" source="C:\Users\SpEEk0Desktop\PycharmProjects\JenkinsSourceRedact\Tests\RebelRentals.robot">
+<test id="s1-s1-t1" name="User can access RebelRental page">
+<kw name="Begin Agile Project Page Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:36.791" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200419 18:52:36.792" level="INFO">Firefox driver log is always forced to to: C:\Users\SpEEk0Desktop\PycharmProjects\JenkinsSourceRedact\Results\geckodriver-4.log</msg>
+<status status="PASS" starttime="20200419 18:52:36.791" endtime="20200419 18:52:41.915"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:36.790" endtime="20200419 18:52:41.915"></status>
+</kw>
+<kw name="Go to Web Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:41.915" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200419 18:52:41.915" endtime="20200419 18:52:42.041"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:42.041" endtime="20200419 18:52:42.056"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:41.915" endtime="20200419 18:52:42.056"></status>
+</kw>
+<kw name="End Agile Project Test" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200419 18:52:42.056" endtime="20200419 18:52:43.013"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:42.056" endtime="20200419 18:52:43.013"></status>
+</kw>
+<doc>Test: The user should be able to access the RebelRentals page</doc>
+<tags>
+<tag>Access</tag>
+</tags>
+<status status="PASS" starttime="20200419 18:52:36.790" endtime="20200419 18:52:43.013" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="User can switch pages in header menu">
+<kw name="Begin Agile Project Page Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:43.014" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200419 18:52:43.015" level="INFO">Firefox driver log is always forced to to: C:\Users\SpEEk0Desktop\PycharmProjects\JenkinsSourceRedact\Results\geckodriver-5.log</msg>
+<status status="PASS" starttime="20200419 18:52:43.014" endtime="20200419 18:52:48.126"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:43.014" endtime="20200419 18:52:48.126"></status>
+</kw>
+<kw name="Go to Web Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:48.127" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200419 18:52:48.127" endtime="20200419 18:52:48.223"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:48.223" endtime="20200419 18:52:48.237"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:48.127" endtime="20200419 18:52:48.237"></status>
+</kw>
+<kw name="Switch to privacy page">
+<kw name="Go to Web Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:48.238" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200419 18:52:48.237" endtime="20200419 18:52:48.283"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:48.283" endtime="20200419 18:52:48.286"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:48.237" endtime="20200419 18:52:48.286"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://html/body/header/nav/div/div/ul[2]/li[2]/a</arg>
+</arguments>
+<msg timestamp="20200419 18:52:48.286" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200419 18:52:48.286" endtime="20200419 18:52:48.363"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Privacy Policy</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:48.363" endtime="20200419 18:52:48.371"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:48.237" endtime="20200419 18:52:48.371"></status>
+</kw>
+<kw name="End Agile Project Test" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200419 18:52:48.372" endtime="20200419 18:52:49.077"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:48.372" endtime="20200419 18:52:49.078"></status>
+</kw>
+<doc>Test: The user should be able to switch pages from the header menu</doc>
+<tags>
+<tag>Header</tag>
+<tag>Pages</tag>
+</tags>
+<status status="PASS" starttime="20200419 18:52:43.013" endtime="20200419 18:52:49.078" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="User can create an account">
+<kw name="Begin Agile Project Page Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:49.079" level="INFO">Opening browser 'firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200419 18:52:49.079" level="INFO">Firefox driver log is always forced to to: C:\Users\SpEEk0Desktop\PycharmProjects\JenkinsSourceRedact\Results\geckodriver-6.log</msg>
+<status status="PASS" starttime="20200419 18:52:49.078" endtime="20200419 18:52:54.185"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:49.078" endtime="20200419 18:52:54.185"></status>
+</kw>
+<kw name="Go to Web Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.185" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200419 18:52:54.185" endtime="20200419 18:52:54.287"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:54.287" endtime="20200419 18:52:54.296"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:54.185" endtime="20200419 18:52:54.296"></status>
+</kw>
+<kw name="Generate Email">
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>6</arg>
+<arg>[NUMBERS]abcdef</arg>
+</arguments>
+<assign>
+<var>${RANDOMSTRING}</var>
+</assign>
+<msg timestamp="20200419 18:52:54.297" level="INFO">${RANDOMSTRING} = 13709a</msg>
+<status status="PASS" starttime="20200419 18:52:54.296" endtime="20200419 18:52:54.297"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${RANDOMSTRING}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.297" level="INFO">${RANDOMSTRING} = 13709a</msg>
+<status status="PASS" starttime="20200419 18:52:54.297" endtime="20200419 18:52:54.297"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:54.296" endtime="20200419 18:52:54.297"></status>
+</kw>
+<kw name="Register an account">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://html/body/header/nav/div/div/ul[1]/li[1]/a</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.297" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[1]/a'.</msg>
+<status status="PASS" starttime="20200419 18:52:54.297" endtime="20200419 18:52:54.372"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Create a new account</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:54.372" endtime="20200419 18:52:54.381"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath://*[@id="Input_Email"]</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:54.381" endtime="20200419 18:52:54.398"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="Input_Email"]</arg>
+<arg>${RANDOMSTRING}@email.com</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.398" level="INFO">Typing text '13709a@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200419 18:52:54.398" endtime="20200419 18:52:54.432"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="Input_Password"]</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.432" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200419 18:52:54.432" endtime="20200419 18:52:54.460"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.460" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20200419 18:52:54.460" endtime="20200419 18:52:54.481"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
+</arguments>
+<msg timestamp="20200419 18:52:54.481" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20200419 18:52:54.481" endtime="20200419 18:52:55.359"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Register confirmation</arg>
+</arguments>
+<status status="PASS" starttime="20200419 18:52:55.360" endtime="20200419 18:52:55.364"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:54.297" endtime="20200419 18:52:55.364"></status>
+</kw>
+<kw name="End Agile Project Test" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200419 18:52:55.364" endtime="20200419 18:52:56.096"></status>
+</kw>
+<status status="PASS" starttime="20200419 18:52:55.364" endtime="20200419 18:52:56.096"></status>
+</kw>
+<doc>Test: The user should be able to create an account</doc>
+<tags>
+<tag>Account</tag>
+</tags>
+<status status="PASS" starttime="20200419 18:52:49.078" endtime="20200419 18:52:56.096" critical="yes"></status>
+</test>
+<doc>This is a test suite around an agile projects website made with Razor Pages</doc>
+<status status="PASS" starttime="20200419 18:52:36.661" endtime="20200419 18:52:56.097"></status>
+</suite>
+<status status="PASS" starttime="20200419 18:52:36.645" endtime="20200419 18:52:56.098"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Access</stat>
+<stat pass="1" fail="0">Account</stat>
+<stat pass="1" fail="0">Header</stat>
+<stat pass="1" fail="0">Pages</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Tests">Tests</stat>
+<stat pass="3" fail="0" id="s1-s1" name="RebelRentals">Tests.RebelRentals</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
