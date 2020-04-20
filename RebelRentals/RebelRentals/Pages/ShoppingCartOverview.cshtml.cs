@@ -19,13 +19,16 @@ namespace RebelRentals.Pages
         {
             _context = context;
             _shoppingCart = shoppingCart;
+            Ships = _shoppingCart.GetShoppingList();
         }
 
-        public IList<Ship> Ship { get;set; }
-       
-        public async Task OnGetAsync()
+        public IList<Ship> Ships { get;set; }
+
+        public async Task<IActionResult> OnPostRemoveFromCart(int id)
         {
-            Ship = _shoppingCart.GetShoppingList().ToList();
+            Ship shipToRemove = Ships.First(ship => ship.Id == id);
+            _shoppingCart.RemoveShipFromCart(shipToRemove);
+            return RedirectToPage();
         }
     }
 }

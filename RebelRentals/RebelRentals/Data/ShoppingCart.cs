@@ -8,39 +8,26 @@ namespace RebelRentals
 {
     public class ShoppingCart
     {
-        private List<Ship> shoppingCart = new List<Ship>
-        {
-            new Ship
-            {
-                Model = "A-Wing",
-                Class = "Very Fighter",
-                Height = 1,
-                Length = 1,
-                Width = 1,
-                Price = 100,
-                NumberOfPopulation = 1,
-                MaxSpeed = 1000
-            },
-            new Ship
-            {
-                Model = "X-Wing",
-                Class = "Very Fighter",
-                Height = 1,
-                Length = 1,
-                Width = 1,
-                Price = 100,
-                NumberOfPopulation = 1,
-                MaxSpeed = 1000
-            }
-        };
+        private List<Ship> shoppingCart = new List<Ship>();
+
         public List<Ship> GetShoppingList()
         {
             return shoppingCart;
         }
 
-        public void AddShipToCart(Ship ship)
+        public bool AddShipToCart(Ship ship)
         {
-            shoppingCart.Add(ship);
+            bool success;
+            if (shoppingCart.Any(element => element.Id == ship.Id)) 
+            { 
+                success = false;
+            }
+            else
+            {
+                shoppingCart.Add(ship);
+                success = true;
+            }
+            return success;
         }
 
         public void RemoveShipFromCart(Ship ship)
