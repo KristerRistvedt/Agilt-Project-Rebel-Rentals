@@ -1,0 +1,80 @@
+﻿@page
+@model RebelRentals.Pages.ShoppingCartOverviewModel
+
+@{
+    ViewData["Title"] = "ShoppingCartOverview";
+}
+
+<h1>ShoppingCartOverview</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].NumberOfPopulation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].MaxSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ship[0].About)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ship) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPopulation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.About)
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Remove</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
