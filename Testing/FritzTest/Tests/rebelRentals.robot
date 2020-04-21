@@ -23,6 +23,8 @@ TEst the test
     Verify Rental Page Loaded
     Press Ships
     Find Images
+    Enter Details
+    More Find Images
 
 
 
