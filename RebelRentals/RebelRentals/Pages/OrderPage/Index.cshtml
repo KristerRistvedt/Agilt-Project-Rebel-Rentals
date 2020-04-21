@@ -6,77 +6,37 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Order summary</h1>
+
+<p>Total cost: @Model.TotalCost</p>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Model)
+                @Html.DisplayNameFor(model => model.ListOfShipsInCart[0].Model)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].NumberOfPopulation)
+                @Html.DisplayNameFor(model => model.ListOfShipsInCart[0].Price)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Class)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].MaxSpeed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Length)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Width)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Height)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].About)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ShoppingCart) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfPopulation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Class)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxSpeed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Length)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Width)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.About)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.ListOfShipsInCart)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
