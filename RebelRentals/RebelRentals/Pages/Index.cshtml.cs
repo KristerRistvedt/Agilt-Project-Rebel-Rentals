@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using RebelRentals.Data;
 
 namespace RebelRentals.Pages
 {
@@ -12,9 +13,18 @@ namespace RebelRentals.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
         {
             _logger = logger;
+
+            if (context.Ship.Any())
+            {
+                return;
+            }
+            else
+            {
+                context.SeedShipData();
+            }
         }
 
         public void OnGet()
