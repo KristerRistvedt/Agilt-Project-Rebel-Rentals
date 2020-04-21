@@ -17,9 +17,4 @@
     <PackageReference Include="RestClient.Net" Version="3.2.0" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
 </Project>
