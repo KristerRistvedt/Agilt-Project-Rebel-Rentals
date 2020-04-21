@@ -34,6 +34,7 @@ More Find Images
 
 Place An Order
     Click Element               Xpath://div/main/table/tbody/tr[1]/td[6]/form/button
+    Click Element               Xpath://div/main/table/tbody/tr[2]/td[6]/form/button
 
 Go To Order Page
     Click Element               Xpath://nav/div/div/ul[1]/li[1]/a/img
