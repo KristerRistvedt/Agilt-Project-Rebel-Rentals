@@ -25,7 +25,7 @@ namespace RebelRentals.Pages.Ships
 
         public async Task OnGetAsync()
         {
-            Ship = await _context.Ship.ToListAsync();
+            Ship = await _context.Ship.OrderBy(ship => ship.Model).ToListAsync();
         }
 
         public async Task<IActionResult> OnPostAddToShoppingCart(int id)
