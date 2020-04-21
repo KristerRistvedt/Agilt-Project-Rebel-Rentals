@@ -2,26 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RebelRentals.Data;
 using RebelRentals.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Storage;
+using System.Linq;
 
 namespace RebelRentals.Pages.OrderPage
 {
     public class IndexModel : PageModel
     {
         private readonly RebelRentals.Data.ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         public ShoppingCart ShoppingCart { get; set; }
 
         [BindProperty]
         public double? TotalCost { get; set; } = 0.0;
         public List<Ship> ListOfShipsInCart { get; set; }
 
-        public IndexModel(RebelRentals.Data.ApplicationDbContext context, ShoppingCart shoppingCart)
+        public IndexModel(RebelRentals.Data.ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, ShoppingCart shoppingCart)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
             ShoppingCart = shoppingCart;
             ListOfShipsInCart = shoppingCart.GetShoppingList();
             if(ListOfShipsInCart != null && ListOfShipsInCart.Count > 0)
@@ -61,6 +68,40 @@ namespace RebelRentals.Pages.OrderPage
             {
                 TotalCost = item.Price + TotalCost;
             }
+        }
+
+        public async Task FinalizeOrder()
+        {
+            
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var order = new Order(DateTime.Today);
+            var junctionShipOrder= new JunctionShipOrder();
+            junctionShipOrder.CustomerId = userId;
+            foreach (var item in ListOfShipsInCart)
+            {
+                junctionShipOrder.ShipId.Add(item.Id);
+            }
+            
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    
+                }
+            }
+            catch
+            {
+
+            }
+            await _context.SaveChangesAsync();
+            ClearCart();
+            RedirectToPage("Summary");
+
+        }
+
+        public void ClearCart()
+        {
+            ShoppingCart.ClearCart();
         }
     }
 }
