@@ -29,7 +29,7 @@ namespace RebelRentals.Pages.OrderPage
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        /*public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
@@ -40,6 +40,6 @@ namespace RebelRentals.Pages.OrderPage
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
-        }
+        }*/
     }
 }

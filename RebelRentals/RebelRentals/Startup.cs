@@ -36,6 +36,7 @@ namespace RebelRentals
             services.AddRazorPages();
             services.AddSingleton<APIController>();
             services.AddSingleton<ShoppingCart>();
+            services.AddSingleton<Ship>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 

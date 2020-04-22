@@ -74,12 +74,12 @@ namespace RebelRentals.Pages.OrderPage
         {
             
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var order = new Order(DateTime.Today);
+            var order = new Order();
             var junctionShipOrder= new JunctionShipOrder();
             junctionShipOrder.CustomerId = userId;
             foreach (var item in ListOfShipsInCart)
             {
-                junctionShipOrder.ShipId.Add(item.Id);
+                junctionShipOrder.ShipId = item.Id;
             }
             
             try
@@ -96,7 +96,6 @@ namespace RebelRentals.Pages.OrderPage
             await _context.SaveChangesAsync();
             ClearCart();
             RedirectToPage("Summary");
-
         }
 
         public void ClearCart()

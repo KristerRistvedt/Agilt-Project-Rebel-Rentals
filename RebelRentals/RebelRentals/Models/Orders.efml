@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="RebelRentals" namespace="RebelRentals" p1:name="ApplicationDbContext" p1:Guid="ff9c2d6e-7888-445c-b407-ca09fb55f3a7" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="AspNetUserRole" entity-set="AspNetUserRoles" table="AspNetUserRoles" schema="dbo" p1:Guid="03e45f43-ebb8-4a42-95c6-bc8865083c24">
+    <composite-id>
+      <key-property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="55a02cc9-7422-4903-ba3e-0049725f58b7">
+        <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+      <key-property name="RoleId" type="String" primary-key-index="1" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="6b776f78-49af-42d5-a74f-3d6c9f521e8c">
+        <column name="RoleId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+    </composite-id>
+  </class>
+  <class name="AspNetUser" entity-set="AspNetUsers" table="AspNetUsers" schema="dbo" p1:Guid="a06ab12d-170e-46d9-a9d9-8f8f833b27ef">
+    <id name="Id" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="2685dfcb-9055-4ecb-810d-550a703af199">
+      <column name="Id" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </id>
+    <property name="UserName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="57df48f4-30f9-4e81-94a1-326edeb2c477">
+      <column name="UserName" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="NormalizedUserName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="b163107e-da53-4c91-8d4b-2c84768debbf">
+      <column name="NormalizedUserName" not-null="False" length="256" sql-type="nvarchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="a2c8fb8f-30a9-4a77-b496-bdceb3cbcf7a">
+      <column name="Email" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="NormalizedEmail" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="0cfd618f-9ab7-4572-a7a9-66969b21f46b">
+      <column name="NormalizedEmail" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="EmailConfirmed" type="Boolean" p1:ValidateRequired="true" p1:Guid="8aaa41f6-0065-4995-b06c-94e8e681f8c9">
+      <column name="EmailConfirmed" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="PasswordHash" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8b804300-c5c6-49b1-b43e-daeaf58c6fea">
+      <column name="PasswordHash" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="SecurityStamp" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d104e801-d3d6-4b15-bfad-c9e8c54286a2">
+      <column name="SecurityStamp" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="ConcurrencyStamp" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="016bb46e-01c1-4487-aacf-66472d2e79cb">
+      <column name="ConcurrencyStamp" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="PhoneNumber" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="04d7a48e-5261-4943-8c92-95a5ab827227">
+      <column name="PhoneNumber" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="PhoneNumberConfirmed" type="Boolean" p1:ValidateRequired="true" p1:Guid="e640ceb9-7955-40e5-bb4f-216418187c9b">
+      <column name="PhoneNumberConfirmed" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="TwoFactorEnabled" type="Boolean" p1:ValidateRequired="true" p1:Guid="3d4a4a08-8814-4799-91da-850748483dbe">
+      <column name="TwoFactorEnabled" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="LockoutEnd" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="88679f58-babb-465b-9c61-8f2f580845d2">
+      <column name="LockoutEnd" not-null="False" sql-type="datetimeoffset" p1:unicode="False" />
+    </property>
+    <property name="LockoutEnabled" type="Boolean" p1:ValidateRequired="true" p1:Guid="5c63eac6-280c-412b-b9a6-5319a8ef59f0">
+      <column name="LockoutEnabled" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="AccessFailedCount" type="Int32" p1:ValidateRequired="true" p1:Guid="7bb889f8-3fc5-42d8-855f-4348d34e590b">
+      <column name="AccessFailedCount" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="JunctionShipOrder" entity-set="JunctionShipOrders" table="JunctionShipOrder" schema="dbo" p1:Guid="c2d027fe-5c89-4fb0-b640-0d075e6ef4b6">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b9967c12-22e4-45ce-a189-84d7aa0b4b12">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="ShipId" type="Int32" p1:ValidateRequired="true" p1:Guid="ed911ac2-f8bd-4c6f-8e92-0e4344eb640f">
+      <column name="ShipId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CustomerId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="a4932f87-20f4-4549-b6fd-bd81b64f01a6">
+      <column name="CustomerId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="Order" entity-set="Orders" table="Orders" schema="dbo" p1:Guid="448445f2-1c02-4714-b176-f44cd3f21a7c">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="973e3f72-9a54-43a9-acce-bab0d3af9420">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Date" type="DateTime" p1:ValidateRequired="true" p1:Guid="b82a6a62-ff38-4365-b6f3-8e33ac66f10b">
+      <column name="Date" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Ship" entity-set="Ships" table="Ship" schema="dbo" p1:Guid="e692468e-95b8-46fc-adbd-052a2f1ef925">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="2e0f53f0-a0cf-4d65-a4d2-8926d61d48d3">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Model" type="String" p1:ValidateRequired="true" p1:Guid="55c21fe4-06b3-49fd-9479-4b091684cbeb">
+      <column name="Model" not-null="True" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="Class" type="String" p1:ValidateRequired="true" p1:Guid="3a0ee846-877a-4e54-9fcf-a32e42921c0d">
+      <column name="Class" not-null="True" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="MaxSpeed" type="Int32" p1:ValidateRequired="true" p1:Guid="241c2fc3-5000-4bab-be03-cdaddb63679a">
+      <column name="MaxSpeed" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Length" type="Int32" p1:ValidateRequired="true" p1:Guid="a9d7f324-fbc9-46ed-8929-5ebad5f7fa6a">
+      <column name="Length" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Width" type="Int32" p1:ValidateRequired="true" p1:Guid="285ebbd5-fc0c-45cb-a1aa-c96c3f764cb6">
+      <column name="Width" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Height" type="Int32" p1:ValidateRequired="true" p1:Guid="9bbeb386-3f2c-428e-98b1-d657222f7ce7">
+      <column name="Height" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Price" type="Double" p1:ValidateRequired="true" p1:Guid="c4967507-356b-4c69-bd0a-c71bb2a31bfd">
+      <column name="Price" default="0.0000000000000000e+000" not-null="True" precision="53" sql-type="float" p1:unicode="False" />
+    </property>
+    <property name="NumberOfPopulation" type="Int32" p1:ValidateRequired="true" p1:Guid="da46197c-da14-4733-a29a-da1c0dd5aa5e">
+      <column name="NumberOfPopulation" default="0" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="About" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d6f61c80-42df-46d1-a2f8-ada25a35f958">
+      <column name="About" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+  </class>
+  <associations>
+    <association name="AspNetUser_AspNetUserRole" cardinality="OneToMany" on-delete="Cascade" p1:Guid="1dcd4f8e-0c55-407e-97f7-25c2b28206ab">
+      <end1 multiplicity="One" name="AspNetUser" class="AspNetUserRole" relation-class="AspNetUser" constrained="True" lazy="False" p1:Guid="d4fae632-c053-47e1-b246-e30999217891">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="AspNetUserRoles" class="AspNetUser" relation-class="AspNetUserRole" lazy="False" p1:Guid="2dd0254e-87c7-4212-9ddb-5c666e7e6a8f">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="Ship_JunctionShipOrder" cardinality="OneToMany" p1:Guid="87e83df3-48c5-4487-bfee-1e2a0b922486">
+      <end1 multiplicity="One" name="Ship" class="JunctionShipOrder" relation-class="Ship" constrained="True" lazy="False" p1:Guid="bbfd8a31-eb6d-4c19-a341-07d53ffe1e53">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="JunctionShipOrders" class="Ship" relation-class="JunctionShipOrder" lazy="False" p1:Guid="051ba910-a5c2-451a-82df-9bdf94cc922d">
+        <property name="ShipId" />
+      </end2>
+    </association>
+    <association name="Order_JunctionShipOrder" cardinality="OneToOne" p1:Guid="dbcc383f-9115-41b4-8cc7-516690158634">
+      <end1 multiplicity="One" name="Order" class="JunctionShipOrder" relation-class="Order" constrained="True" lazy="False" p1:Guid="6e7d3afa-9372-4c0f-91a2-dadfb4f72110">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="One" name="JunctionShipOrder" class="Order" relation-class="JunctionShipOrder" constrained="False" lazy="False" p1:Guid="3907737c-63b8-40a4-b3d2-47aa6bfc5f7d">
+        <property name="Id" />
+      </end2>
+    </association>
+    <association name="AspNetUser_JunctionShipOrder" cardinality="OneToMany" p1:Guid="8c5e6711-7b25-4e01-baf7-ed2c25c17175">
+      <end1 multiplicity="One" name="AspNetUser" class="JunctionShipOrder" relation-class="AspNetUser" constrained="True" lazy="False" p1:Guid="ff7e1d14-2980-46e7-a1f3-50d54511f0cf">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="JunctionShipOrders" class="AspNetUser" relation-class="JunctionShipOrder" lazy="False" p1:Guid="59138f9c-0005-46e3-a69a-2985f0dd42b2">
+        <property name="CustomerId" />
+      </end2>
+    </association>
+  </associations>
+</efcore>

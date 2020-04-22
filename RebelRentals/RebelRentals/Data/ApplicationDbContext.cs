@@ -14,9 +14,12 @@ namespace RebelRentals.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IHttpContextAccessor httpContextAccessor)
             : base(options)
         {
+            _options = options;
             _httpContextAccessor = httpContextAccessor;
         }
-        public DbSet<RebelRentals.Models.Ship> Ship { get; set; }
+
+        public DbSet<Ship> Ship { get; set; }
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private DbContextOptions<ApplicationDbContext> _options;
     }
 }
