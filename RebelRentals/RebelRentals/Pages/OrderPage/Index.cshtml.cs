@@ -11,7 +11,6 @@ using RebelRentals.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Storage;
-using System.Linq;
 
 namespace RebelRentals.Pages.OrderPage
 {
@@ -74,25 +73,25 @@ namespace RebelRentals.Pages.OrderPage
         {
             
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var order = new Order(DateTime.Today);
-            var junctionShipOrder= new JunctionShipOrder();
-            junctionShipOrder.CustomerId = userId;
-            foreach (var item in ListOfShipsInCart)
-            {
-                junctionShipOrder.ShipId.Add(item.Id);
-            }
+            var order = new Order();
+            
             
             try
             {
                 if (ModelState.IsValid)
                 {
-                    
+                    foreach (var item in ListOfShipsInCart)
+                    {
+                        _context.Add(item.Id);
+                    }
                 }
             }
+
             catch
             {
 
             }
+            
             await _context.SaveChangesAsync();
             ClearCart();
             RedirectToPage("Summary");
