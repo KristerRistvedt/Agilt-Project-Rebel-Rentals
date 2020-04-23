@@ -34,5 +34,10 @@ namespace RebelRentals
         {
             shoppingCart.Remove(ship);
         }
+
+        public void ClearCart()
+        {
+            shoppingCart.Clear();
+        }
     }
 }

@@ -8,23 +8,29 @@ namespace RebelRentals.Models
 {
     public class Ship
     {
+        [Key]
         public int Id { get; set; }
+
+        public ICollection<ShipOrder> ShipOrders { get; set; }
 
         [Required]
         public string Model { get; set; }
         
-        [Required][Range(1, 1000000)]
+        [Required]
+        [Range(1, 1000000)]
         [Display(Name = "Max. population")]
         public int NumberOfPopulation { get; set; }
         
         [Required]
         public string Class { get; set; }
         
-        [Required][Range(1, 1000000)]
+        [Required]
+        [Range(1, 1000000)]
         [Display(Name = "Max speed")]
         public int MaxSpeed { get; set; }
         
-        [Required][Range(1, 1000000)]
+        [Required]
+        [Range(1, 1000000)]
         public int Length { get; set; }
         
         [Required]
@@ -37,7 +43,7 @@ namespace RebelRentals.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        public double? Price { get; set; }
+        public float Price { get; set; }
         public string About { get; set; }
     }
 }
