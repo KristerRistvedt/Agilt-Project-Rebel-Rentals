@@ -13,14 +13,14 @@ namespace RebelRentals.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly APIController apiController;
+        public APIController apiController;
         public ApodModel Apod { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context, APIController apiController)
         {
             _logger = logger;
             this.apiController = apiController;
-            GetApod();
+            UpdateApod();
 
             if (context.Ship.Any())
             {
@@ -32,9 +32,10 @@ namespace RebelRentals.Pages
             }
         }
 
-        public async void GetApod()
+        public async void UpdateApod()
         {
-            Apod = await apiController.GetApod();
+            await apiController.UpdateApod();
+            Apod = apiController.Apod;
         }
     }
 }
