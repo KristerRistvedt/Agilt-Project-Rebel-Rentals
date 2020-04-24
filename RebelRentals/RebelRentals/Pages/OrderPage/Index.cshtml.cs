@@ -16,18 +16,23 @@ namespace RebelRentals.Pages.OrderPage
 {
     public class IndexModel : PageModel
     {
-        private readonly RebelRentals.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private string currentUserId = User.Identity.GetUserId();
+        ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == CurrentUserId);
+
         public ShoppingCart ShoppingCart { get; set; }
 
         [BindProperty]
         public double? TotalCost { get; set; } = 0.0;
         public List<Ship> ListOfShipsInCart { get; set; }
+        public string CurrentUserId { get => currentUserId; set => currentUserId = value; }
 
-        public IndexModel(RebelRentals.Data.ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, ShoppingCart shoppingCart)
+        public IndexModel(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, ShoppingCart shoppingCart)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _userManager = 
             ShoppingCart = shoppingCart;
             ListOfShipsInCart = shoppingCart.GetShoppingList();
             if(ListOfShipsInCart != null && ListOfShipsInCart.Count > 0)
@@ -71,9 +76,11 @@ namespace RebelRentals.Pages.OrderPage
 
         public async Task FinalizeOrder()
         {
-            
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var order = new Order();
+            var order = new Order({
+                User = userId,
+            });
+
             
             
             try
