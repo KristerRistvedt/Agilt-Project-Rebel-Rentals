@@ -5,6 +5,21 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Rebel Rentals</h1>
 </div>
+
+@if(Model.Apod != null)
+{
+    <div class="text-center">
+        <h4>@Model.Apod.Title</h4>
+        @if (Model.Apod.Media_Type == "image")
+        {
+            <img src="@Model.Apod.Url" />
+        }
+        else if (Model.Apod.Media_Type == "video")
+        {
+            <iframe src="@Model.Apod.Url"></iframe>
+        }
+        <p>@Model.Apod.Description</p>
+    </div>
+}
