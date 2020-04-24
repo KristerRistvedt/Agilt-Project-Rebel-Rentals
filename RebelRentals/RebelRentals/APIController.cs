@@ -9,6 +9,8 @@ namespace RebelRentals
 {
     public class APIController
     {
+        public ApodModel Apod { get; set; }
+
         public async Task<bool> ContainsProfanity(string stringToCheck)
         {
             var client = new Client(new Uri("https://www.purgomalum.com/service/containsprofanity?text=" + stringToCheck));
@@ -16,11 +18,18 @@ namespace RebelRentals
             return response;
         }
 
-        public async Task<ApodModel> GetApod()
+        public async Task<bool> UpdateApod()
         {
-            var client = new Client(new Uri("https://apodapi.herokuapp.com/api"));
-            var response = await client.GetAsync<ApodModel>();
-            return response;
+            bool updated;
+            if (Apod == null)
+            {
+                var client = new Client(new Uri("https://apodapi.herokuapp.com/api"));
+                var response = await client.GetAsync<ApodModel>();
+                Apod = response;
+                updated = true;
+            }
+            else { updated = false; }
+            return updated;
         }
     }
 }
