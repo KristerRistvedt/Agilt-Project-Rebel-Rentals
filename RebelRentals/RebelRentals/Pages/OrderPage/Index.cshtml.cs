@@ -18,21 +18,17 @@ namespace RebelRentals.Pages.OrderPage
     {
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private string currentUserId = User.Identity.GetUserId();
-        ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == CurrentUserId);
 
         public ShoppingCart ShoppingCart { get; set; }
 
         [BindProperty]
         public double? TotalCost { get; set; } = 0.0;
         public List<Ship> ListOfShipsInCart { get; set; }
-        public string CurrentUserId { get => currentUserId; set => currentUserId = value; }
 
         public IndexModel(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, ShoppingCart shoppingCart)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
-            _userManager = 
             ShoppingCart = shoppingCart;
             ListOfShipsInCart = shoppingCart.GetShoppingList();
             if(ListOfShipsInCart != null && ListOfShipsInCart.Count > 0)
@@ -74,40 +70,42 @@ namespace RebelRentals.Pages.OrderPage
             }
         }
 
-        public async Task FinalizeOrder()
+        public async Task OnPostFinalizeOrder()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var order = new Order({
-                User = userId,
-            });
+            var databaseUser = _context.Users.Single(user => user.Id == userId);
+            var order = new Order {
+                User = databaseUser,
+                DateOfPurchase = DateTime.Today,
+            };
+            var shipOrder = new ShipOrder {
+                Ship = ListOfShipsInCart[0],
+                Order = order,
+            };
 
-            
-            
             try
             {
                 if (ModelState.IsValid)
                 {
-                    foreach (var item in ListOfShipsInCart)
-                    {
-                        _context.Add(item.Id);
-                    }
+                    _context.AddRange(order, shipOrder);
                 }
             }
 
             catch
             {
-
+                
             }
             
             await _context.SaveChangesAsync();
-            ClearCart();
+            OnPostClearCart();
             RedirectToPage("Summary");
 
         }
 
-        public void ClearCart()
+        public void OnPostClearCart()
         {
             ShoppingCart.ClearCart();
+            RedirectToPage("/Index");
         }
     }
 }

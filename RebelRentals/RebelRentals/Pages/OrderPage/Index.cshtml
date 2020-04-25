@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ListOfShipsInCart[0].Model)
+                Model
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ListOfShipsInCart[0].Price)
+                Price
             </th>
         </tr>
     </thead>
@@ -32,9 +32,16 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
                     <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    <form method="post" asp-page-handler="ClearCart">
+                        <button>Clear cart</button>
+                    </form>
+                    <form method="post" asp-page-handler="FinalizeOrder">
+                        <button>Finalize order</button>
+                    </form>
+                    
                 </td>
             </tr>
         }
