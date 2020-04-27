@@ -1,0 +1,75 @@
+﻿@page
+@model RebelRentals.Pages.Ships.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Ship</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ship.Model" class="control-label"></label>
+                <input asp-for="Ship.Model" class="form-control" />
+                <span asp-validation-for="Ship.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.NumberOfPopulation" class="control-label"></label>
+                <input asp-for="Ship.NumberOfPopulation" class="form-control" />
+                <span asp-validation-for="Ship.NumberOfPopulation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.Class" class="control-label"></label>
+                <input asp-for="Ship.Class" class="form-control" />
+                <span asp-validation-for="Ship.Class" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.MaxSpeed" class="control-label"></label>
+                <input asp-for="Ship.MaxSpeed" class="form-control" />
+                <span asp-validation-for="Ship.MaxSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.Length" class="control-label"></label>
+                <input asp-for="Ship.Length" class="form-control" />
+                <span asp-validation-for="Ship.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.Width" class="control-label"></label>
+                <input asp-for="Ship.Width" class="form-control" />
+                <span asp-validation-for="Ship.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.Height" class="control-label"></label>
+                <input asp-for="Ship.Height" class="form-control" />
+                <span asp-validation-for="Ship.Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.Price" class="control-label"></label>
+                <input asp-for="Ship.Price" class="form-control" />
+                <span asp-validation-for="Ship.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ship.About" class="control-label"></label>
+                <input asp-for="Ship.About" class="form-control" />
+                <span asp-validation-for="Ship.About" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

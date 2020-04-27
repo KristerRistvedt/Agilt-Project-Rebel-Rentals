@@ -1,0 +1,100 @@
+﻿@page
+@model RebelRentals.Pages.Ships.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Ship</h4>
+    <hr />
+    @{
+        switch (Model.Ship.Model)
+        {
+            case "X-Wing":
+                <img src="~/Images/XWing.jpg" height="300" width="300" />
+                break;
+            case "A-Wing":
+                <img src="~/Images/AWing.png" height="300" width="300" />
+                break;
+            case "Death Star":
+                <img src="~/Images/DeathStar.jpg" height="300" width="300" />
+                break;
+            case "Salvation":
+                <img src="~/Images/Salvation.jpg" height="300" width="300" />
+                break;
+            case "Star Destroyer":
+                <img src="~/Images/StarDestroyer.jpeg" height="300" width="300" />
+                break;
+            case "Tie Fighter":
+                <img src="~/Images/TieFighter.jpg" height="300" width="300" />
+                break;
+            case "Y-Wing":
+                <img src="~/Images/YWing.jpeg" height="300" width="300" />
+                break;
+        }
+    }
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.NumberOfPopulation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.NumberOfPopulation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.Class)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.Class)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.MaxSpeed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.MaxSpeed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.Length)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.Length)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.Width)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.Width)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.Height)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.Height)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ship.About)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ship.About)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Ship.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
