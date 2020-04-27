@@ -74,6 +74,11 @@ namespace RebelRentals.Pages.OrderPage
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var databaseUser = _context.Users.Single(user => user.Id == userId);
+            var dbShipId = _context.Ship.Select(ship => ship.Id).ToList();
+            while(dbShipId.Contains(ListOfShipsInCart[0].Id))
+            {
+                ListOfShipsInCart[0].Id++;
+            }
             var order = new Order {
                 User = databaseUser,
                 DateOfPurchase = DateTime.Today,
@@ -95,11 +100,26 @@ namespace RebelRentals.Pages.OrderPage
             {
                 
             }
-            
+
+            await SetIdentityOn();
             await _context.SaveChangesAsync();
+            await SetIdentityOff();
             OnPostClearCart();
             RedirectToPage("Summary");
+        }
 
+        public async Task SetIdentityOn()
+        {
+            _context.Database.OpenConnection();
+            _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Ship ON");
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task SetIdentityOff()
+        {
+            _context.Database.OpenConnection();
+            _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Ship OFF");
+            await _context.SaveChangesAsync();
         }
 
         public void OnPostClearCart()
