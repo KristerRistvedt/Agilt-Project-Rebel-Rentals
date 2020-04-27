@@ -31,5 +31,10 @@ namespace RebelRentals
             else { updated = false; }
             return updated;
         }
+
+        internal Task<bool> PhoneNumberValidation(int phoneNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
