@@ -4,5 +4,22 @@
     ViewData["Title"] = "Contact";
 }
 
-<h1>Contact</h1>
+<h1>Contact Us</h1>
 
+<form method="post" asp-page-handler="SendEmailToSupport">
+    <div>
+        <label asp-for="@Model.NameField"></label>
+        <input asp-for="@Model.NameField" />
+    </div>
+    <div>
+        <label asp-for="@Model.EmailField"></label>
+        <input asp-for="@Model.EmailField"/>
+    </div>
+    <div>
+        <label asp-for="@Model.MessageField"></label>
+        <input asp-for="@Model.MessageField"/>
+    </div>
+    <div>
+        <button>Send</button>
+    </div>
+</form>
