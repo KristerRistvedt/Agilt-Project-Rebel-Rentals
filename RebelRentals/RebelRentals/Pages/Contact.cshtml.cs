@@ -11,7 +11,7 @@ namespace RebelRentals
 {
     public class ContactModel : PageModel
     {
-        private ApplicationDbContext context;
+        private APIController apiController;
 
         [BindProperty]
         [Display(Name = "Name")]
@@ -21,15 +21,24 @@ namespace RebelRentals
         public string EmailField { get; set; }
         [BindProperty]
         [Display(Name = "Message")]
+        public string Message { get; set; }
+        public bool? sentMailResult;
         public string MessageField { get; set; }
-        public ContactModel(ApplicationDbContext context) 
+        public ContactModel(APIController apiController) 
         {
-            this.context = context;
+            this.apiController = apiController;
+        }
+        public class InputModel
+        {
+            public string Name { get; set; }
+            public string Email { get; set; }
+            public string Message { get; set; }
         }
 
-        public void OnGet()
+        public void OnPostSendMailToSupport()
         {
-
+            InputModel input = new InputModel { Name = NameField, Email = EmailField, Message = MessageField };
+            sentMailResult = await apiController.SendEmailToSupport(input.Name, input.Email, input.Message);
         }
     }
 }

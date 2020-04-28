@@ -39,5 +39,10 @@ namespace RebelRentals
             bool result = response.Valid;
             return result;
         }
+
+        public async Task<bool> SendEmailToSupport(string name, string senderEmail, string message)
+        {
+            
+        }
     }
 }
