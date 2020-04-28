@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace RebelRentals.Areas.Identity.Pages.Account.Manage
 {
@@ -13,13 +14,18 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly APIController _apiController;
+
+        public bool? phoneNumberAccepted;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            APIController apiController)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _apiController = apiController;
         }
 
         public string Username { get; set; }
@@ -77,6 +83,19 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            if (Input.PhoneNumber != null)
+            {
+                int inputPhoneNumber = 0;
+                try { inputPhoneNumber = int.Parse(Input.PhoneNumber); }
+                catch 
+                { 
+                    phoneNumberAccepted = false;
+                    return Page();
+                }
+                phoneNumberAccepted = await _apiController.PhoneNumberValidation(inputPhoneNumber);
+            }
+            else { phoneNumberAccepted = false; }
+            if (phoneNumberAccepted == false) { return Page(); }
             if (Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);

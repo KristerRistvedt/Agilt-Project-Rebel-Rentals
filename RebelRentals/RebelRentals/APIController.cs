@@ -32,9 +32,12 @@ namespace RebelRentals
             return updated;
         }
 
-        internal Task<bool> PhoneNumberValidation(int phoneNumber)
+        internal async Task<bool> PhoneNumberValidation(int phoneNumber)
         {
-            throw new NotImplementedException();
+            var client = new Client(new Uri("http://apilayer.net/api/validate?access_key=f994bc4c2013d3cd24fd50b8c6d1a5e6&number=" + phoneNumber + "&country_code=SE"));
+            PhoneNumberValidationModel response = await client.GetAsync<PhoneNumberValidationModel>();
+            bool result = response.Valid;
+            return result;
         }
     }
 }
