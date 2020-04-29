@@ -35,7 +35,7 @@ namespace RebelRentals
             public string Message { get; set; }
         }
 
-        public void OnPostSendMailToSupport()
+        public async void OnPostSendMailToSupport()
         {
             InputModel input = new InputModel { Name = NameField, Email = EmailField, Message = MessageField };
             sentMailResult = await apiController.SendEmailToSupport(input.Name, input.Email, input.Message);
