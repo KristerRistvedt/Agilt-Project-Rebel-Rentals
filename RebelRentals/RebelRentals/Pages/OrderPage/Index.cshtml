@@ -24,26 +24,26 @@
     <tbody>
         @foreach (var item in Model.ListOfShipsInCart)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    <form method="post" asp-page-handler="ClearCart">
-                        <button>Clear cart</button>
-                    </form>
-                    <form method="post" asp-page-handler="FinalizeOrder">
-                        <button>Finalize order</button>
-                    </form>
-                    
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <form method="post" asp-page-handler="ClearCart">
+                    <button>Clear cart</button>
+                </form>
+                <form method="post" asp-page-handler="FinalizeOrder">
+                    <button>Finalize order</button>
+                </form>
+
+            </td>
+        </tr>
         }
     </tbody>
 </table>

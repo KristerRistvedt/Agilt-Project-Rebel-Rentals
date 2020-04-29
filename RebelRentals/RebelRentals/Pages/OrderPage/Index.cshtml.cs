@@ -11,6 +11,7 @@ using RebelRentals.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Threading;
 
 namespace RebelRentals.Pages.OrderPage
 {
@@ -31,11 +32,11 @@ namespace RebelRentals.Pages.OrderPage
             _httpContextAccessor = httpContextAccessor;
             ShoppingCart = shoppingCart;
             ListOfShipsInCart = shoppingCart.GetShoppingList();
-            if(ListOfShipsInCart != null && ListOfShipsInCart.Count > 0)
+            if (ListOfShipsInCart != null && ListOfShipsInCart.Count > 0)
             {
                 foreach (var item in ListOfShipsInCart)
                 {
-                    if(item.Model == "You haven't added anything yet." && ListOfShipsInCart.Count > 1)
+                    if (item.Model == "You haven't added anything yet." && ListOfShipsInCart.Count > 1)
                     {
                         ListOfShipsInCart.Remove(item);
                     }
@@ -74,36 +75,43 @@ namespace RebelRentals.Pages.OrderPage
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var databaseUser = _context.Users.Single(user => user.Id == userId);
-            var dbShipId = _context.Ship.Select(ship => ship.Id).ToList();
-            while(dbShipId.Contains(ListOfShipsInCart[0].Id))
+            var order = new Order
             {
-                ListOfShipsInCart[0].Id++;
-            }
-            var order = new Order {
                 User = databaseUser,
                 DateOfPurchase = DateTime.Today,
             };
-            var shipOrder = new ShipOrder {
-                Ship = ListOfShipsInCart[0],
-                Order = order,
-            };
+            var shipOrders = new List<ShipOrder>();
+            foreach (var item in ListOfShipsInCart)
+            {
+                if(shipOrders.Any(so => so.ShipId == item.Id))
+                {
+                    continue;
+                }
+                shipOrders.Add(new ShipOrder
+                {
+                    ShipId = item.Id,
+                    Order = order,
+                    Count = ListOfShipsInCart.Where(s => s.Id == item.Id).ToList().Count(),
+                });
+
+            }
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _context.AddRange(order, shipOrder);
+                    _context.ShipOrder.AddRange(shipOrders);
                 }
             }
 
-            catch
+            catch(Exception e)
             {
-                
+                Console.WriteLine(e.Message);
             }
 
-            await SetIdentityOn();
+            //await SetIdentityOn();
             await _context.SaveChangesAsync();
-            await SetIdentityOff();
+            //await SetIdentityOff();
             OnPostClearCart();
             RedirectToPage("Summary");
         }

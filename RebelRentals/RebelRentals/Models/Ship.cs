@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +11,9 @@ namespace RebelRentals.Models
     {
         [Key]
         public int Id { get; set; }
+        
+        [ForeignKey("ForeignId")]
+        public int ForeignId { get; set; }
 
         public ICollection<ShipOrder> ShipOrders { get; set; }
 
