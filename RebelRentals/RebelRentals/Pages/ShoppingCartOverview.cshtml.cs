@@ -22,7 +22,7 @@ namespace RebelRentals.Pages
             Ships = _shoppingCart.GetShoppingList();
         }
 
-        public IList<Ship> Ships { get;set; }
+        public List<Ship> Ships { get;set; }
 
         public async Task<IActionResult> OnPostRemoveFromCart(int id)
         {

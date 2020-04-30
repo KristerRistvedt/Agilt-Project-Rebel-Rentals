@@ -71,7 +71,7 @@ namespace RebelRentals.Pages.OrderPage
             }
         }
 
-        public async Task OnPostFinalizeOrder()
+        public async Task<RedirectToPageResult> OnPostFinalizeOrder()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var databaseUser = _context.Users.Single(user => user.Id == userId);
@@ -91,6 +91,7 @@ namespace RebelRentals.Pages.OrderPage
                 {
                     ShipId = item.Id,
                     Order = order,
+                    OrderId = order.Id,
                     Count = ListOfShipsInCart.Where(s => s.Id == item.Id).ToList().Count(),
                 });
 
@@ -100,7 +101,10 @@ namespace RebelRentals.Pages.OrderPage
             {
                 if (ModelState.IsValid)
                 {
-                    _context.ShipOrder.AddRange(shipOrders);
+                    foreach (var item in shipOrders)
+                    {
+                        await _context.ShipOrder.AddAsync(item);
+                    }
                 }
             }
 
@@ -109,31 +113,16 @@ namespace RebelRentals.Pages.OrderPage
                 Console.WriteLine(e.Message);
             }
 
-            //await SetIdentityOn();
             await _context.SaveChangesAsync();
-            //await SetIdentityOff();
-            OnPostClearCart();
-            RedirectToPage("Summary");
+            // Should relocate this v
+            //await OnPostClearCart();
+            return RedirectToPage("./Summary", new { summaryShipOrders = shipOrders });
         }
 
-        public async Task SetIdentityOn()
-        {
-            _context.Database.OpenConnection();
-            _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Ship ON");
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task SetIdentityOff()
-        {
-            _context.Database.OpenConnection();
-            _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Ship OFF");
-            await _context.SaveChangesAsync();
-        }
-
-        public void OnPostClearCart()
+        public async Task<RedirectToPageResult> OnPostClearCart()
         {
             ShoppingCart.ClearCart();
-            RedirectToPage("/Index");
+            return RedirectToPage("/Index");
         }
     }
 }
