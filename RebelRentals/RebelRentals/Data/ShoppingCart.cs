@@ -10,6 +10,7 @@ namespace RebelRentals
     public class ShoppingCart
     {
         private List<Ship> shoppingCart = new List<Ship>();
+        public List<ShipOrder> OrderedShips = new List<ShipOrder>();
 
         public List<Ship> GetShoppingList()
         {

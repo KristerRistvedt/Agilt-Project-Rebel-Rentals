@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using RebelRentals.Data;
 using RebelRentals.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.Storage;
-using System.Threading;
 
 namespace RebelRentals.Pages.OrderPage
 {
@@ -89,12 +85,12 @@ namespace RebelRentals.Pages.OrderPage
                 }
                 shipOrders.Add(new ShipOrder
                 {
+                    Ship = _context.Ship.Attach(item).Entity,
                     ShipId = item.Id,
                     Order = order,
                     OrderId = order.Id,
                     Count = ListOfShipsInCart.Where(s => s.Id == item.Id).ToList().Count(),
                 });
-
             }
 
             try
@@ -113,10 +109,12 @@ namespace RebelRentals.Pages.OrderPage
                 Console.WriteLine(e.Message);
             }
 
+
             await _context.SaveChangesAsync();
+            ShoppingCart.OrderedShips.AddRange(shipOrders);
             // Should relocate this v
             //await OnPostClearCart();
-            return RedirectToPage("Summary", new { summaryShipOrders = shipOrders });
+            return RedirectToPage("Summary");
         }
 
         public async Task<RedirectToPageResult> OnPostClearCart()
