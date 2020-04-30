@@ -14,12 +14,17 @@ namespace RebelRentals
         private APIController apiController;
 
         [BindProperty]
+        [Required]
         [Display(Name = "Name")]
         public string NameField { get; set; }
         [BindProperty]
+        [Required]
+        [MinLength(1)]
         [Display(Name = "Your Email")]
         public string EmailField { get; set; }
         [BindProperty]
+        [Required]
+        [MinLength(5)]
         [Display(Name = "Message")]
         public string MessageField { get; set; }
         public bool? sentMailResult;
