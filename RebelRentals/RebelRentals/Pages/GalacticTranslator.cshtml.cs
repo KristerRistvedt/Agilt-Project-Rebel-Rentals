@@ -9,9 +9,22 @@ namespace RebelRentals.Pages
 {
     public class GalacticTranslatorModel : PageModel
     {
-        public void OnGet()
+        private APIController _apiController;
+        public GalacticTranslatorModel(APIController apiController)
         {
-
+            _apiController = apiController;
+        }
+        [BindProperty]
+        public string TextToTranslate { get; set; }
+        public string TranslatedText;
+        /*public void OnGet()
+        {
+            
+        }*/
+        public async Task<IActionResult> OnPostTranslation()
+        {
+            TranslatedText = await _apiController.TranslateToSith(TextToTranslate);
+            return Page();
         }
     }
 }

@@ -4,5 +4,12 @@
     ViewData["Title"] = "GalacticTranslator";
 }
 
-<h1>GalacticTranslator</h1>
-
+<h1>Galactic Translator</h1>
+<div>
+    <form method="post" asp-page-handler="Translation">
+        <label>Translate to Sith:</label><br />
+        <input asp-for="TextToTranslate" /><br />
+        <button>Translate!</button><br />
+        <label class="text-danger">@Model.TranslatedText</label>
+    </form>
+</div>

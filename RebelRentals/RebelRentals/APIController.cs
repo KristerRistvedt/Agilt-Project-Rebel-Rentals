@@ -1,9 +1,13 @@
-﻿using RebelRentals;
+﻿using Microsoft.AspNetCore.Mvc;
+using RebelRentals;
 using RestClient.Net;
+using RestClient.Net.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Sources;
 
 namespace RebelRentals
 {
@@ -30,6 +34,26 @@ namespace RebelRentals
             }
             else { updated = false; }
             return updated;
+        }
+
+        public async Task<string> TranslateToSith(string inputString)
+        {
+            try
+            {
+                var client = new Client(new Uri("https://api.funtranslations.com/translate/sith.json?text=" + inputString));
+                GalacticTranslationModel response = await client.GetAsync<GalacticTranslationModel>();
+                var translation = response.Contents.Translated;
+                return translation;
+            }
+            catch (Exception e)
+            {
+                var exception = e as HttpStatusException;
+                if (exception.Response.StatusCode == 429)
+                {
+                    return "Too many requests, try again later";
+                }
+                return e.Message;
+            }
         }
     }
 }
