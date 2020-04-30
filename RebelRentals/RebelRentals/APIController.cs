@@ -9,12 +9,21 @@ using Google.Apis.Gmail.v1;
 using Google.Apis.Gmail.v1.Data;
 using System.IO;
 using System.Net.Mail;
+using Google.Apis.Services;
+using System.Web.Helpers;
+using System.Net;
+using MailMessage = System.Net.Mail.MailMessage;
+using RestClient.Net.Abstractions;
 
 namespace RebelRentals
 {
     public class APIController
     {
         public ApodModel Apod { get; set; }
+
+        private readonly string supportEmail = "rebelrentalshelp@gmail.com";
+        private readonly string supportEmailPassword = "AllasMamma";
+        private readonly string smtpServerAddress = "smtp.gmail.com";
 
         public async Task<bool> ContainsProfanity(string stringToCheck)
         {
@@ -45,35 +54,29 @@ namespace RebelRentals
             return result;
         }
 
-        public async Task<bool> SendEmailToSupport(string name, string senderEmail, string message)
+        public bool SendEmailToSupport(string name, string senderEmail, string message)
         {
-            var msg = new AE.Net.Mail.MailMessage
+            bool result;
+            try
             {
-                Subject = "Your Subject",
-                Body = "Hello, World, from Gmail API!",
-                From = new MailAddress("[you]@gmail.com")
-            };
-            msg.To.Add(new MailAddress("yourbuddy@gmail.com"));
-            msg.ReplyTo.Add(msg.From); // Bounces without this!!
-            var msgStr = new StringWriter();
-            msg.Save(msgStr);
-
-            var gmail = new GmailService();
-            var result = gmail.Users.Messages.Send(new Message
+                SmtpClient client = new SmtpClient(smtpServerAddress, 587);
+                client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(supportEmail, supportEmailPassword);
+                MailMessage messageObject = new MailMessage();
+                messageObject.To.Add(supportEmail);
+                messageObject.From = new MailAddress(senderEmail);
+                messageObject.Subject = $"Query by: {name} / {senderEmail}";
+                messageObject.Body = message;
+                client.Send(messageObject);
+                result = true;
+            }
+            catch
             {
-                Raw = Base64UrlEncode(msgStr.ToString())
-            }, "me").Execute();
-            Console.WriteLine("Message ID {0} sent.", result.Id);
-        }
-
-        private string Base64UrlEncode(string input)
-        {
-            var inputBytes = System.Text.Encoding.UTF8.GetBytes(input);
-            // Special "url-safe" base64 encode.
-            return Convert.ToBase64String(inputBytes)
-              .Replace('+', '-')
-              .Replace('/', '_')
-              .Replace("=", "");
+                result = false;
+            }
+            return result;
         }
     }
 }

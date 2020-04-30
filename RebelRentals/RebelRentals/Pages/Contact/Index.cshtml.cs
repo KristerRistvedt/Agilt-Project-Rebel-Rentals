@@ -17,13 +17,12 @@ namespace RebelRentals
         [Display(Name = "Name")]
         public string NameField { get; set; }
         [BindProperty]
-        [Display(Name = "Email")]
+        [Display(Name = "Your Email")]
         public string EmailField { get; set; }
         [BindProperty]
         [Display(Name = "Message")]
-        public string Message { get; set; }
-        public bool? sentMailResult;
         public string MessageField { get; set; }
+        public bool? sentMailResult;
         public ContactModel(APIController apiController) 
         {
             this.apiController = apiController;
@@ -35,10 +34,15 @@ namespace RebelRentals
             public string Message { get; set; }
         }
 
-        public async void OnPostSendMailToSupport()
+        public void OnPostSendEmailToSupport()
         {
-            InputModel input = new InputModel { Name = NameField, Email = EmailField, Message = MessageField };
-            sentMailResult = await apiController.SendEmailToSupport(input.Name, input.Email, input.Message);
+            InputModel input = new InputModel 
+            { 
+                Name = NameField, 
+                Email = EmailField, 
+                Message = MessageField 
+            };
+            sentMailResult = apiController.SendEmailToSupport(input.Name, input.Email, input.Message);
         }
     }
 }
