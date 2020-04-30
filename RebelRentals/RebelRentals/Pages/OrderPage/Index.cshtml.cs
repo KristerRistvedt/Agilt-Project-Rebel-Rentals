@@ -116,7 +116,7 @@ namespace RebelRentals.Pages.OrderPage
             await _context.SaveChangesAsync();
             // Should relocate this v
             //await OnPostClearCart();
-            return RedirectToPage("./Summary", new { summaryShipOrders = shipOrders });
+            return RedirectToPage("Summary", new { summaryShipOrders = shipOrders });
         }
 
         public async Task<RedirectToPageResult> OnPostClearCart()
