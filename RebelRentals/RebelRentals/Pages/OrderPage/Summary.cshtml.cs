@@ -29,30 +29,20 @@ namespace RebelRentals.Pages.OrderPage
         public List<ShipOrder> ShipOrders { get; set; }
         [BindProperty]
         public double TotalCost { get; set; }
-        public List<Ship> RentedShips = new List<Ship>();
 
-        public void ExtractShipsFromOrder()
-        {
-            foreach (var item in ShipOrders)
-            {
-                RentedShips.Add(item.Ship);
-            }
-        }
-
-        public void OrderSummary()
+        public void TotalOrderCost()
         {
             TotalCost = 0.0;
 
-            foreach (var item in RentedShips)
+            foreach (var item in ShipOrders)
             {
-                TotalCost = item.Price + TotalCost;
+                TotalCost = TotalCost + (item.Ship.Price * item.Count);
             }
         }
 
-        public async Task OnGetAsync()
+        public void OnGetAsync()
         {
-            ExtractShipsFromOrder();
-            OrderSummary();
+            TotalOrderCost();
         }
     }
 }
