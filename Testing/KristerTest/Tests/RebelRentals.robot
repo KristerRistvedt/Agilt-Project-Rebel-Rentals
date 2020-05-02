@@ -3,6 +3,7 @@
 Documentation       This is a test suite around an agile projects website made with Razor Pages.
 Library             SeleniumLibrary
 Library             String
+Library             DateTime
 Test Setup          Begin Agile Project Page Test
 Test Teardown       End Agile Project Test
 
@@ -20,6 +21,10 @@ ${PASSWORD} =                   Testyness@10
 Generate Email
     ${RANDOMSTRING}=   Generate Random String   6   [NUMBERS]abcdef
     Set Global Variable     ${RANDOMSTRING}
+
+Generate Phonenumber
+    ${PHONENUMBER}=     Generate Random String  7   [NUMBERS]
+    Set Global Variable     ${PHONENUMBER}
 
 Begin Agile Project Page Test
         Open Browser                about:blank     ${BROWSER}
@@ -42,6 +47,7 @@ Register an account
         Wait Until Page Contains            Create a new account
         Wait Until Element Is Visible       xpath://*[@id="Input_Email"]
         Input Text                          xpath://*[@id="Input_Email"]        ${RANDOMSTRING}@email.com
+        Input Text                          xpath://*[@id="Input_PhoneNumber"]      0731234567
         Input Text                          xpath://*[@id="Input_Password"]        ${PASSWORD}
         Input Text                          xpath://*[@id="Input_ConfirmPassword"]      ${PASSWORD}
         Click Element                       xpath://html/body/div/main/div/div[1]/form/button
@@ -54,6 +60,7 @@ Register an account fail
         Wait Until Page Contains            Create a new account
         Wait Until Element Is Visible       xpath://*[@id="Input_Email"]
         Input Text                          xpath://*[@id="Input_Email"]        ${RANDOMSTRING}fuck@email.com
+        Input Text                          xpath://*[@id="Input_PhoneNumber"]      0731234567
         Input Text                          xpath://*[@id="Input_Password"]        ${PASSWORD}
         Input Text                          xpath://*[@id="Input_ConfirmPassword"]      ${PASSWORD}
         Click Element                       xpath://html/body/div/main/div/div[1]/form/button
@@ -104,6 +111,43 @@ Remove ship from cart
 
 Checkout with current cart
         Click Element                       xpath://html/body/div/main/div/a
+
+See if picture and text regarding vacation exists
+        Wait Until Page Contains            NASA's Daily Recommended Tourist Location
+        Wait Until Page Contains Element    xpath://html/body/div/main/div[2]/img
+        Wait Until Page Contains Element    xpath://html/body/div/main/div[2]/p
+        Element Should Be Visible           xpath://html/body/div/main/div[2]/img
+        Element Should Be Visible           xpath://html/body/div/main/div[2]/p
+
+See if a new picture and text regarding vacation exists another day
+        Wait Until Page Contains            NASA's Daily Recommended Tourist Location
+        Wait Until Page Does Not Contain                 Radio, The Big Ear, and the Wow! Signal
+
+Go to profile and change phone number
+        Click Element                       xpath://html/body/header/nav/div/div/ul[1]/li[2]/a
+        Wait Until Page Contains            Manage your account
+        Input Text                          xpath://*[@id="Input_PhoneNumber"]      073${PHONENUMBER}       True
+        Click Button                        xpath://*[@id="update-profile-button"]
+        Wait Until Page Contains            Your profile has been updated
+
+Register an account with invalid phonenumber format
+        Click Element                       xpath://html/body/header/nav/div/div/ul[1]/li[2]/a
+        Wait Until Page Contains            Create a new account
+        Wait Until Element Is Visible       xpath://*[@id="Input_Email"]
+        Input Text                          xpath://*[@id="Input_Email"]        ${RANDOMSTRING}@email.com
+        Input Text                          xpath://*[@id="Input_PhoneNumber"]      999999999999
+        Input Text                          xpath://*[@id="Input_Password"]        ${PASSWORD}
+        Input Text                          xpath://*[@id="Input_ConfirmPassword"]      ${PASSWORD}
+        Click Element                       xpath://html/body/div/main/div/div[1]/form/button
+        Wait Until Page Contains            is not valid for Phone Number
+        Page Should Not Contain             Register confirmation
+
+Go to profile and change phone number with invalid phonenumber formats
+        Click Element                       xpath://html/body/header/nav/div/div/ul[1]/li[2]/a
+        Wait Until Page Contains            Manage your account
+        Input Text                          xpath://*[@id="Input_PhoneNumber"]      999999999999       True
+        Click Button                        xpath://*[@id="update-profile-button"]
+        Wait Until Page Contains            Invalid phone number
 
 
 End Agile Project Test
@@ -157,3 +201,33 @@ User can add ships/products to their shopping cart and remove them
     Go to cart
     Remove ship from cart
 
+User can see a vacation recommendation through NASA pictures
+    [Documentation]             Test: The user should be able to see a picture and some text regarding places on earth and/or in space to visit for vacation while renting a ship.
+    [Tags]                      Home_Page       Vacation        NASA
+    Go to Web Page
+    See if picture and text regarding vacation exists
+
+User should see a different vacation recommendation every day
+    [Documentation]             Test: The user should be able to see a different picture and text, regarding places on earth and/or in space to visit for vacation while renting a ship, each new day. Depends on external website, change test manually each time the test is run on a new day.
+    [Tags]                      Home_Page       Vacation        NASA        New
+    Go to Web Page
+    See if a new picture and text regarding vacation exists another day
+
+User should be able to add a phonenumber at registration or add/change phonenumber after registration
+    [Documentation]             Test: The user should be able to add their phonenumber for ease of contact with support staff, at registration of their account or after due to an older version of the website not containing phone numbers or if the user needs to change their number.
+    [Tags]                      Account     Phone_Number
+    Go to Web Page
+    Generate Email
+    Register an account
+    Generate Phonenumber
+    Login to account
+    Go to profile and change phone number
+
+User should not be able to add a phonenumber at registration or add/change phonenumber after registration with invalid phonenumber formats
+    [Documentation]             Test: The user should not be able to add their phonenumber at registration of their account or after in their profile if they use invalid phonenumber formats.
+    [Tags]                      Account     Phone_Number
+    Go to Web Page
+    Generate Email
+    Register an account with invalid phonenumber format
+    Login to account
+    Go to profile and change phone number with invalid phonenumber formats
