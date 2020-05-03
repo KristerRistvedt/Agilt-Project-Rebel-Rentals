@@ -40,7 +40,7 @@ Switch to privacy page
 
 Switch to home page
         Click Element               xpath://html/body/header/nav/div/div/ul[2]/li[1]/a
-        Wait Until Page Contains    Welcome
+        Wait Until Page Contains    NASA's Daily Recommended Tourist Location
 
 Register an account
         Click Element                       xpath://html/body/header/nav/div/div/ul[1]/li[2]/a
