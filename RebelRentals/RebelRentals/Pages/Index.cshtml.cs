@@ -20,7 +20,8 @@ namespace RebelRentals.Pages
         {
             _logger = logger;
             this.apiController = apiController;
-            UpdateApod();
+            var task = Task.Run(async () => { await UpdateApod(); });
+            task.Wait();
 
             if (context.Ship.Any())
             {
@@ -32,10 +33,11 @@ namespace RebelRentals.Pages
             }
         }
 
-        public async void UpdateApod()
+        public async Task<bool> UpdateApod()
         {
-            await apiController.UpdateApod();
+            bool updated = await apiController.UpdateApod();
             Apod = apiController.Apod;
+            return updated;
         }
     }
 }
