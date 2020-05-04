@@ -1,19 +1,10 @@
 ﻿using RebelRentals;
 using RestClient.Net;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using AE.Net.Mail;
-using Google.Apis.Gmail.v1;
-using Google.Apis.Gmail.v1.Data;
-using System.IO;
 using System.Net.Mail;
-using Google.Apis.Services;
-using System.Web.Helpers;
 using System.Net;
 using MailMessage = System.Net.Mail.MailMessage;
-using RestClient.Net.Abstractions;
 
 namespace RebelRentals
 {
@@ -22,7 +13,7 @@ namespace RebelRentals
         public ApodModel Apod { get; set; }
 
         private readonly string supportEmail = "rebelrentalshelp@gmail.com";
-        private readonly string supportEmailPassword = "AllasMamma";
+        private readonly string supportEmailPassword = "jyxviqmqiakwljhr";
         private readonly string smtpServerAddress = "smtp.gmail.com";
 
         public async Task<bool> ContainsProfanity(string stringToCheck)
@@ -72,7 +63,7 @@ namespace RebelRentals
                 client.Send(messageObject);
                 result = true;
             }
-            catch
+            catch (Exception e)
             {
                 result = false;
             }
