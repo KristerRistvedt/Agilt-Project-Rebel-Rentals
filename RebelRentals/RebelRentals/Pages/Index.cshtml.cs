@@ -15,18 +15,20 @@ namespace RebelRentals.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        public ApplicationDbContext _context { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
 
-            if (context.Ship.Any())
+            if (_context.Ship.Any())
             {
                 return;
             }
             else
             {
-                //context.SeedShipData();
+                _context.SeedShipData();
             }
         }
 
