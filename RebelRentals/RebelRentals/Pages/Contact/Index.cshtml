@@ -17,18 +17,18 @@ else
     @if (Model.sentMailResult != true)
     {
         <div>
-            <label asp-for="@Model.NameField"></label>
+            <label asp-for="@Model.NameField"></label> <br />
             <input asp-for="@Model.NameField" />
             <span asp-validation-for="NameField" class="text-danger"></span>
         </div>
         <div>
-            <label asp-for="@Model.EmailField"></label>
+            <label asp-for="@Model.EmailField"></label> <br />
             <input asp-for="@Model.EmailField" />
             <span asp-validation-for="EmailField" class="text-danger"></span>
         </div>
         <div>
-            <label asp-for="@Model.MessageField"></label>
-            <input asp-for="@Model.MessageField" />
+            <label asp-for="@Model.MessageField"></label> <br />
+            <textarea name="MessageField" rows="5" cols="50" asp-for="@Model.MessageField"></textarea>
             <span asp-validation-for="MessageField" class="text-danger"></span>
         </div>
         <div>
