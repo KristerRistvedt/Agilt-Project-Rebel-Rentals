@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using RebelRentals;
 using RestClient.Net;
 using RestClient.Net.Abstractions;
@@ -36,14 +37,20 @@ namespace RebelRentals
             return updated;
         }
 
-        public async Task<string> TranslateToSith(string inputString)
+        public async Task<string> TranslateToSith(string inputString, string translationLanguage)
         {
+            string url = "https://api.funtranslations.com/translate/sith.json?text=";
             try
             {
-                var client = new Client(new Uri("https://api.funtranslations.com/translate/sith.json?text=" + inputString));
+                if (translationLanguage == "Sith") { url = "https://api.funtranslations.com/translate/sith.json?text="; }
+                else if (translationLanguage == "Gungan") { url = "https://api.funtranslations.com/translate/gungan.json?text="; }
+                else if (translationLanguage == "Yoda") { url = "https://api.funtranslations.com/translate/yoda.json?text="; }
+                
+                var client = new Client(new Uri(url + inputString));
                 GalacticTranslationModel response = await client.GetAsync<GalacticTranslationModel>();
                 var translation = response.Contents.Translated;
                 return translation;
+                
             }
             catch (Exception e)
             {

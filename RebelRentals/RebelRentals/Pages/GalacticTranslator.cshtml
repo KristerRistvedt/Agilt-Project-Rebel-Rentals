@@ -7,8 +7,14 @@
 <h1>Galactic Translator</h1>
 <div>
     <form method="post" asp-page-handler="Translation">
-        <label>Translate to Sith:</label><br />
-        <input asp-for="TextToTranslate" /><br />
+        <select asp-for="SelectedLanguage"> 
+            @foreach (var item in Model.TranslationLanguages)
+            {
+                <option value="@item">@item</option>
+            }
+        </select><br />
+        <label>Enter text to translate:</label><br />
+        <textarea name="TextToTranslate" rows="5" cols="50" asp-for="@Model.TextToTranslate"></textarea><br />
         <button>Translate!</button><br />
         <label class="text-danger">@Model.TranslatedText</label>
     </form>

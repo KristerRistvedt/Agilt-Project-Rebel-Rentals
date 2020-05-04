@@ -17,13 +17,21 @@ namespace RebelRentals.Pages
         [BindProperty]
         public string TextToTranslate { get; set; }
         public string TranslatedText;
+        [BindProperty]
+        public string SelectedLanguage { get; set; }
+        public string[] TranslationLanguages = new string[]
+        {
+            "Sith",
+            "Gungan",
+            "Yoda"
+        };
         /*public void OnGet()
         {
             
         }*/
         public async Task<IActionResult> OnPostTranslation()
         {
-            TranslatedText = await _apiController.TranslateToSith(TextToTranslate);
+            TranslatedText = await _apiController.TranslateToSith(TextToTranslate, SelectedLanguage);
             return Page();
         }
     }
