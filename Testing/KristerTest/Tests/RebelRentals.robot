@@ -35,7 +35,8 @@ Go to Web Page
 
 Switch to privacy page
         Go to Web Page
-        Click Element               xpath://html/body/header/nav/div/div/ul[2]/li[3]/a
+        Wait Until Page Contains    ${SEARCH_TERM}
+        Click Element               xpath://html/body/header/nav/div/div/ul[2]/li[4]/a
         Wait Until Page Contains    Privacy Policy
 
 Switch to home page
@@ -114,9 +115,7 @@ Checkout with current cart
 
 See if picture and text regarding vacation exists
         Wait Until Page Contains            NASA's Daily Recommended Tourist Location
-        Wait Until Page Contains Element    xpath://html/body/div/main/div[2]/img
         Wait Until Page Contains Element    xpath://html/body/div/main/div[2]/p
-        Element Should Be Visible           xpath://html/body/div/main/div[2]/img
         Element Should Be Visible           xpath://html/body/div/main/div[2]/p
 
 See if a new picture and text regarding vacation exists another day
@@ -148,6 +147,17 @@ Go to profile and change phone number with invalid phonenumber formats
         Input Text                          xpath://*[@id="Input_PhoneNumber"]      999999999999       True
         Click Button                        xpath://*[@id="update-profile-button"]
         Wait Until Page Contains            Invalid phone number
+
+Go to contact page and input the neccessary contact information in the appropriate fields
+        Click Element                       xpath://html/body/header/nav/div/div/ul[2]/li[3]/a
+        Wait Until Page Contains            Contact Us
+        Input Text                          xpath://*[@id="NameField"]      Autotest${RANDOMSTRING}
+        Input Text                          xpath://*[@id="EmailField"]     ${RANDOMSTRING}@email.com
+
+Compose message to support staff and click the send button
+        Input Text                          xpath://*[@id="MessageField"]       ${RANDOMSTRING}${RANDOMSTRING}${RANDOMSTRING}
+        Click Button                        xpath://html/body/div/main/form/div[4]/button
+        Wait Until Page Contains            A support member will get back to you as soon as possible
 
 
 End Agile Project Test
@@ -231,3 +241,11 @@ User should not be able to add a phonenumber at registration or add/change phone
     Register an account with invalid phonenumber format
     Login to account
     Go to profile and change phone number with invalid phonenumber formats
+
+User should be able to reach a Contact page from the navbar and send a message/an email to support staff
+    [Documentation]             Test: The user should be able to reach a contact page from the navbar, and by entering name, email and message into the appropriate fields send a message and/or email to support staff by then clicking a button.
+    [Tags]                      Support     Contact_Page    Message     Email
+    Go to Web Page
+    Generate Email
+    Go to contact page and input the neccessary contact information in the appropriate fields
+    Compose message to support staff and click the send button

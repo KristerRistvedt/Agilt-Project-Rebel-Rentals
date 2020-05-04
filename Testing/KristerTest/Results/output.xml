@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.2 on win32)" generated="20200503 12:03:09.128" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.8.2 on win32)" generated="20200504 15:43:24.231" rpa="false">
 <suite id="s1" name="RebelRentals" source="C:\Jenkins\workspace\AgileRebelRentalsPipeline\Tests\RebelRentals.robot">
 <test id="s1-t1" name="User can access RebelRental page">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -9,11 +9,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:09.271" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:09.271" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-1.log</msg>
-<status status="PASS" starttime="20200503 12:03:09.270" endtime="20200503 12:03:13.861"></status>
+<msg timestamp="20200504 15:43:24.368" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:43:24.369" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-12.log</msg>
+<status status="PASS" starttime="20200504 15:43:24.368" endtime="20200504 15:43:28.970"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:09.270" endtime="20200503 12:03:13.862"></status>
+<status status="PASS" starttime="20200504 15:43:24.368" endtime="20200504 15:43:28.970"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -21,30 +21,30 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:13.862" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:13.862" endtime="20200503 12:03:15.946"></status>
+<msg timestamp="20200504 15:43:28.971" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:43:28.970" endtime="20200504 15:43:29.719"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:15.946" endtime="20200503 12:03:15.955"></status>
+<status status="PASS" starttime="20200504 15:43:29.719" endtime="20200504 15:43:29.730"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:13.862" endtime="20200503 12:03:15.955"></status>
+<status status="PASS" starttime="20200504 15:43:28.970" endtime="20200504 15:43:29.730"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:03:15.955" endtime="20200503 12:03:16.602"></status>
+<status status="PASS" starttime="20200504 15:43:29.730" endtime="20200504 15:43:30.350"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:15.955" endtime="20200503 12:03:16.603"></status>
+<status status="PASS" starttime="20200504 15:43:29.730" endtime="20200504 15:43:30.350"></status>
 </kw>
 <doc>Test: The user should be able to access the RebelRentals page.</doc>
 <tags>
 <tag>Access</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:09.270" endtime="20200503 12:03:16.603" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:43:24.367" endtime="20200504 15:43:30.351" critical="yes"></status>
 </test>
 <test id="s1-t2" name="User can switch pages in header menu">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -54,11 +54,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:16.604" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:16.604" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-2.log</msg>
-<status status="PASS" starttime="20200503 12:03:16.604" endtime="20200503 12:03:21.208"></status>
+<msg timestamp="20200504 15:43:30.352" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:43:30.352" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-13.log</msg>
+<status status="PASS" starttime="20200504 15:43:30.351" endtime="20200504 15:43:34.940"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:16.603" endtime="20200503 12:03:21.209"></status>
+<status status="PASS" starttime="20200504 15:43:30.351" endtime="20200504 15:43:34.940"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -66,17 +66,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:21.209" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:21.209" endtime="20200503 12:03:22.905"></status>
+<msg timestamp="20200504 15:43:34.941" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:43:34.941" endtime="20200504 15:43:35.661"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:22.905" endtime="20200503 12:03:22.913"></status>
+<status status="PASS" starttime="20200504 15:43:35.661" endtime="20200504 15:43:35.666"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:21.209" endtime="20200503 12:03:22.913"></status>
+<status status="PASS" starttime="20200504 15:43:34.940" endtime="20200504 15:43:35.666"></status>
 </kw>
 <kw name="Switch to privacy page">
 <kw name="Go to Web Page">
@@ -85,34 +85,41 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:22.913" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:22.913" endtime="20200503 12:03:22.960"></status>
+<msg timestamp="20200504 15:43:35.666" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:43:35.666" endtime="20200504 15:43:36.053"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:22.960" endtime="20200503 12:03:22.970"></status>
+<status status="PASS" starttime="20200504 15:43:36.053" endtime="20200504 15:43:36.057"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:22.913" endtime="20200503 12:03:22.971"></status>
+<status status="PASS" starttime="20200504 15:43:35.666" endtime="20200504 15:43:36.057"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<status status="PASS" starttime="20200504 15:43:36.057" endtime="20200504 15:43:36.062"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>xpath://html/body/header/nav/div/div/ul[2]/li[3]/a</arg>
+<arg>xpath://html/body/header/nav/div/div/ul[2]/li[4]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:22.971" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[3]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:22.971" endtime="20200503 12:03:23.031"></status>
+<msg timestamp="20200504 15:43:36.062" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[4]/a'.</msg>
+<status status="PASS" starttime="20200504 15:43:36.062" endtime="20200504 15:43:36.130"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Privacy Policy</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:23.031" endtime="20200503 12:03:23.036"></status>
+<status status="PASS" starttime="20200504 15:43:36.131" endtime="20200504 15:43:36.134"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:22.913" endtime="20200503 12:03:23.036"></status>
+<status status="PASS" starttime="20200504 15:43:35.666" endtime="20200504 15:43:36.134"></status>
 </kw>
 <kw name="Switch to home page">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -120,31 +127,31 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[2]/li[1]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:23.037" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[1]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:23.037" endtime="20200503 12:03:23.100"></status>
+<msg timestamp="20200504 15:43:36.134" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[1]/a'.</msg>
+<status status="PASS" starttime="20200504 15:43:36.134" endtime="20200504 15:43:36.458"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>NASA's Daily Recommended Tourist Location</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:23.100" endtime="20200503 12:03:23.105"></status>
+<status status="PASS" starttime="20200504 15:43:36.458" endtime="20200504 15:43:36.520"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:23.036" endtime="20200503 12:03:23.105"></status>
+<status status="PASS" starttime="20200504 15:43:36.134" endtime="20200504 15:43:36.520"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:03:23.106" endtime="20200503 12:03:23.715"></status>
+<status status="PASS" starttime="20200504 15:43:36.521" endtime="20200504 15:43:37.188"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:23.105" endtime="20200503 12:03:23.715"></status>
+<status status="PASS" starttime="20200504 15:43:36.520" endtime="20200504 15:43:37.188"></status>
 </kw>
 <doc>Test: The user should be able to switch pages from the header menu.</doc>
 <tags>
 <tag>Header</tag>
 <tag>Pages</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:16.603" endtime="20200503 12:03:23.715" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:43:30.351" endtime="20200504 15:43:37.188" critical="yes"></status>
 </test>
 <test id="s1-t3" name="User can create an account">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -154,11 +161,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:23.717" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:23.717" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-3.log</msg>
-<status status="PASS" starttime="20200503 12:03:23.716" endtime="20200503 12:03:28.302"></status>
+<msg timestamp="20200504 15:43:37.189" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:43:37.190" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-14.log</msg>
+<status status="PASS" starttime="20200504 15:43:37.189" endtime="20200504 15:43:41.791"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:23.716" endtime="20200503 12:03:28.302"></status>
+<status status="PASS" starttime="20200504 15:43:37.189" endtime="20200504 15:43:41.791"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -166,17 +173,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:28.303" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:28.303" endtime="20200503 12:03:30.101"></status>
+<msg timestamp="20200504 15:43:41.791" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:43:41.791" endtime="20200504 15:43:42.515"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:30.101" endtime="20200503 12:03:30.107"></status>
+<status status="PASS" starttime="20200504 15:43:42.515" endtime="20200504 15:43:42.520"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:28.302" endtime="20200503 12:03:30.107"></status>
+<status status="PASS" starttime="20200504 15:43:41.791" endtime="20200504 15:43:42.520"></status>
 </kw>
 <kw name="Generate Email">
 <kw name="Generate Random String" library="String">
@@ -188,18 +195,18 @@
 <assign>
 <var>${RANDOMSTRING}</var>
 </assign>
-<msg timestamp="20200503 12:03:30.108" level="INFO">${RANDOMSTRING} = 4d9303</msg>
-<status status="PASS" starttime="20200503 12:03:30.107" endtime="20200503 12:03:30.108"></status>
+<msg timestamp="20200504 15:43:42.520" level="INFO">${RANDOMSTRING} = 257617</msg>
+<status status="PASS" starttime="20200504 15:43:42.520" endtime="20200504 15:43:42.520"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${RANDOMSTRING}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.108" level="INFO">${RANDOMSTRING} = 4d9303</msg>
-<status status="PASS" starttime="20200503 12:03:30.108" endtime="20200503 12:03:30.108"></status>
+<msg timestamp="20200504 15:43:42.521" level="INFO">${RANDOMSTRING} = 257617</msg>
+<status status="PASS" starttime="20200504 15:43:42.521" endtime="20200504 15:43:42.521"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:30.107" endtime="20200503 12:03:30.108"></status>
+<status status="PASS" starttime="20200504 15:43:42.520" endtime="20200504 15:43:42.521"></status>
 </kw>
 <kw name="Register an account">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -207,22 +214,22 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.108" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.108" endtime="20200503 12:03:30.177"></status>
+<msg timestamp="20200504 15:43:42.521" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:43:42.521" endtime="20200504 15:43:42.602"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Create a new account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:30.177" endtime="20200503 12:03:30.185"></status>
+<status status="PASS" starttime="20200504 15:43:42.602" endtime="20200504 15:43:42.611"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>xpath://*[@id="Input_Email"]</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:30.185" endtime="20200503 12:03:30.202"></status>
+<status status="PASS" starttime="20200504 15:43:42.612" endtime="20200504 15:43:42.629"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -230,8 +237,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${RANDOMSTRING}@email.com</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.202" level="INFO">Typing text '4d9303@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.202" endtime="20200503 12:03:30.229"></status>
+<msg timestamp="20200504 15:43:42.629" level="INFO">Typing text '257617@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:42.629" endtime="20200504 15:43:42.655"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -239,8 +246,8 @@
 <arg>xpath://*[@id="Input_PhoneNumber"]</arg>
 <arg>0731234567</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.229" level="INFO">Typing text '0731234567' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.229" endtime="20200503 12:03:30.254"></status>
+<msg timestamp="20200504 15:43:42.656" level="INFO">Typing text '0731234567' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:42.655" endtime="20200504 15:43:42.679"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -248,8 +255,8 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.254" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.254" endtime="20200503 12:03:30.271"></status>
+<msg timestamp="20200504 15:43:42.679" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:42.679" endtime="20200504 15:43:42.695"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -257,53 +264,53 @@
 <arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.271" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.271" endtime="20200503 12:03:30.289"></status>
+<msg timestamp="20200504 15:43:42.696" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:42.695" endtime="20200504 15:43:42.713"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.290" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.289" endtime="20200503 12:03:30.992"></status>
+<msg timestamp="20200504 15:43:42.713" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:43:42.713" endtime="20200504 15:43:43.378"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Register confirmation</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:30.992" endtime="20200503 12:03:30.996"></status>
+<status status="PASS" starttime="20200504 15:43:43.378" endtime="20200504 15:43:43.383"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://*[@id="confirm-link"]</arg>
 </arguments>
-<msg timestamp="20200503 12:03:30.997" level="INFO">Clicking element 'xpath://*[@id="confirm-link"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:30.996" endtime="20200503 12:03:31.067"></status>
+<msg timestamp="20200504 15:43:43.383" level="INFO">Clicking element 'xpath://*[@id="confirm-link"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:43.383" endtime="20200504 15:43:43.458"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Thank you for confirming your email</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:31.067" endtime="20200503 12:03:31.072"></status>
+<status status="PASS" starttime="20200504 15:43:43.459" endtime="20200504 15:43:43.466"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:30.108" endtime="20200503 12:03:31.072"></status>
+<status status="PASS" starttime="20200504 15:43:42.521" endtime="20200504 15:43:43.466"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:03:31.073" endtime="20200503 12:03:31.688"></status>
+<status status="PASS" starttime="20200504 15:43:43.466" endtime="20200504 15:43:44.090"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:31.072" endtime="20200503 12:03:31.688"></status>
+<status status="PASS" starttime="20200504 15:43:43.466" endtime="20200504 15:43:44.090"></status>
 </kw>
 <doc>Test: The user should be able to create an account.</doc>
 <tags>
 <tag>Account</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:23.716" endtime="20200503 12:03:31.688" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:43:37.188" endtime="20200504 15:43:44.090" critical="yes"></status>
 </test>
 <test id="s1-t4" name="User can not create an account using profanity">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -313,11 +320,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:31.689" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:31.689" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-4.log</msg>
-<status status="PASS" starttime="20200503 12:03:31.689" endtime="20200503 12:03:36.292"></status>
+<msg timestamp="20200504 15:43:44.091" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:43:44.092" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-15.log</msg>
+<status status="PASS" starttime="20200504 15:43:44.091" endtime="20200504 15:43:48.687"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:31.689" endtime="20200503 12:03:36.292"></status>
+<status status="PASS" starttime="20200504 15:43:44.091" endtime="20200504 15:43:48.687"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -325,17 +332,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:36.293" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:36.292" endtime="20200503 12:03:38.233"></status>
+<msg timestamp="20200504 15:43:48.688" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:43:48.688" endtime="20200504 15:43:49.414"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:38.233" endtime="20200503 12:03:38.240"></status>
+<status status="PASS" starttime="20200504 15:43:49.414" endtime="20200504 15:43:49.419"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:36.292" endtime="20200503 12:03:38.240"></status>
+<status status="PASS" starttime="20200504 15:43:48.687" endtime="20200504 15:43:49.419"></status>
 </kw>
 <kw name="Register an account fail">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -343,22 +350,22 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:38.242" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:38.241" endtime="20200503 12:03:38.321"></status>
+<msg timestamp="20200504 15:43:49.420" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:43:49.420" endtime="20200504 15:43:49.495"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Create a new account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:38.321" endtime="20200503 12:03:38.330"></status>
+<status status="PASS" starttime="20200504 15:43:49.496" endtime="20200504 15:43:49.504"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>xpath://*[@id="Input_Email"]</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:38.330" endtime="20200503 12:03:38.347"></status>
+<status status="PASS" starttime="20200504 15:43:49.504" endtime="20200504 15:43:49.525"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -366,8 +373,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${RANDOMSTRING}fuck@email.com</arg>
 </arguments>
-<msg timestamp="20200503 12:03:38.347" level="INFO">Typing text '4d9303fuck@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:38.347" endtime="20200503 12:03:38.378"></status>
+<msg timestamp="20200504 15:43:49.525" level="INFO">Typing text '257617fuck@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:49.525" endtime="20200504 15:43:49.560"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -375,8 +382,8 @@
 <arg>xpath://*[@id="Input_PhoneNumber"]</arg>
 <arg>0731234567</arg>
 </arguments>
-<msg timestamp="20200503 12:03:38.378" level="INFO">Typing text '0731234567' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:38.378" endtime="20200503 12:03:38.404"></status>
+<msg timestamp="20200504 15:43:49.561" level="INFO">Typing text '0731234567' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:49.560" endtime="20200504 15:43:49.585"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -384,8 +391,8 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:38.404" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:38.404" endtime="20200503 12:03:38.421"></status>
+<msg timestamp="20200504 15:43:49.585" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:49.585" endtime="20200504 15:43:49.602"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -393,47 +400,47 @@
 <arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:38.421" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:38.421" endtime="20200503 12:03:38.441"></status>
+<msg timestamp="20200504 15:43:49.602" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:49.602" endtime="20200504 15:43:49.621"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:03:38.442" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:03:38.441" endtime="20200503 12:03:39.082"></status>
+<msg timestamp="20200504 15:43:49.622" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:43:49.621" endtime="20200504 15:43:50.262"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Profanity not allowed</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:39.082" endtime="20200503 12:03:39.090"></status>
+<status status="PASS" starttime="20200504 15:43:50.262" endtime="20200504 15:43:50.269"></status>
 </kw>
 <kw name="Page Should Not Contain" library="SeleniumLibrary">
 <doc>Verifies the current page does not contain ``text``.</doc>
 <arguments>
 <arg>Register confirmation</arg>
 </arguments>
-<msg timestamp="20200503 12:03:39.103" level="INFO">Current page does not contain text 'Register confirmation'.</msg>
-<status status="PASS" starttime="20200503 12:03:39.090" endtime="20200503 12:03:39.103"></status>
+<msg timestamp="20200504 15:43:50.282" level="INFO">Current page does not contain text 'Register confirmation'.</msg>
+<status status="PASS" starttime="20200504 15:43:50.269" endtime="20200504 15:43:50.282"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:38.241" endtime="20200503 12:03:39.103"></status>
+<status status="PASS" starttime="20200504 15:43:49.420" endtime="20200504 15:43:50.282"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:03:39.103" endtime="20200503 12:03:39.765"></status>
+<status status="PASS" starttime="20200504 15:43:50.282" endtime="20200504 15:43:50.942"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:39.103" endtime="20200503 12:03:39.765"></status>
+<status status="PASS" starttime="20200504 15:43:50.282" endtime="20200504 15:43:50.942"></status>
 </kw>
 <doc>Test: The user should not be able to create an account using profanity in username/email.</doc>
 <tags>
 <tag>Account</tag>
 <tag>Profanity_Filter</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:31.688" endtime="20200503 12:03:39.765" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:43:44.090" endtime="20200504 15:43:50.942" critical="yes"></status>
 </test>
 <test id="s1-t5" name="User can login with registered credentials and logout">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -443,11 +450,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:39.767" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:39.768" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-5.log</msg>
-<status status="PASS" starttime="20200503 12:03:39.767" endtime="20200503 12:03:44.381"></status>
+<msg timestamp="20200504 15:43:50.943" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:43:50.944" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-16.log</msg>
+<status status="PASS" starttime="20200504 15:43:50.943" endtime="20200504 15:43:55.558"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:39.767" endtime="20200503 12:03:44.381"></status>
+<status status="PASS" starttime="20200504 15:43:50.943" endtime="20200504 15:43:55.558"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -455,17 +462,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:44.381" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:44.381" endtime="20200503 12:03:47.255"></status>
+<msg timestamp="20200504 15:43:55.559" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:43:55.559" endtime="20200504 15:43:56.291"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:47.255" endtime="20200503 12:03:47.260"></status>
+<status status="PASS" starttime="20200504 15:43:56.291" endtime="20200504 15:43:56.297"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:44.381" endtime="20200503 12:03:47.260"></status>
+<status status="PASS" starttime="20200504 15:43:55.559" endtime="20200504 15:43:56.297"></status>
 </kw>
 <kw name="Login to and logout from the site">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -473,15 +480,15 @@
 <arguments>
 <arg>Login</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:47.261" endtime="20200503 12:03:47.268"></status>
+<status status="PASS" starttime="20200504 15:43:56.298" endtime="20200504 15:43:56.302"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[3]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:47.268" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:47.268" endtime="20200503 12:03:47.340"></status>
+<msg timestamp="20200504 15:43:56.302" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200504 15:43:56.302" endtime="20200504 15:43:56.381"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -489,8 +496,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${USERNAME}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:47.340" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:47.340" endtime="20200503 12:03:47.376"></status>
+<msg timestamp="20200504 15:43:56.381" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:56.381" endtime="20200504 15:43:56.421"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -498,47 +505,47 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:47.377" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:03:47.377" endtime="20200503 12:03:47.401"></status>
+<msg timestamp="20200504 15:43:56.422" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:43:56.421" endtime="20200504 15:43:56.447"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/section/form/div[5]/button</arg>
 </arguments>
-<msg timestamp="20200503 12:03:47.401" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
-<status status="PASS" starttime="20200503 12:03:47.401" endtime="20200503 12:03:47.486"></status>
+<msg timestamp="20200504 15:43:56.447" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20200504 15:43:56.447" endtime="20200504 15:43:56.843"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${USERNAME}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:47.486" endtime="20200503 12:03:47.491"></status>
+<status status="PASS" starttime="20200504 15:43:56.844" endtime="20200504 15:43:56.847"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[3]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:03:47.491" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:03:47.491" endtime="20200503 12:03:47.559"></status>
+<msg timestamp="20200504 15:43:56.847" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:43:56.847" endtime="20200504 15:43:56.917"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>${USERNAME}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:47.559" endtime="20200503 12:03:47.565"></status>
+<status status="PASS" starttime="20200504 15:43:56.917" endtime="20200504 15:43:56.924"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:47.261" endtime="20200503 12:03:47.566"></status>
+<status status="PASS" starttime="20200504 15:43:56.297" endtime="20200504 15:43:56.924"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:03:47.566" endtime="20200503 12:03:48.204"></status>
+<status status="PASS" starttime="20200504 15:43:56.925" endtime="20200504 15:43:57.591"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:47.566" endtime="20200503 12:03:48.204"></status>
+<status status="PASS" starttime="20200504 15:43:56.924" endtime="20200504 15:43:57.591"></status>
 </kw>
 <doc>Test: The user should be able to reach a login page with a button/link. The user should then be able to login with the credentials stored at the registration and log out.</doc>
 <tags>
@@ -546,7 +553,7 @@
 <tag>Login</tag>
 <tag>Logout</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:39.765" endtime="20200503 12:03:48.204" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:43:50.942" endtime="20200504 15:43:57.591" critical="yes"></status>
 </test>
 <test id="s1-t6" name="User can reach register page from the login page">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -556,11 +563,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:48.206" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:48.206" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-6.log</msg>
-<status status="PASS" starttime="20200503 12:03:48.205" endtime="20200503 12:03:52.788"></status>
+<msg timestamp="20200504 15:43:57.592" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:43:57.593" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-17.log</msg>
+<status status="PASS" starttime="20200504 15:43:57.592" endtime="20200504 15:44:02.194"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:48.205" endtime="20200503 12:03:52.788"></status>
+<status status="PASS" starttime="20200504 15:43:57.592" endtime="20200504 15:44:02.194"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -568,17 +575,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:52.788" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:03:52.788" endtime="20200503 12:03:54.718"></status>
+<msg timestamp="20200504 15:44:02.195" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:02.195" endtime="20200504 15:44:02.922"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:54.718" endtime="20200503 12:03:54.726"></status>
+<status status="PASS" starttime="20200504 15:44:02.922" endtime="20200504 15:44:02.930"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:52.788" endtime="20200503 12:03:54.726"></status>
+<status status="PASS" starttime="20200504 15:44:02.195" endtime="20200504 15:44:02.930"></status>
 </kw>
 <kw name="Go to register page from login page">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -586,53 +593,53 @@
 <arguments>
 <arg>Login</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:54.726" endtime="20200503 12:03:54.730"></status>
+<status status="PASS" starttime="20200504 15:44:02.930" endtime="20200504 15:44:02.933"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[3]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:54.730" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:54.730" endtime="20200503 12:03:54.804"></status>
+<msg timestamp="20200504 15:44:02.934" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:02.934" endtime="20200504 15:44:03.005"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Use a local account to log in</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:54.804" endtime="20200503 12:03:54.813"></status>
+<status status="PASS" starttime="20200504 15:44:03.005" endtime="20200504 15:44:03.016"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/section/form/div[6]/p[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:03:54.813" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[6]/p[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:03:54.813" endtime="20200503 12:03:54.878"></status>
+<msg timestamp="20200504 15:44:03.016" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[6]/p[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:03.016" endtime="20200504 15:44:03.082"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Create a new account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:03:54.878" endtime="20200503 12:03:54.886"></status>
+<status status="PASS" starttime="20200504 15:44:03.082" endtime="20200504 15:44:03.090"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:54.726" endtime="20200503 12:03:54.886"></status>
+<status status="PASS" starttime="20200504 15:44:02.930" endtime="20200504 15:44:03.090"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:03:54.886" endtime="20200503 12:03:55.537"></status>
+<status status="PASS" starttime="20200504 15:44:03.091" endtime="20200504 15:44:03.713"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:54.886" endtime="20200503 12:03:55.537"></status>
+<status status="PASS" starttime="20200504 15:44:03.090" endtime="20200504 15:44:03.713"></status>
 </kw>
 <doc>Test: The user should be able to reach the register page from the login page if they do not have an account.</doc>
 <tags>
 <tag>Account</tag>
 <tag>Referal</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:48.205" endtime="20200503 12:03:55.537" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:43:57.591" endtime="20200504 15:44:03.713" critical="yes"></status>
 </test>
 <test id="s1-t7" name="User can add ships/products to their shopping cart and remove them">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -642,11 +649,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:03:55.539" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:03:55.539" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-7.log</msg>
-<status status="PASS" starttime="20200503 12:03:55.538" endtime="20200503 12:04:00.163"></status>
+<msg timestamp="20200504 15:44:03.714" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:44:03.715" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-18.log</msg>
+<status status="PASS" starttime="20200504 15:44:03.714" endtime="20200504 15:44:08.312"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:03:55.538" endtime="20200503 12:04:00.164"></status>
+<status status="PASS" starttime="20200504 15:44:03.713" endtime="20200504 15:44:08.312"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -654,17 +661,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:00.164" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:04:00.164" endtime="20200503 12:04:02.322"></status>
+<msg timestamp="20200504 15:44:08.313" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:08.312" endtime="20200504 15:44:09.046"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.322" endtime="20200503 12:04:02.327"></status>
+<status status="PASS" starttime="20200504 15:44:09.046" endtime="20200504 15:44:09.053"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:00.164" endtime="20200503 12:04:02.327"></status>
+<status status="PASS" starttime="20200504 15:44:08.312" endtime="20200504 15:44:09.053"></status>
 </kw>
 <kw name="Login to account">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -672,15 +679,15 @@
 <arguments>
 <arg>Login</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.327" endtime="20200503 12:04:02.333"></status>
+<status status="PASS" starttime="20200504 15:44:09.053" endtime="20200504 15:44:09.057"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[3]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.333" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.333" endtime="20200503 12:04:02.404"></status>
+<msg timestamp="20200504 15:44:09.058" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.058" endtime="20200504 15:44:09.130"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -688,8 +695,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${USERNAME}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.404" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.404" endtime="20200503 12:04:02.439"></status>
+<msg timestamp="20200504 15:44:09.130" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.130" endtime="20200504 15:44:09.172"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -697,25 +704,25 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.440" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.440" endtime="20200503 12:04:02.463"></status>
+<msg timestamp="20200504 15:44:09.173" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.172" endtime="20200504 15:44:09.196"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/section/form/div[5]/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.463" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.463" endtime="20200503 12:04:02.539"></status>
+<msg timestamp="20200504 15:44:09.197" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.196" endtime="20200504 15:44:09.599"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${USERNAME}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.539" endtime="20200503 12:04:02.543"></status>
+<status status="PASS" starttime="20200504 15:44:09.599" endtime="20200504 15:44:09.602"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:02.327" endtime="20200503 12:04:02.543"></status>
+<status status="PASS" starttime="20200504 15:44:09.053" endtime="20200504 15:44:09.602"></status>
 </kw>
 <kw name="Go to Ships page">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -723,17 +730,17 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[2]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.544" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.543" endtime="20200503 12:04:02.628"></status>
+<msg timestamp="20200504 15:44:09.602" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.602" endtime="20200504 15:44:09.703"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Max. population</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.628" endtime="20200503 12:04:02.634"></status>
+<status status="PASS" starttime="20200504 15:44:09.703" endtime="20200504 15:44:09.709"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:02.543" endtime="20200503 12:04:02.635"></status>
+<status status="PASS" starttime="20200504 15:44:09.602" endtime="20200504 15:44:09.709"></status>
 </kw>
 <kw name="Add ships to cart">
 <kw name="Click Button" library="SeleniumLibrary">
@@ -741,18 +748,18 @@
 <arguments>
 <arg>xpath://html/body/div/main/table/tbody/tr[2]/td[6]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.635" level="INFO">Clicking button 'xpath://html/body/div/main/table/tbody/tr[2]/td[6]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.635" endtime="20200503 12:04:02.704"></status>
+<msg timestamp="20200504 15:44:09.710" level="INFO">Clicking button 'xpath://html/body/div/main/table/tbody/tr[2]/td[6]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.710" endtime="20200504 15:44:09.778"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/table/tbody/tr[4]/td[6]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.704" level="INFO">Clicking button 'xpath://html/body/div/main/table/tbody/tr[4]/td[6]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.704" endtime="20200503 12:04:02.771"></status>
+<msg timestamp="20200504 15:44:09.778" level="INFO">Clicking button 'xpath://html/body/div/main/table/tbody/tr[4]/td[6]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.778" endtime="20200504 15:44:09.851"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:02.635" endtime="20200503 12:04:02.771"></status>
+<status status="PASS" starttime="20200504 15:44:09.709" endtime="20200504 15:44:09.851"></status>
 </kw>
 <kw name="Go to cart">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -760,24 +767,24 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[1]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.771" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[1]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.771" endtime="20200503 12:04:02.830"></status>
+<msg timestamp="20200504 15:44:09.852" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[1]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.852" endtime="20200504 15:44:09.916"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Death Star</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.830" endtime="20200503 12:04:02.836"></status>
+<status status="PASS" starttime="20200504 15:44:09.916" endtime="20200504 15:44:09.921"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Star Destroyer</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.836" endtime="20200503 12:04:02.841"></status>
+<status status="PASS" starttime="20200504 15:44:09.921" endtime="20200504 15:44:09.927"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:02.771" endtime="20200503 12:04:02.842"></status>
+<status status="PASS" starttime="20200504 15:44:09.851" endtime="20200504 15:44:09.927"></status>
 </kw>
 <kw name="Remove ship from cart">
 <kw name="Click Button" library="SeleniumLibrary">
@@ -785,24 +792,24 @@
 <arguments>
 <arg>xpath://html/body/div/main/table/tbody/tr[2]/td[10]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:02.842" level="INFO">Clicking button 'xpath://html/body/div/main/table/tbody/tr[2]/td[10]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:02.842" endtime="20200503 12:04:02.909"></status>
+<msg timestamp="20200504 15:44:09.927" level="INFO">Clicking button 'xpath://html/body/div/main/table/tbody/tr[2]/td[10]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:09.927" endtime="20200504 15:44:09.988"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Star Destroyer</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:02.909" endtime="20200503 12:04:02.911"></status>
+<status status="PASS" starttime="20200504 15:44:09.988" endtime="20200504 15:44:09.993"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:02.842" endtime="20200503 12:04:02.911"></status>
+<status status="PASS" starttime="20200504 15:44:09.927" endtime="20200504 15:44:09.993"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:04:02.911" endtime="20200503 12:04:03.530"></status>
+<status status="PASS" starttime="20200504 15:44:09.993" endtime="20200504 15:44:10.605"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:02.911" endtime="20200503 12:04:03.530"></status>
+<status status="PASS" starttime="20200504 15:44:09.993" endtime="20200504 15:44:10.605"></status>
 </kw>
 <doc>Test: The user should be able to add and remove products from their cart, and reach said cart.</doc>
 <tags>
@@ -810,7 +817,7 @@
 <tag>Add_Products</tag>
 <tag>Shopping_Cart</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:03:55.538" endtime="20200503 12:04:03.530" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:44:03.713" endtime="20200504 15:44:10.605" critical="yes"></status>
 </test>
 <test id="s1-t8" name="User can see a vacation recommendation through NASA pictures">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -820,11 +827,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:03.531" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:04:03.532" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-8.log</msg>
-<status status="PASS" starttime="20200503 12:04:03.531" endtime="20200503 12:04:08.126"></status>
+<msg timestamp="20200504 15:44:10.606" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:44:10.607" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-19.log</msg>
+<status status="PASS" starttime="20200504 15:44:10.606" endtime="20200504 15:44:15.194"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:03.531" endtime="20200503 12:04:08.126"></status>
+<status status="PASS" starttime="20200504 15:44:10.606" endtime="20200504 15:44:15.195"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -832,17 +839,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:08.127" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:04:08.127" endtime="20200503 12:04:10.155"></status>
+<msg timestamp="20200504 15:44:15.195" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:15.195" endtime="20200504 15:44:15.857"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:10.155" endtime="20200503 12:04:10.162"></status>
+<status status="PASS" starttime="20200504 15:44:15.857" endtime="20200504 15:44:15.863"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:08.126" endtime="20200503 12:04:10.162"></status>
+<status status="PASS" starttime="20200504 15:44:15.195" endtime="20200504 15:44:15.863"></status>
 </kw>
 <kw name="See if picture and text regarding vacation exists">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -850,46 +857,31 @@
 <arguments>
 <arg>NASA's Daily Recommended Tourist Location</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:10.163" endtime="20200503 12:04:10.166"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>xpath://html/body/div/main/div[2]/img</arg>
-</arguments>
-<status status="PASS" starttime="20200503 12:04:10.166" endtime="20200503 12:04:10.169"></status>
+<status status="PASS" starttime="20200504 15:44:15.863" endtime="20200504 15:44:15.866"></status>
 </kw>
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div[2]/p</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:10.169" endtime="20200503 12:04:10.172"></status>
-</kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
-<arg>xpath://html/body/div/main/div[2]/img</arg>
-</arguments>
-<msg timestamp="20200503 12:04:10.186" level="INFO">Element 'xpath://html/body/div/main/div[2]/img' is displayed.</msg>
-<status status="PASS" starttime="20200503 12:04:10.172" endtime="20200503 12:04:10.187"></status>
+<status status="PASS" starttime="20200504 15:44:15.866" endtime="20200504 15:44:15.868"></status>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div[2]/p</arg>
 </arguments>
-<msg timestamp="20200503 12:04:10.202" level="INFO">Element 'xpath://html/body/div/main/div[2]/p' is displayed.</msg>
-<status status="PASS" starttime="20200503 12:04:10.187" endtime="20200503 12:04:10.202"></status>
+<msg timestamp="20200504 15:44:15.881" level="INFO">Element 'xpath://html/body/div/main/div[2]/p' is displayed.</msg>
+<status status="PASS" starttime="20200504 15:44:15.868" endtime="20200504 15:44:15.881"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:10.163" endtime="20200503 12:04:10.202"></status>
+<status status="PASS" starttime="20200504 15:44:15.863" endtime="20200504 15:44:15.881"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:04:10.203" endtime="20200503 12:04:10.755"></status>
+<status status="PASS" starttime="20200504 15:44:15.882" endtime="20200504 15:44:16.490"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:10.202" endtime="20200503 12:04:10.755"></status>
+<status status="PASS" starttime="20200504 15:44:15.881" endtime="20200504 15:44:16.490"></status>
 </kw>
 <doc>Test: The user should be able to see a picture and some text regarding places on earth and/or in space to visit for vacation while renting a ship.</doc>
 <tags>
@@ -897,7 +889,7 @@
 <tag>NASA</tag>
 <tag>Vacation</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:04:03.530" endtime="20200503 12:04:10.755" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:44:10.605" endtime="20200504 15:44:16.490" critical="yes"></status>
 </test>
 <test id="s1-t9" name="User should see a different vacation recommendation every day">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -907,11 +899,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:10.756" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:04:10.757" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-9.log</msg>
-<status status="PASS" starttime="20200503 12:04:10.756" endtime="20200503 12:04:15.361"></status>
+<msg timestamp="20200504 15:44:16.491" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:44:16.492" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-20.log</msg>
+<status status="PASS" starttime="20200504 15:44:16.491" endtime="20200504 15:44:21.092"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:10.756" endtime="20200503 12:04:15.361"></status>
+<status status="PASS" starttime="20200504 15:44:16.491" endtime="20200504 15:44:21.092"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -919,17 +911,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:15.362" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:04:15.362" endtime="20200503 12:04:17.335"></status>
+<msg timestamp="20200504 15:44:21.093" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:21.093" endtime="20200504 15:44:21.775"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:17.336" endtime="20200503 12:04:17.341"></status>
+<status status="PASS" starttime="20200504 15:44:21.775" endtime="20200504 15:44:21.780"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:15.362" endtime="20200503 12:04:17.342"></status>
+<status status="PASS" starttime="20200504 15:44:21.092" endtime="20200504 15:44:21.781"></status>
 </kw>
 <kw name="See if a new picture and text regarding vacation exists another day">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -937,23 +929,23 @@
 <arguments>
 <arg>NASA's Daily Recommended Tourist Location</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:17.342" endtime="20200503 12:04:17.347"></status>
+<status status="PASS" starttime="20200504 15:44:21.781" endtime="20200504 15:44:21.784"></status>
 </kw>
 <kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
 <doc>Waits until ``text`` disappears from the current page.</doc>
 <arguments>
 <arg>Radio, The Big Ear, and the Wow! Signal</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:17.347" endtime="20200503 12:04:17.350"></status>
+<status status="PASS" starttime="20200504 15:44:21.784" endtime="20200504 15:44:21.786"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:17.342" endtime="20200503 12:04:17.350"></status>
+<status status="PASS" starttime="20200504 15:44:21.781" endtime="20200504 15:44:21.786"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:04:17.350" endtime="20200503 12:04:17.860"></status>
+<status status="PASS" starttime="20200504 15:44:21.787" endtime="20200504 15:44:22.436"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:17.350" endtime="20200503 12:04:17.861"></status>
+<status status="PASS" starttime="20200504 15:44:21.786" endtime="20200504 15:44:22.436"></status>
 </kw>
 <doc>Test: The user should be able to see a different picture and text, regarding places on earth and/or in space to visit for vacation while renting a ship, each new day. Depends on external website, change test manually each time the test is run on a new day.</doc>
 <tags>
@@ -962,7 +954,7 @@
 <tag>New</tag>
 <tag>Vacation</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:04:10.755" endtime="20200503 12:04:17.861" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:44:16.490" endtime="20200504 15:44:22.437" critical="yes"></status>
 </test>
 <test id="s1-t10" name="User should be able to add a phonenumber at registration or add/change phonenumber after registration">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -972,11 +964,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:17.862" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:04:17.862" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-10.log</msg>
-<status status="PASS" starttime="20200503 12:04:17.861" endtime="20200503 12:04:22.456"></status>
+<msg timestamp="20200504 15:44:22.438" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:44:22.438" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-21.log</msg>
+<status status="PASS" starttime="20200504 15:44:22.437" endtime="20200504 15:44:27.034"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:17.861" endtime="20200503 12:04:22.456"></status>
+<status status="PASS" starttime="20200504 15:44:22.437" endtime="20200504 15:44:27.034"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -984,17 +976,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:22.457" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:04:22.456" endtime="20200503 12:04:24.501"></status>
+<msg timestamp="20200504 15:44:27.035" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:27.035" endtime="20200504 15:44:27.709"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:24.501" endtime="20200503 12:04:24.506"></status>
+<status status="PASS" starttime="20200504 15:44:27.709" endtime="20200504 15:44:27.715"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:22.456" endtime="20200503 12:04:24.506"></status>
+<status status="PASS" starttime="20200504 15:44:27.035" endtime="20200504 15:44:27.715"></status>
 </kw>
 <kw name="Generate Email">
 <kw name="Generate Random String" library="String">
@@ -1006,18 +998,18 @@
 <assign>
 <var>${RANDOMSTRING}</var>
 </assign>
-<msg timestamp="20200503 12:04:24.507" level="INFO">${RANDOMSTRING} = 412222</msg>
-<status status="PASS" starttime="20200503 12:04:24.507" endtime="20200503 12:04:24.507"></status>
+<msg timestamp="20200504 15:44:27.715" level="INFO">${RANDOMSTRING} = 53b83b</msg>
+<status status="PASS" starttime="20200504 15:44:27.715" endtime="20200504 15:44:27.715"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${RANDOMSTRING}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.507" level="INFO">${RANDOMSTRING} = 412222</msg>
-<status status="PASS" starttime="20200503 12:04:24.507" endtime="20200503 12:04:24.507"></status>
+<msg timestamp="20200504 15:44:27.716" level="INFO">${RANDOMSTRING} = 53b83b</msg>
+<status status="PASS" starttime="20200504 15:44:27.715" endtime="20200504 15:44:27.716"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:24.507" endtime="20200503 12:04:24.507"></status>
+<status status="PASS" starttime="20200504 15:44:27.715" endtime="20200504 15:44:27.716"></status>
 </kw>
 <kw name="Register an account">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -1025,22 +1017,22 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.508" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:24.508" endtime="20200503 12:04:24.577"></status>
+<msg timestamp="20200504 15:44:27.716" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:27.716" endtime="20200504 15:44:27.794"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Create a new account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:24.577" endtime="20200503 12:04:24.587"></status>
+<status status="PASS" starttime="20200504 15:44:27.794" endtime="20200504 15:44:27.801"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>xpath://*[@id="Input_Email"]</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:24.587" endtime="20200503 12:04:24.608"></status>
+<status status="PASS" starttime="20200504 15:44:27.802" endtime="20200504 15:44:27.823"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1048,8 +1040,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${RANDOMSTRING}@email.com</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.608" level="INFO">Typing text '412222@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:24.608" endtime="20200503 12:04:24.640"></status>
+<msg timestamp="20200504 15:44:27.823" level="INFO">Typing text '53b83b@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:27.823" endtime="20200504 15:44:27.852"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1057,8 +1049,8 @@
 <arg>xpath://*[@id="Input_PhoneNumber"]</arg>
 <arg>0731234567</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.641" level="INFO">Typing text '0731234567' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:24.641" endtime="20200503 12:04:24.668"></status>
+<msg timestamp="20200504 15:44:27.852" level="INFO">Typing text '0731234567' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:27.852" endtime="20200504 15:44:27.877"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1066,8 +1058,8 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.669" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:24.669" endtime="20200503 12:04:24.686"></status>
+<msg timestamp="20200504 15:44:27.878" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:27.877" endtime="20200504 15:44:27.895"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1075,40 +1067,40 @@
 <arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.686" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:24.686" endtime="20200503 12:04:24.704"></status>
+<msg timestamp="20200504 15:44:27.895" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:27.895" endtime="20200504 15:44:27.913"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:24.705" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:24.705" endtime="20200503 12:04:25.347"></status>
+<msg timestamp="20200504 15:44:27.914" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:27.914" endtime="20200504 15:44:28.577"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Register confirmation</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:25.347" endtime="20200503 12:04:25.352"></status>
+<status status="PASS" starttime="20200504 15:44:28.577" endtime="20200504 15:44:28.580"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://*[@id="confirm-link"]</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.352" level="INFO">Clicking element 'xpath://*[@id="confirm-link"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.352" endtime="20200503 12:04:25.422"></status>
+<msg timestamp="20200504 15:44:28.580" level="INFO">Clicking element 'xpath://*[@id="confirm-link"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:28.580" endtime="20200504 15:44:28.646"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Thank you for confirming your email</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:25.422" endtime="20200503 12:04:25.429"></status>
+<status status="PASS" starttime="20200504 15:44:28.646" endtime="20200504 15:44:28.649"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:24.507" endtime="20200503 12:04:25.430"></status>
+<status status="PASS" starttime="20200504 15:44:27.716" endtime="20200504 15:44:28.649"></status>
 </kw>
 <kw name="Generate Phonenumber">
 <kw name="Generate Random String" library="String">
@@ -1120,18 +1112,18 @@
 <assign>
 <var>${PHONENUMBER}</var>
 </assign>
-<msg timestamp="20200503 12:04:25.430" level="INFO">${PHONENUMBER} = 9223345</msg>
-<status status="PASS" starttime="20200503 12:04:25.430" endtime="20200503 12:04:25.430"></status>
+<msg timestamp="20200504 15:44:28.649" level="INFO">${PHONENUMBER} = 2383398</msg>
+<status status="PASS" starttime="20200504 15:44:28.649" endtime="20200504 15:44:28.649"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${PHONENUMBER}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.430" level="INFO">${PHONENUMBER} = 9223345</msg>
-<status status="PASS" starttime="20200503 12:04:25.430" endtime="20200503 12:04:25.430"></status>
+<msg timestamp="20200504 15:44:28.649" level="INFO">${PHONENUMBER} = 2383398</msg>
+<status status="PASS" starttime="20200504 15:44:28.649" endtime="20200504 15:44:28.649"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:25.430" endtime="20200503 12:04:25.430"></status>
+<status status="PASS" starttime="20200504 15:44:28.649" endtime="20200504 15:44:28.649"></status>
 </kw>
 <kw name="Login to account">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -1139,15 +1131,15 @@
 <arguments>
 <arg>Login</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:25.431" endtime="20200503 12:04:25.434"></status>
+<status status="PASS" starttime="20200504 15:44:28.650" endtime="20200504 15:44:28.656"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[3]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.434" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.434" endtime="20200503 12:04:25.490"></status>
+<msg timestamp="20200504 15:44:28.656" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:28.656" endtime="20200504 15:44:28.709"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1155,8 +1147,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${USERNAME}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.490" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.490" endtime="20200503 12:04:25.523"></status>
+<msg timestamp="20200504 15:44:28.709" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:28.709" endtime="20200504 15:44:28.745"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1164,25 +1156,25 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.524" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.523" endtime="20200503 12:04:25.547"></status>
+<msg timestamp="20200504 15:44:28.746" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:28.745" endtime="20200504 15:44:28.768"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/section/form/div[5]/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.547" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.547" endtime="20200503 12:04:25.621"></status>
+<msg timestamp="20200504 15:44:28.768" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:28.768" endtime="20200504 15:44:29.163"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${USERNAME}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:25.621" endtime="20200503 12:04:25.627"></status>
+<status status="PASS" starttime="20200504 15:44:29.163" endtime="20200504 15:44:29.167"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:25.430" endtime="20200503 12:04:25.627"></status>
+<status status="PASS" starttime="20200504 15:44:28.650" endtime="20200504 15:44:29.167"></status>
 </kw>
 <kw name="Go to profile and change phone number">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -1190,15 +1182,15 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.628" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.627" endtime="20200503 12:04:25.704"></status>
+<msg timestamp="20200504 15:44:29.167" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:29.167" endtime="20200504 15:44:29.252"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Manage your account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:25.704" endtime="20200503 12:04:25.714"></status>
+<status status="PASS" starttime="20200504 15:44:29.252" endtime="20200504 15:44:29.261"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1207,39 +1199,39 @@
 <arg>073${PHONENUMBER}</arg>
 <arg>True</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.715" level="INFO">Typing text '0739223345' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.714" endtime="20200503 12:04:25.741"></status>
+<msg timestamp="20200504 15:44:29.261" level="INFO">Typing text '0732383398' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:29.261" endtime="20200504 15:44:29.287"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://*[@id="update-profile-button"]</arg>
 </arguments>
-<msg timestamp="20200503 12:04:25.741" level="INFO">Clicking button 'xpath://*[@id="update-profile-button"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:25.741" endtime="20200503 12:04:26.232"></status>
+<msg timestamp="20200504 15:44:29.288" level="INFO">Clicking button 'xpath://*[@id="update-profile-button"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:29.287" endtime="20200504 15:44:29.746"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Your profile has been updated</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:26.232" endtime="20200503 12:04:26.238"></status>
+<status status="PASS" starttime="20200504 15:44:29.746" endtime="20200504 15:44:29.754"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:25.627" endtime="20200503 12:04:26.238"></status>
+<status status="PASS" starttime="20200504 15:44:29.167" endtime="20200504 15:44:29.754"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:04:26.238" endtime="20200503 12:04:26.758"></status>
+<status status="PASS" starttime="20200504 15:44:29.755" endtime="20200504 15:44:30.389"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:26.238" endtime="20200503 12:04:26.758"></status>
+<status status="PASS" starttime="20200504 15:44:29.755" endtime="20200504 15:44:30.389"></status>
 </kw>
 <doc>Test: The user should be able to add their phonenumber for ease of contact with support staff, at registration of their account or after due to an older version of the website not containing phone numbers or if the user needs to change their number.</doc>
 <tags>
 <tag>Account</tag>
 <tag>Phone_Number</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:04:17.861" endtime="20200503 12:04:26.758" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:44:22.437" endtime="20200504 15:44:30.389" critical="yes"></status>
 </test>
 <test id="s1-t11" name="User should not be able to add a phonenumber at registration or add/change phonenumber after registration with invalid phonenumber formats">
 <kw name="Begin Agile Project Page Test" type="setup">
@@ -1249,11 +1241,11 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:26.759" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
-<msg timestamp="20200503 12:04:26.760" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-11.log</msg>
-<status status="PASS" starttime="20200503 12:04:26.759" endtime="20200503 12:04:31.353"></status>
+<msg timestamp="20200504 15:44:30.391" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:44:30.392" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-22.log</msg>
+<status status="PASS" starttime="20200504 15:44:30.390" endtime="20200504 15:44:34.985"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:26.759" endtime="20200503 12:04:31.353"></status>
+<status status="PASS" starttime="20200504 15:44:30.390" endtime="20200504 15:44:34.985"></status>
 </kw>
 <kw name="Go to Web Page">
 <kw name="Go To" library="SeleniumLibrary">
@@ -1261,17 +1253,17 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:31.354" level="INFO">Opening url 'https://localhost:44353'</msg>
-<status status="PASS" starttime="20200503 12:04:31.353" endtime="20200503 12:04:33.396"></status>
+<msg timestamp="20200504 15:44:34.986" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:34.986" endtime="20200504 15:44:35.653"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${SEARCH_TERM}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:33.396" endtime="20200503 12:04:33.401"></status>
+<status status="PASS" starttime="20200504 15:44:35.653" endtime="20200504 15:44:35.659"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:31.353" endtime="20200503 12:04:33.401"></status>
+<status status="PASS" starttime="20200504 15:44:34.986" endtime="20200504 15:44:35.660"></status>
 </kw>
 <kw name="Generate Email">
 <kw name="Generate Random String" library="String">
@@ -1283,18 +1275,18 @@
 <assign>
 <var>${RANDOMSTRING}</var>
 </assign>
-<msg timestamp="20200503 12:04:33.402" level="INFO">${RANDOMSTRING} = 7267a6</msg>
-<status status="PASS" starttime="20200503 12:04:33.402" endtime="20200503 12:04:33.402"></status>
+<msg timestamp="20200504 15:44:35.660" level="INFO">${RANDOMSTRING} = 3bc59b</msg>
+<status status="PASS" starttime="20200504 15:44:35.660" endtime="20200504 15:44:35.660"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <doc>Makes a variable available globally in all tests and suites.</doc>
 <arguments>
 <arg>${RANDOMSTRING}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.402" level="INFO">${RANDOMSTRING} = 7267a6</msg>
-<status status="PASS" starttime="20200503 12:04:33.402" endtime="20200503 12:04:33.402"></status>
+<msg timestamp="20200504 15:44:35.660" level="INFO">${RANDOMSTRING} = 3bc59b</msg>
+<status status="PASS" starttime="20200504 15:44:35.660" endtime="20200504 15:44:35.660"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:33.401" endtime="20200503 12:04:33.402"></status>
+<status status="PASS" starttime="20200504 15:44:35.660" endtime="20200504 15:44:35.660"></status>
 </kw>
 <kw name="Register an account with invalid phonenumber format">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -1302,22 +1294,22 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.402" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.402" endtime="20200503 12:04:33.477"></status>
+<msg timestamp="20200504 15:44:35.661" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:35.661" endtime="20200504 15:44:35.743"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Create a new account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:33.477" endtime="20200503 12:04:33.485"></status>
+<status status="PASS" starttime="20200504 15:44:35.743" endtime="20200504 15:44:35.754"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>xpath://*[@id="Input_Email"]</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:33.485" endtime="20200503 12:04:33.504"></status>
+<status status="PASS" starttime="20200504 15:44:35.754" endtime="20200504 15:44:35.771"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1325,8 +1317,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${RANDOMSTRING}@email.com</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.504" level="INFO">Typing text '7267a6@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.504" endtime="20200503 12:04:33.530"></status>
+<msg timestamp="20200504 15:44:35.771" level="INFO">Typing text '3bc59b@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:35.771" endtime="20200504 15:44:35.800"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1334,8 +1326,8 @@
 <arg>xpath://*[@id="Input_PhoneNumber"]</arg>
 <arg>999999999999</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.531" level="INFO">Typing text '999999999999' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.531" endtime="20200503 12:04:33.556"></status>
+<msg timestamp="20200504 15:44:35.800" level="INFO">Typing text '999999999999' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:35.800" endtime="20200504 15:44:35.825"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1343,8 +1335,8 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.557" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.556" endtime="20200503 12:04:33.575"></status>
+<msg timestamp="20200504 15:44:35.825" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:35.825" endtime="20200504 15:44:35.843"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1352,33 +1344,33 @@
 <arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.575" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.575" endtime="20200503 12:04:33.592"></status>
+<msg timestamp="20200504 15:44:35.844" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:35.843" endtime="20200504 15:44:35.863"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.593" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.592" endtime="20200503 12:04:33.864"></status>
+<msg timestamp="20200504 15:44:35.863" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:35.863" endtime="20200504 15:44:36.132"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>is not valid for Phone Number</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:33.864" endtime="20200503 12:04:33.874"></status>
+<status status="PASS" starttime="20200504 15:44:36.132" endtime="20200504 15:44:36.141"></status>
 </kw>
 <kw name="Page Should Not Contain" library="SeleniumLibrary">
 <doc>Verifies the current page does not contain ``text``.</doc>
 <arguments>
 <arg>Register confirmation</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.883" level="INFO">Current page does not contain text 'Register confirmation'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.874" endtime="20200503 12:04:33.883"></status>
+<msg timestamp="20200504 15:44:36.152" level="INFO">Current page does not contain text 'Register confirmation'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.141" endtime="20200504 15:44:36.152"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:33.402" endtime="20200503 12:04:33.883"></status>
+<status status="PASS" starttime="20200504 15:44:35.660" endtime="20200504 15:44:36.152"></status>
 </kw>
 <kw name="Login to account">
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
@@ -1386,15 +1378,15 @@
 <arguments>
 <arg>Login</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:33.884" endtime="20200503 12:04:33.888"></status>
+<status status="PASS" starttime="20200504 15:44:36.153" endtime="20200504 15:44:36.155"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[3]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.889" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.888" endtime="20200503 12:04:33.947"></status>
+<msg timestamp="20200504 15:44:36.156" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.155" endtime="20200504 15:44:36.215"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1402,8 +1394,8 @@
 <arg>xpath://*[@id="Input_Email"]</arg>
 <arg>${USERNAME}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.948" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.947" endtime="20200503 12:04:33.981"></status>
+<msg timestamp="20200504 15:44:36.215" level="INFO">Typing text 'test1@mctest1.se' into text field 'xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.215" endtime="20200504 15:44:36.247"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1411,25 +1403,25 @@
 <arg>xpath://*[@id="Input_Password"]</arg>
 <arg>${PASSWORD}</arg>
 </arguments>
-<msg timestamp="20200503 12:04:33.982" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:33.982" endtime="20200503 12:04:34.007"></status>
+<msg timestamp="20200504 15:44:36.247" level="INFO">Typing text 'Testyness@10' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.247" endtime="20200504 15:44:36.270"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://html/body/div/main/div/div[1]/section/form/div[5]/button</arg>
 </arguments>
-<msg timestamp="20200503 12:04:34.007" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
-<status status="PASS" starttime="20200503 12:04:34.007" endtime="20200503 12:04:34.080"></status>
+<msg timestamp="20200504 15:44:36.270" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/section/form/div[5]/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.270" endtime="20200504 15:44:36.658"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>${USERNAME}</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:34.080" endtime="20200503 12:04:34.084"></status>
+<status status="PASS" starttime="20200504 15:44:36.658" endtime="20200504 15:44:36.662"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:33.884" endtime="20200503 12:04:34.084"></status>
+<status status="PASS" starttime="20200504 15:44:36.152" endtime="20200504 15:44:36.662"></status>
 </kw>
 <kw name="Go to profile and change phone number with invalid phonenumber formats">
 <kw name="Click Element" library="SeleniumLibrary">
@@ -1437,15 +1429,15 @@
 <arguments>
 <arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
 </arguments>
-<msg timestamp="20200503 12:04:34.085" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200503 12:04:34.085" endtime="20200503 12:04:34.164"></status>
+<msg timestamp="20200504 15:44:36.662" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.662" endtime="20200504 15:44:36.754"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Manage your account</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:34.164" endtime="20200503 12:04:34.172"></status>
+<status status="PASS" starttime="20200504 15:44:36.754" endtime="20200504 15:44:36.761"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -1454,56 +1446,193 @@
 <arg>999999999999</arg>
 <arg>True</arg>
 </arguments>
-<msg timestamp="20200503 12:04:34.173" level="INFO">Typing text '999999999999' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:34.173" endtime="20200503 12:04:34.201"></status>
+<msg timestamp="20200504 15:44:36.761" level="INFO">Typing text '999999999999' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.761" endtime="20200504 15:44:36.788"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://*[@id="update-profile-button"]</arg>
 </arguments>
-<msg timestamp="20200503 12:04:34.201" level="INFO">Clicking button 'xpath://*[@id="update-profile-button"]'.</msg>
-<status status="PASS" starttime="20200503 12:04:34.201" endtime="20200503 12:04:34.303"></status>
+<msg timestamp="20200504 15:44:36.788" level="INFO">Clicking button 'xpath://*[@id="update-profile-button"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:36.788" endtime="20200504 15:44:36.887"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on the current page.</doc>
 <arguments>
 <arg>Invalid phone number</arg>
 </arguments>
-<status status="PASS" starttime="20200503 12:04:34.303" endtime="20200503 12:04:34.313"></status>
+<status status="PASS" starttime="20200504 15:44:36.887" endtime="20200504 15:44:36.896"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:34.085" endtime="20200503 12:04:34.313"></status>
+<status status="PASS" starttime="20200504 15:44:36.662" endtime="20200504 15:44:36.896"></status>
 </kw>
 <kw name="End Agile Project Test" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200503 12:04:34.313" endtime="20200503 12:04:34.948"></status>
+<status status="PASS" starttime="20200504 15:44:36.897" endtime="20200504 15:44:37.558"></status>
 </kw>
-<status status="PASS" starttime="20200503 12:04:34.313" endtime="20200503 12:04:34.949"></status>
+<status status="PASS" starttime="20200504 15:44:36.897" endtime="20200504 15:44:37.558"></status>
 </kw>
 <doc>Test: The user should not be able to add their phonenumber at registration of their account or after in their profile if they use invalid phonenumber formats.</doc>
 <tags>
 <tag>Account</tag>
 <tag>Phone_Number</tag>
 </tags>
-<status status="PASS" starttime="20200503 12:04:26.758" endtime="20200503 12:04:34.949" critical="yes"></status>
+<status status="PASS" starttime="20200504 15:44:30.390" endtime="20200504 15:44:37.558" critical="yes"></status>
+</test>
+<test id="s1-t12" name="User should be able to reach a Contact page from the navbar and send a message/an email to support staff">
+<kw name="Begin Agile Project Page Test" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200504 15:44:37.559" level="INFO">Opening browser 'headlessfirefox' to base url 'about:blank'.</msg>
+<msg timestamp="20200504 15:44:37.560" level="INFO">Firefox driver log is always forced to to: C:\Jenkins\workspace\AgileRebelRentalsPipeline\geckodriver-23.log</msg>
+<status status="PASS" starttime="20200504 15:44:37.559" endtime="20200504 15:44:42.152"></status>
+</kw>
+<status status="PASS" starttime="20200504 15:44:37.559" endtime="20200504 15:44:42.152"></status>
+</kw>
+<kw name="Go to Web Page">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.152" level="INFO">Opening url 'https://localhost:44353'</msg>
+<status status="PASS" starttime="20200504 15:44:42.152" endtime="20200504 15:44:42.817"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${SEARCH_TERM}</arg>
+</arguments>
+<status status="PASS" starttime="20200504 15:44:42.817" endtime="20200504 15:44:42.822"></status>
+</kw>
+<status status="PASS" starttime="20200504 15:44:42.152" endtime="20200504 15:44:42.822"></status>
+</kw>
+<kw name="Generate Email">
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>6</arg>
+<arg>[NUMBERS]abcdef</arg>
+</arguments>
+<assign>
+<var>${RANDOMSTRING}</var>
+</assign>
+<msg timestamp="20200504 15:44:42.823" level="INFO">${RANDOMSTRING} = 7239d5</msg>
+<status status="PASS" starttime="20200504 15:44:42.822" endtime="20200504 15:44:42.823"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${RANDOMSTRING}</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.823" level="INFO">${RANDOMSTRING} = 7239d5</msg>
+<status status="PASS" starttime="20200504 15:44:42.823" endtime="20200504 15:44:42.823"></status>
+</kw>
+<status status="PASS" starttime="20200504 15:44:42.822" endtime="20200504 15:44:42.823"></status>
+</kw>
+<kw name="Go to contact page and input the neccessary contact information in the appropriate fields">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://html/body/header/nav/div/div/ul[2]/li[3]/a</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.823" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[2]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200504 15:44:42.823" endtime="20200504 15:44:42.899"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Contact Us</arg>
+</arguments>
+<status status="PASS" starttime="20200504 15:44:42.899" endtime="20200504 15:44:42.904"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="NameField"]</arg>
+<arg>Autotest${RANDOMSTRING}</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.904" level="INFO">Typing text 'Autotest7239d5' into text field 'xpath://*[@id="NameField"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:42.904" endtime="20200504 15:44:42.931"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="EmailField"]</arg>
+<arg>${RANDOMSTRING}@email.com</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.932" level="INFO">Typing text '7239d5@email.com' into text field 'xpath://*[@id="EmailField"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:42.931" endtime="20200504 15:44:42.949"></status>
+</kw>
+<status status="PASS" starttime="20200504 15:44:42.823" endtime="20200504 15:44:42.949"></status>
+</kw>
+<kw name="Compose message to support staff and click the send button">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="MessageField"]</arg>
+<arg>${RANDOMSTRING}${RANDOMSTRING}${RANDOMSTRING}</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.950" level="INFO">Typing text '7239d57239d57239d5' into text field 'xpath://*[@id="MessageField"]'.</msg>
+<status status="PASS" starttime="20200504 15:44:42.949" endtime="20200504 15:44:42.968"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://html/body/div/main/form/div[4]/button</arg>
+</arguments>
+<msg timestamp="20200504 15:44:42.968" level="INFO">Clicking button 'xpath://html/body/div/main/form/div[4]/button'.</msg>
+<status status="PASS" starttime="20200504 15:44:42.968" endtime="20200504 15:44:45.072"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>A support member will get back to you as soon as possible</arg>
+</arguments>
+<status status="PASS" starttime="20200504 15:44:45.072" endtime="20200504 15:44:45.079"></status>
+</kw>
+<status status="PASS" starttime="20200504 15:44:42.949" endtime="20200504 15:44:45.079"></status>
+</kw>
+<kw name="End Agile Project Test" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200504 15:44:45.079" endtime="20200504 15:44:45.686"></status>
+</kw>
+<status status="PASS" starttime="20200504 15:44:45.079" endtime="20200504 15:44:45.686"></status>
+</kw>
+<doc>Test: The user should be able to reach a contact page from the navbar, and by entering name, email and message into the appropriate fields send a message and/or email to support staff by then clicking a button.</doc>
+<tags>
+<tag>Contact_Page</tag>
+<tag>Email</tag>
+<tag>Message</tag>
+<tag>Support</tag>
+</tags>
+<status status="PASS" starttime="20200504 15:44:37.558" endtime="20200504 15:44:45.686" critical="yes"></status>
 </test>
 <doc>This is a test suite around an agile projects website made with Razor Pages.</doc>
-<status status="PASS" starttime="20200503 12:03:09.129" endtime="20200503 12:04:34.949"></status>
+<status status="PASS" starttime="20200504 15:43:24.232" endtime="20200504 15:44:45.687"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="11" fail="0">Critical Tests</stat>
-<stat pass="11" fail="0">All Tests</stat>
+<stat pass="12" fail="0">Critical Tests</stat>
+<stat pass="12" fail="0">All Tests</stat>
 </total>
 <tag>
 <stat pass="1" fail="0">Access</stat>
 <stat pass="7" fail="0">Account</stat>
 <stat pass="1" fail="0">Add_Products</stat>
+<stat pass="1" fail="0">Contact_Page</stat>
+<stat pass="1" fail="0">Email</stat>
 <stat pass="1" fail="0">Header</stat>
 <stat pass="2" fail="0">Home_Page</stat>
 <stat pass="1" fail="0">Login</stat>
 <stat pass="1" fail="0">Logout</stat>
+<stat pass="1" fail="0">Message</stat>
 <stat pass="2" fail="0">NASA</stat>
 <stat pass="1" fail="0">New</stat>
 <stat pass="1" fail="0">Pages</stat>
@@ -1511,10 +1640,11 @@
 <stat pass="1" fail="0">Profanity_Filter</stat>
 <stat pass="1" fail="0">Referal</stat>
 <stat pass="1" fail="0">Shopping_Cart</stat>
+<stat pass="1" fail="0">Support</stat>
 <stat pass="2" fail="0">Vacation</stat>
 </tag>
 <suite>
-<stat pass="11" fail="0" id="s1" name="RebelRentals">RebelRentals</stat>
+<stat pass="12" fail="0" id="s1" name="RebelRentals">RebelRentals</stat>
 </suite>
 </statistics>
 <errors>
