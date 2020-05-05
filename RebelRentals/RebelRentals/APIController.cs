@@ -37,7 +37,7 @@ namespace RebelRentals
             return updated;
         }
 
-        public async Task<string> TranslateToSith(string inputString, string translationLanguage)
+        public async Task<string> TranslateToGalacticLanguage(string inputString, string translationLanguage)
         {
             string url = "https://api.funtranslations.com/translate/sith.json?text=";
             try

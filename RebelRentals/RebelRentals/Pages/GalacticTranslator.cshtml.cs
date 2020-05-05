@@ -28,7 +28,7 @@ namespace RebelRentals.Pages
 
         public async Task<IActionResult> OnPostTranslation()
         {
-            TranslatedText = await _apiController.TranslateToSith(TextToTranslate, SelectedLanguage);
+            TranslatedText = await _apiController.TranslateToGalacticLanguage(TextToTranslate, SelectedLanguage);
             return Page();
         }
     }
