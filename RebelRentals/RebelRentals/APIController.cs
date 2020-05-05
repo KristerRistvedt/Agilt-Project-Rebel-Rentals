@@ -1,12 +1,12 @@
 ﻿using RebelRentals;
 using RestClient.Net;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using RestClient.Net.Abstractions;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using MailMessage = System.Net.Mail.MailMessage;
+
 
 namespace RebelRentals
 {
