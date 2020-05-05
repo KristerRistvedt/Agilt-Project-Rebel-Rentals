@@ -27,6 +27,8 @@ namespace RebelRentals.Pages.OrderPage
         public Order Order { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
         public List<ShipOrder> ShipOrders { get; set; }
+        public List<ShipOrder> ShipOrdersCopy { get; set; }
+
         [BindProperty]
         public double TotalCost { get; set; }
 
@@ -34,15 +36,27 @@ namespace RebelRentals.Pages.OrderPage
         {
             TotalCost = 0.0;
 
-            foreach (var item in ShipOrders)
+            foreach (var item in ShipOrdersCopy)
             {
                 TotalCost = TotalCost + (item.Ship.Price * item.Count);
             }
         }
 
+        public void EmptyCart()
+        {
+            ShoppingCart.ClearCart();
+        }
+
         public void OnGetAsync()
         {
+            ShipOrdersCopy = new List<ShipOrder>();
+            foreach (var item in ShipOrders)
+            {
+                ShipOrdersCopy.Add(item);
+            }
             TotalOrderCost();
+            EmptyCart();
+            ShoppingCart.ClearShipOrders();
         }
     }
 }
