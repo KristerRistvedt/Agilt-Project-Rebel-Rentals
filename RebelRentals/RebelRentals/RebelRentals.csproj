@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-RebelRentals-F8A26377-1D2B-437D-A44D-4D2578D22564</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20200427102013_TryingNewThings.cs" />
+    <Compile Remove="Migrations\20200427102013_TryingNewThings.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AE.Net.Mail" Version="1.7.10" />

@@ -1,0 +1,48 @@
+﻿@page
+@model RebelRentals.Pages.OrderPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Order summary</h1>
+
+<p>Total cost: @Model.TotalCost</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Model
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListOfShipsInCart)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form method="post" asp-page-handler="ClearCart">
+    <button>Clear cart</button>
+</form>
+<form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
+    <button>Finalize order</button>
+</form>

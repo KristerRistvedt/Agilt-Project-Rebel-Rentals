@@ -1,4 +1,5 @@
-﻿using RebelRentals.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using RebelRentals.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,30 +10,31 @@ namespace RebelRentals
     public class ShoppingCart
     {
         private List<Ship> shoppingCart = new List<Ship>();
+        public List<ShipOrder> OrderedShips = new List<ShipOrder>();
 
         public List<Ship> GetShoppingList()
         {
             return shoppingCart;
         }
 
-        public bool AddShipToCart(Ship ship)
+        public void AddShipToCart(Ship ship)
         {
-            bool success;
-            if (shoppingCart.Any(element => element.Id == ship.Id)) 
-            { 
-                success = false;
-            }
-            else
-            {
-                shoppingCart.Add(ship);
-                success = true;
-            }
-            return success;
+            shoppingCart.Add(ship);
         }
 
         public void RemoveShipFromCart(Ship ship)
         {
             shoppingCart.Remove(ship);
+        }
+
+        public void ClearCart()
+        {
+            shoppingCart.Clear();
+        }
+
+        public void ClearShipOrders()
+        {
+            OrderedShips.Clear();
         }
     }
 }

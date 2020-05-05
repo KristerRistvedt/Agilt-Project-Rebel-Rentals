@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RebelRentals.Data;
 
-namespace RebelRentals.Data.Migrations
+namespace RebelRentals.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200416085847_AddedShipPrice")]
-    partial class AddedShipPrice
+    [Migration("20200427104447_PleaseWorkThisTime")]
+    partial class PleaseWorkThisTime
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -221,6 +221,26 @@ namespace RebelRentals.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("RebelRentals.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateOfPurchase")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("RebelRentals.Models.Ship", b =>
                 {
                     b.Property<int>("Id")
@@ -228,7 +248,11 @@ namespace RebelRentals.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("About")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Class")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Height")
@@ -241,13 +265,14 @@ namespace RebelRentals.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Model")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumberOfPassengers")
+                    b.Property<int>("NumberOfPopulation")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
                     b.Property<int>("Width")
                         .HasColumnType("int");
@@ -255,6 +280,21 @@ namespace RebelRentals.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Ship");
+                });
+
+            modelBuilder.Entity("RebelRentals.Models.ShipOrder", b =>
+                {
+                    b.Property<int>("ShipId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ShipId", "OrderId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ShipOrder");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -304,6 +344,28 @@ namespace RebelRentals.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RebelRentals.Models.Order", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("RebelRentals.Models.ShipOrder", b =>
+                {
+                    b.HasOne("RebelRentals.Models.Order", "Order")
+                        .WithMany("ShipOrders")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RebelRentals.Models.Ship", "Ship")
+                        .WithMany("ShipOrders")
+                        .HasForeignKey("ShipId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
