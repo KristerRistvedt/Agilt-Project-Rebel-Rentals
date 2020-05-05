@@ -4,8 +4,8 @@ Documentation  This is some basic info about the whole test suite
 Resource       C:/Users/fritz/PycharmProjects/RebelRentals/Resources/keywords.robot
 Library        SeleniumLibrary
 
-Suite Setup     Begin web test
-Suite Teardown  End webtest
+Test Setup     Begin web test
+Test Teardown  End webtest
 
 *** Variables ***
 ${BROWSER} =    chrome
@@ -22,8 +22,8 @@ ${INVALID_PHONE_NUMBER2} =   07681999999
 
 
 WEB-89 Test 3
-    [Documentation]           This is the test case that us going to test that you can change your already existing phone number
-    [Tags]                    Test WEB-89-fail
+    [Documentation]           This is the test case that is going to test if you can change your already exisisting phone number and that yu cant use more than 10 numbers
+    [Tags]                    Test WEB-89-3
     Page Loaded
     Log In
     Generate Phonenumber
@@ -72,16 +72,16 @@ WEB1-42 Test
 
 WEB-89 Test
     [Documentation]           This is the test case that us going to test the functionality of the phone number validator
-    [Tags]                    Test WEB-89
-    Log Out Failsafe
+    [Tags]                    Test WEB-89-1
     Page Loaded
     Verify Rental Page Loaded
+    Generate Phonenumber
     Generate Email
     Register An Account
 
 WEB-89 Test 2
     [Documentation]           This is the test case that us going to test that the phone number validator takes exactly 10 numbers
-    [Tags]                    Test WEB-89-fail
+    [Tags]                    Test WEB-89-2
 
     Page Loaded
     Verify Rental Page Loaded
