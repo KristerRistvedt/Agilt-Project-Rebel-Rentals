@@ -36,7 +36,7 @@ Go to Web Page
 Switch to privacy page
         Go to Web Page
         Wait Until Page Contains    ${SEARCH_TERM}
-        Click Element               xpath://html/body/header/nav/div/div/ul[2]/li[4]/a
+        Click Element               xpath://html/body/header/nav/div/div/ul[2]/li[5]/a
         Wait Until Page Contains    Privacy Policy
 
 Switch to home page
@@ -200,6 +200,35 @@ Click on the translate button and make sure nothing is translated
         Click Button                        xpath://html/body/div/main/div/form/button
         Page Should Contain                 Too many requests
 
+Check if an Order Page exists and is accessible through the shoppingcart
+        Click Element                       xpath://html/body/div/main/div/a
+        Wait Until Page Contains            Order summary
+        Element Text Should Not Be          xpath://html/body/div/main/p        0
+
+Go to the Order Summary Page by finalizing an order
+        Click Element                       xpath://html/body/div/main/div/a
+        Wait Until Page Contains            Order summary
+        Element Text Should Not Be          xpath://html/body/div/main/p        0
+        Click Button                        xpath://html/body/div/main/form[2]/button
+        Wait Until Element Is Visible       xpath://html/body/div/main/table/tbody
+        Element Text Should Be              xpath://html/body/div/main/h1       Summary
+
+Go back to the Order Page by clicking Back to List and check if the list has been cleared
+        Click Element                       xpath://html/body/div/main/div/a
+        Wait Until Page Contains            Order summary
+        Element Text Should Be              xpath://html/body/div/main/p        Total cost: 0
+        Wait Until Page Contains            You haven't added anything yet
+
+Go to the Order Summary Page
+        Click Element                       xpath://html/body/div/main/div/a
+        Wait Until Page Contains            Order summary
+        Element Text Should Not Be          xpath://html/body/div/main/p        0
+
+Clear the order list by clicking a button and get redirected to the Home Page
+        Click Button                        xpath://html/body/div/main/form[1]/button
+        Wait Until Page Contains            NASA's Daily Recommended Tourist Location
+
+
 End Agile Project Test
         Close Browser
 
@@ -291,15 +320,15 @@ User should be able to reach a Contact page from the navbar and send a message/a
     Compose message to support staff and click the send button
 
 User should be able to reach a Galactic Translator Page from the navbar and enter relevant information
-    [Documentation]             Test: The user should be able to add and remove products from their cart, and reach said cart.
+    [Documentation]             Test: The user should be able to reach a Galactic Translator Page and choose language and enter the text to be translated.
     [Tags]                      Navbar      Translate
     Go to Web Page
     See if Galactic Translator page exists by clicking its link in the navbar
     See if you can choose a language from a dropdown menu and enter text to translate
 
 User should be able to use the Galactic Translator Page to translate text into 3 different languages
-    [Documentation]             Test: The user should be able to add and remove products from their cart, and reach said cart.
-    [Tags]                      Navbar      Translate
+    [Documentation]             Test: By using the Galactic Translator Page the user should be able to translate text into the three existing languages in the dropdown menu.
+    [Tags]                      Navbar      Translate       Translate_Coverage
     Go to Web Page
     Go to the Galactic Translator Page and enter text to translate to sith
     Click on the translate button and make sure the inputted text gets translated
@@ -309,8 +338,8 @@ User should be able to use the Galactic Translator Page to translate text into 3
     Click on the translate button and make sure the inputted text gets translated
 
 User should not be able to translate anything more than five times during a certain period of time
-    [Documentation]             Test: The user should be able to add and remove products from their cart, and reach said cart.
-    [Tags]                      Navbar      Translate
+    [Documentation]             Test: After translating something/anything on the translate page five times, an error message should appear instead of a translation.
+    [Tags]                      Navbar      Translate       Invalid
     Go to Web Page
     Go to the Galactic Translator Page and enter text to translate to sith
     Click on the translate button
@@ -318,6 +347,51 @@ User should not be able to translate anything more than five times during a cert
     Click on the translate button
     Change language to Yoda
     Click on the translate button
+    Change language to Gungan and change the text to be translated
     Click on the translate button
+    Change language to Yoda
     Click on the translate button
+    Change language to Gungan and change the text to be translated
     Click on the translate button and make sure nothing is translated
+
+User should be able to access the Order Page through the shoppingcart after adding ships to it
+    [Documentation]             Test: The user reacher an order page through the shopping cart, and sees a small summary of the items of said cart and total cost.
+    [Tags]                      Shopping_Cart       Order_Page      Place_An_Order
+    Go to Web Page
+    Login to account
+    Go to Ships page
+    Add ships to cart
+    Go to cart
+    Check if an Order Page exists and is accessible through the shoppingcart
+
+User should be able to access a Order Summary Page through the Order Page by finalizing the users order
+    [Documentation]             Test: The user reacher a more detailed order summary through the order page, and sees more detailed information about items in the shoppingcart.
+    [Tags]                      Shopping_Cart       Order_Page      Place_An_Order       Summary_Page
+    Go to Web Page
+    Login to account
+    Go to Ships page
+    Add ships to cart
+    Go to cart
+    Go to the Order Summary Page by finalizing an order
+
+Users order list on the Order Page should have been cleared by finalizing the order
+    [Documentation]             Test: The users order should be cleared after having seen the Order Summary after finalizing their order.
+    [Tags]                      Shopping_Cart       Order_Page      Place_An_Order
+    Go to Web Page
+    Login to account
+    Go to Ships page
+    Add ships to cart
+    Go to cart
+    Go to the Order Summary Page by finalizing an order
+    Go back to the Order Page by clicking Back to List and check if the list has been cleared
+
+User should be able to remove their shopping cart items by clearing their order list
+    [Documentation]             Test: The users order should be able to be cleared by clicking a button on the Order Page.
+    [Tags]                      Shopping_Cart       Order_Page      Place_An_Order
+    Go to Web Page
+    Login to account
+    Go to Ships page
+    Add ships to cart
+    Go to cart
+    Go to the Order Summary Page
+    Clear the order list by clicking a button and get redirected to the Home Page
