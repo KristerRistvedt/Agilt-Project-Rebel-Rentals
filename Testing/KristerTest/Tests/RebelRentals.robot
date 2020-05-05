@@ -352,6 +352,10 @@ User should not be able to translate anything more than five times during a cert
     Change language to Yoda
     Click on the translate button
     Change language to Gungan and change the text to be translated
+    Click on the translate button
+    Change language to Yoda
+    Click on the translate button
+    Change language to Gungan and change the text to be translated
     Click on the translate button and make sure nothing is translated
 
 User should be able to access the Order Page through the shoppingcart after adding ships to it
