@@ -25,10 +25,7 @@ namespace RebelRentals.Pages
             "Gungan",
             "Yoda"
         };
-        /*public void OnGet()
-        {
-            
-        }*/
+
         public async Task<IActionResult> OnPostTranslation()
         {
             TranslatedText = await _apiController.TranslateToSith(TextToTranslate, SelectedLanguage);
