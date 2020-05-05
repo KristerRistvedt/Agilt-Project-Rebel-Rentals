@@ -12,6 +12,8 @@ using RebelRentals.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
+using RebelRentals.Models;
 
 namespace RebelRentals
 {
@@ -35,6 +37,7 @@ namespace RebelRentals
             services.AddRazorPages();
             services.AddSingleton<APIController>();
             services.AddSingleton<ShoppingCart>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
