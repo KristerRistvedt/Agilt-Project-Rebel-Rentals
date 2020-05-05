@@ -112,23 +112,7 @@ namespace RebelRentals.Data
                           About = "Prized for its durability and long-range striking capability.",
                       }
                 );
-            SetIdentityOn();
             SaveChanges();
-            SetIdentityOff();
-        }
-
-        public void SetIdentityOn()
-        {
-            this.Database.OpenConnection();
-            this.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Ship ON");
-            this.SaveChanges();
-        }
-
-        public void SetIdentityOff()
-        {
-            this.Database.OpenConnection();
-            this.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Ship OFF");
-            this.SaveChanges();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
