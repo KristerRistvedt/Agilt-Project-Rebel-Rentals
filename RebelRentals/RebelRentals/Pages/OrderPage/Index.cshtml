@@ -46,3 +46,9 @@
 <form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
     <button>Finalize order</button>
 </form>
+@if (Model.CheckOutFailed)
+{
+    <ul class="text-danger">
+        <li>Could not finalize your order. You have to register and sign in to make an order.</li>
+    </ul>
+}

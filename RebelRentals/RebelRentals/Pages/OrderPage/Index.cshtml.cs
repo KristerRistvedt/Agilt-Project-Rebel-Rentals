@@ -8,6 +8,8 @@ using RebelRentals.Data;
 using RebelRentals.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using System.Reflection.Metadata.Ecma335;
 
 namespace RebelRentals.Pages.OrderPage
 {
@@ -21,6 +23,7 @@ namespace RebelRentals.Pages.OrderPage
         [BindProperty]
         public double? TotalCost { get; set; } = 0.0;
         public List<Ship> ListOfShipsInCart { get; set; }
+        public bool CheckOutFailed { get; set; }
 
         public IndexModel(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, ShoppingCart shoppingCart)
         {
@@ -51,12 +54,6 @@ namespace RebelRentals.Pages.OrderPage
             }
         }
 
-        // We don't need this right now.
-        /*public async Task OnGetAsync()
-        {
-            ShoppingCart = await _context.Ship.ToListAsync();
-        }*/
-
         public void OrderSummary()
         {
             TotalCost = 0.0;
@@ -67,10 +64,21 @@ namespace RebelRentals.Pages.OrderPage
             }
         }
 
-        public async Task<RedirectToPageResult> OnPostFinalizeOrder()
+        public async Task<IActionResult> OnPostFinalizeOrder()
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var databaseUser = _context.Users.Single(user => user.Id == userId);
+            string userId;
+            IdentityUser databaseUser;
+
+            try
+            {
+                userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                databaseUser = _context.Users.Single(user => user.Id == userId);
+            }
+            catch
+            {
+                CheckOutFailed = true;
+                return Page();
+            }
             var order = new Order
             {
                 User = databaseUser,
