@@ -12,6 +12,7 @@ using RebelRentals.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Session;
 
 namespace RebelRentals
 {
@@ -35,6 +36,11 @@ namespace RebelRentals
             services.AddRazorPages();
             services.AddSingleton<APIController>();
             services.AddSingleton<ShoppingCart>();
+            services.AddSingleton<CurrencyConverter>();
+            services.AddSingleton<CurrencyModel>();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,8 +60,9 @@ namespace RebelRentals
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseStaticFiles();
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();

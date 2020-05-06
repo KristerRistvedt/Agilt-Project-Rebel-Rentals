@@ -1,0 +1,55 @@
+﻿@page
+@model TestModel
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Convertion</h1>
+
+<form method="post">
+    <input asp-for="FromCurrency" />
+    <input asp-for="ToCurrency" />
+    <button asp-page-handler="List">
+        Submit
+    </button>
+</form>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyList[0].CurrencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyList[0].CurrencySymbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyList[0].Id)
+            </th>
+        </tr>
+    </thead>
+    <tbody class="trMiddle">
+        @foreach (var currency in Model.CurrencyList)
+        {
+            <tr>
+                <td>
+                    @currency.CurrencyName
+                </td>
+                <td>
+                    @if (currency.CurrencySymbol != null)
+                    {
+                        @currency.CurrencySymbol
+                    }
+                    else
+                    {
+                        <p>-</p>
+                    }
+                </td>
+                <td>
+                    @currency.Id
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

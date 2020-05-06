@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RebelRentals;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace RebelRentals.Areas.Identity.Pages.Account.Manage
 {
@@ -13,13 +16,21 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly APIController _aPIController;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            APIController aPIController,
+            List<Currency> currensyList = null)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _aPIController = aPIController;
+            if (currensyList != null) 
+            {
+                CurrencyList = currensyList;
+            }
         }
 
         public string Username { get; set; }
@@ -29,6 +40,16 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
 
         [BindProperty]
         public InputModel Input { get; set; }
+        public List<Currency> CurrencyList { get; private set; }
+        public bool ShowingMenu;
+        [BindProperty]
+        public Currency Currency { get; set; }
+        [BindProperty]
+        public string CurrencyName { get; set; }
+        [BindProperty]
+        public string CurrencySymbol { get; set; }
+        [BindProperty]
+        public string Id { get; set; }
 
         public class InputModel
         {
@@ -90,6 +111,23 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
+        }
+        public async Task<IActionResult> OnPostDisplayCurrencyChangeList()
+        {
+            CurrencyList = await _aPIController.SetCurrencyList();
+            ShowingMenu = true;
+            HttpContext.Session.SetString("SessionList", JsonConvert.SerializeObject(CurrencyList));
+            return Page();
+            
+        }
+        public PageResult OnPostChangeCurrency()
+        {
+            JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency"));
+
+            CurrencyList = JsonConvert.DeserializeObject<List<Currency>>(HttpContext.Session.GetString("SessionList"));
+            Currency = CurrencyList.Find(currency => currency.Id == Currency.Id);
+            HttpContext.Session.SetString("SessionCurrency", JsonConvert.SerializeObject(Currency));
+            return Page();
         }
     }
 }
