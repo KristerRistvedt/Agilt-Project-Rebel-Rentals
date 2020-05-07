@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using MailMessage = System.Net.Mail.MailMessage;
-
+using System.Collections.Generic;
 
 namespace RebelRentals
 {
