@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RestClient.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RebelRentals
 {
@@ -23,7 +26,7 @@ namespace RebelRentals
         {
             var client = new Client(new Uri($"https://free.currconv.com/api/v7/convert?q={fromCurrency}_{toCurrency}&compact=ultra&apiKey=d32dfcb72bf0f09defeb"));
             var response = await client.GetAsync<string>();
-            return response;
+            return response.Body;
         }
         public async Task<List<Currency>> SetCurrencyList()
         {

@@ -14,10 +14,7 @@ namespace RebelRentals
         {
             _aPIController = aPIController;
         }
-        public async Task SetCurrencyList()
-        {
-            CurrencyList = await _aPIController.SetCurrencyList();
-        }
+        
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -512,7 +513,6 @@ namespace RebelRentals
         [JsonProperty("ZWL")]
         public Currency Zwl { get; set; }
     }
-
 
     public partial class Currency
     {

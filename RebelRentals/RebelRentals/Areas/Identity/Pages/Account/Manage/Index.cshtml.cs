@@ -21,16 +21,11 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
         public IndexModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            APIController aPIController,
-            List<Currency> currensyList = null)
+            APIController aPIController)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _aPIController = aPIController;
-            if (currensyList != null) 
-            {
-                CurrencyList = currensyList;
-            }
         }
 
         public string Username { get; set; }
@@ -42,12 +37,10 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
         public InputModel Input { get; set; }
         public List<Currency> CurrencyList { get; private set; }
         public bool ShowingMenu;
+        private double conversionRate;
+
         [BindProperty]
         public Currency Currency { get; set; }
-        [BindProperty]
-        public string CurrencyName { get; set; }
-        [BindProperty]
-        public string CurrencySymbol { get; set; }
         [BindProperty]
         public string Id { get; set; }
 
@@ -114,19 +107,26 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
         }
         public async Task<IActionResult> OnPostDisplayCurrencyChangeList()
         {
-            CurrencyList = await _aPIController.SetCurrencyList();
+            bool listExists = HttpContext.Session.TryGetValue("SessionList", out _);
+            if (!listExists)
+            {
+                var currencyList = await _aPIController.SetCurrencyList();
+                HttpContext.Session.SetString("SessionList", JsonConvert.SerializeObject(currencyList));
+            }
             ShowingMenu = true;
-            HttpContext.Session.SetString("SessionList", JsonConvert.SerializeObject(CurrencyList));
             return Page();
-            
         }
-        public PageResult OnPostChangeCurrency()
+        public async Task<PageResult> OnPostChangeCurrency()
         {
-            JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency"));
-
-            CurrencyList = JsonConvert.DeserializeObject<List<Currency>>(HttpContext.Session.GetString("SessionList"));
-            Currency = CurrencyList.Find(currency => currency.Id == Currency.Id);
+            Currency = JsonConvert.DeserializeObject<List<Currency>>(HttpContext.Session.GetString("SessionList"))
+                .Find(currency => currency.Id == Currency.Id);
             HttpContext.Session.SetString("SessionCurrency", JsonConvert.SerializeObject(Currency));
+            var response = await _aPIController
+                .ConvertCurrency("SEK", JsonConvert.DeserializeObject<Currency>
+                (HttpContext.Session.GetString("SessionCurrency")).Id);
+            var trimmedResponse = response.Substring(11, 7).Replace('.', ',');
+            conversionRate = Convert.ToDouble(trimmedResponse);
+            HttpContext.Session.SetString("SessionRate", JsonConvert.ToString(conversionRate));
             return Page();
         }
     }

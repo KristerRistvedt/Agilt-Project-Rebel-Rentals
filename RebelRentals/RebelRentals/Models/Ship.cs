@@ -36,7 +36,6 @@ namespace RebelRentals.Models
         public int Height { get; set; }
 
         [Required]
-        [DataType(DataType.Currency)]
         public double? Price { get; set; }
         public string About { get; set; }
     }

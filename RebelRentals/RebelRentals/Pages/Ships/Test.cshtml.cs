@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace RebelRentals
 {
     public class TestModel : PageModel
     {
+        public double conversionRate { get; private set; }
+
+        public bool showConverterCurrency;
+
         public APIController _aPIController { get; set; }
         public CurrencyConverter _currencyConverter { get; set; }
         public List<Currency> CurrencyList { get; set; }
-        public CurrencyModel CurrencyModel { get; set; }
-        public string FromCurrency { get; set; }
-        public string ToCurrency { get; set; }
 
         public TestModel(APIController aPIController, CurrencyConverter currencyConverter)
         {
@@ -26,9 +29,12 @@ namespace RebelRentals
         {
             
         }
-        public async Task OnPostList()
+        public PageResult OnPostConvertCurrency()
         {
-            CurrencyList = await _aPIController.SetCurrencyList();
+            conversionRate = JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate"));
+            showConverterCurrency = true;
+            return Page();
         }
+       
     }
 }

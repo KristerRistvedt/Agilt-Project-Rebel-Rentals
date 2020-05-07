@@ -13,12 +13,13 @@ namespace RebelRentals.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        private readonly CurrencyConverter _currencyConverter;
+        private readonly APIController _aPIController;
 
-        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context, CurrencyConverter currencyConverter)
+        private readonly ILogger<IndexModel> _logger;
+
+        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context, APIController aPIController)
         {
-            _currencyConverter = currencyConverter;
+            _aPIController = aPIController;
             _logger = logger;
 
             if (context.Ship.Any())
@@ -33,23 +34,29 @@ namespace RebelRentals.Pages
 
         public Currency StartCurrency = new Currency()
         {
-            Id = "USD",
-            CurrencyName = "United States Dollar",
-            CurrencySymbol = "$"
+            Id = "SEK",
+            CurrencyName = "Swedish Krona",
+            CurrencySymbol = "kr"
         };
 
-        public void OnGet()
+        public void OnGetAsync()
         {
             var sessionName = new Byte[20];
-            bool nameExists = HttpContext.Session.TryGetValue("SessionCurrency", out sessionName);
-            if (!nameExists)
+            bool currencyExists = HttpContext.Session.TryGetValue("SessionCurrency", out sessionName);
+            if (!currencyExists)
             {
                 HttpContext.Session.SetString("SessionCurrency", JsonConvert.SerializeObject(StartCurrency));
             }
+            bool rateExists = HttpContext.Session.TryGetValue("SessionRate", out sessionName);
+            if (!rateExists)
+            {
+                HttpContext.Session.SetString("SessionRate", JsonConvert.ToString(1));
+            }
+
         }
         public RedirectToPageResult OnPostToTestPage()
         {
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Test");
         }
     }
 }
