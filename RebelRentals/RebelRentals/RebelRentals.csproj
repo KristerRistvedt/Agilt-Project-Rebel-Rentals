@@ -10,7 +10,6 @@
     <Compile Remove="Migrations\20200427102013_TryingNewThings.Designer.cs" />
   </ItemGroup>
 
-
   <ItemGroup>
     <PackageReference Include="AE.Net.Mail" Version="1.7.10" />
     <PackageReference Include="Google.Apis.Gmail.v1" Version="1.45.0.1927" />

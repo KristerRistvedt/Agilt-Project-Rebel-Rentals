@@ -1,5 +1,8 @@
 ﻿@page
 @model IndexModel
+@using Newtonsoft.Json;
+@using Microsoft.AspNetCore.Http
+@using RebelRentals;
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
@@ -26,6 +29,37 @@
             </div>
             <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
         </form>
+        
+
+        <div class="form-group">
+            @if (Model.ShowingMenu == false)
+            {
+            <h5>
+                Current Currency: <br>
+                @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencyName)
+            </h5>
+
+                <form method="post">
+                    <button asp-page-handler="DisplayCurrencyChangeList">
+                        Change currency
+                    </button>
+                </form>
+            }
+            else
+            {
+                <form method="post">
+                    <select asp-for="Id" class="form-control">
+                        @foreach (var currency in (JsonConvert.DeserializeObject<List<Currency>>(HttpContext.Session.GetString("SessionList"))))
+                        {
+                            <option value="@currency.Id">@currency.Id  ||  @currency.CurrencyName  ||  @currency.CurrencySymbol</option>
+                        }
+                    </select>
+                    <button asp-page-handler="ChangeCurrency">
+                        Submit Currency-change
+                    </button>
+                </form>
+            }
+        </div>  
     </div>
 </div>
 
