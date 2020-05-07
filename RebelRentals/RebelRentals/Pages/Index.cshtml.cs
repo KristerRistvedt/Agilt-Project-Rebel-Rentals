@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,27 +9,33 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RebelRentals.Data;
+using RebelRentals.Models;
+using RebelRentals.Pages.Ships;
 
 namespace RebelRentals.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly APIController _aPIController;
+      private readonly ILogger<IndexModel> _logger;
+      public APIController apiController;
+      public ApodModel Apod { get; set; }
+      public ApplicationDbContext _context { get; set; }
 
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context, APIController aPIController)
+        public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext context, APIController apiController)
         {
-            _aPIController = aPIController;
-            _logger = logger;
+          _logger = logger;
+          this.apiController = apiController;
+          var task = Task.Run(async () => { await UpdateApod(); });
+          task.Wait();
+          _context = context;
 
-            if (context.Ship.Any())
+            if (_context.Ship.Any())
             {
                 return;
             }
             else
             {
-                context.SeedShipData();
+                _context.SeedShipData();
             }
         }
 
@@ -52,11 +59,13 @@ namespace RebelRentals.Pages
             {
                 HttpContext.Session.SetString("SessionRate", JsonConvert.ToString(1));
             }
-
-        }
-        public RedirectToPageResult OnPostToTestPage()
+        } 
+        public async Task<bool> UpdateApod()
         {
-            return RedirectToPage("./Test");
+          bool updated = await apiController.UpdateApod();
+          Apod = apiController.Apod;
+          return updated;
         }
+
     }
 }

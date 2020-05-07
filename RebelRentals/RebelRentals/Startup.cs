@@ -12,7 +12,8 @@ using RebelRentals.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
+using RebelRentals.Models;
 
 namespace RebelRentals
 {
@@ -40,6 +41,7 @@ namespace RebelRentals
             services.AddDistributedMemoryCache();
             services.AddSession();
             services.AddMvc();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

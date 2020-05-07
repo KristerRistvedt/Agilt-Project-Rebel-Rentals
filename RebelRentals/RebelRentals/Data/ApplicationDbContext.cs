@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RebelRentals.Models;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace RebelRentals.Data
 {
@@ -12,11 +15,17 @@ namespace RebelRentals.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
         }
-        public DbSet<RebelRentals.Models.Ship> Ship { get; set; }
+
+        public DbSet<ShipOrder> ShipOrder { get; set; }
+        public DbSet<Ship> Ship { get; set; }
+        public DbSet<Order> Order { get; set; }
 
         public void SeedShipData()
         {
+            Ship.RemoveRange();
+            this.SaveChanges();
             Ship.AddRange(
                 new Ship
                 {
@@ -103,8 +112,23 @@ namespace RebelRentals.Data
                           About = "Prized for its durability and long-range striking capability.",
                       }
                 );
-
             SaveChanges();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ShipOrder>()
+                .HasKey(so => new { so.ShipId, so.OrderId });
+            modelBuilder.Entity<ShipOrder>()
+                .HasOne(so => so.Ship)
+                .WithMany(s => s.ShipOrders)
+                .HasForeignKey(so => so.ShipId);
+            modelBuilder.Entity<ShipOrder>()
+                .HasOne(so => so.Order)
+                .WithMany(o => o.ShipOrders)
+                .HasForeignKey(o => o.OrderId);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

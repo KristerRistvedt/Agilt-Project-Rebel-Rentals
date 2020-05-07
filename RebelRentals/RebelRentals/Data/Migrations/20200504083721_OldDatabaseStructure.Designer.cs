@@ -10,8 +10,8 @@ using RebelRentals.Data;
 namespace RebelRentals.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200416092108_EditedProperties")]
-    partial class EditedProperties
+    [Migration("20200504083721_OldDatabaseStructure")]
+    partial class OldDatabaseStructure
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -227,6 +227,9 @@ namespace RebelRentals.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("About")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Class")
                         .IsRequired()

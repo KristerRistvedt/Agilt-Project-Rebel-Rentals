@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace RebelRentals.Areas.Identity.Pages.Account
 {
@@ -26,6 +27,7 @@ namespace RebelRentals.Areas.Identity.Pages.Account
         private readonly APIController _apiController;
 
         public bool emailContainsProfanity;
+        public bool? phoneNumberAccepted;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -61,6 +63,10 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             [Display(Name = "Password")]
             public string Password { get; set; }
 
+            [Display(Name = "Phone Number")]
+            [DataType(DataType.PhoneNumber)]
+            public int? PhoneNumber { get; set; }
+
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
@@ -78,9 +84,11 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             emailContainsProfanity = await _apiController.ContainsProfanity(Input.Email);
-            if (ModelState.IsValid && !emailContainsProfanity)
+            if (Input.PhoneNumber != null) { phoneNumberAccepted = await _apiController.PhoneNumberValidation((int)Input.PhoneNumber); }
+            else { phoneNumberAccepted = true; }
+            if (ModelState.IsValid && !emailContainsProfanity && phoneNumberAccepted == true)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email, PhoneNumber = Input.PhoneNumber.ToString() };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

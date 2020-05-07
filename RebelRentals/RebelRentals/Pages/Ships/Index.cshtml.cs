@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using RebelRentals.Data;
 using RebelRentals.Models;
@@ -23,9 +24,10 @@ namespace RebelRentals.Pages.Ships
 
         public IList<Ship> Ship { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGetAsync()
         {
-            Ship = await _context.Ship.OrderBy(ship => ship.Model).ToListAsync();
+            //_context.SeedShipData();
+            Ship = _context.Ship.ToList();
         }
 
         public async Task<IActionResult> OnPostAddToShoppingCart(int id)
