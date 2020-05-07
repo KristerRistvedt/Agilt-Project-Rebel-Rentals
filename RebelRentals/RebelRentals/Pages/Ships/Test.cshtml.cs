@@ -17,13 +17,11 @@ namespace RebelRentals
         public bool showConverterCurrency;
 
         public APIController _aPIController { get; set; }
-        public CurrencyConverter _currencyConverter { get; set; }
         public List<Currency> CurrencyList { get; set; }
 
-        public TestModel(APIController aPIController, CurrencyConverter currencyConverter)
+        public TestModel(APIController aPIController)
         {
             _aPIController = aPIController;
-            _currencyConverter = currencyConverter;
         }
         public void OnGet()
         {

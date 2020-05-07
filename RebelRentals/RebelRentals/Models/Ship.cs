@@ -36,7 +36,7 @@ namespace RebelRentals.Models
         public int Height { get; set; }
 
         [Required]
-        public double? Price { get; set; }
+        public double Price { get; set; }
         public string About { get; set; }
     }
 }

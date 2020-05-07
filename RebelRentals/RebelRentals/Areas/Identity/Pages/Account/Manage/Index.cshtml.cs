@@ -121,11 +121,18 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
             Currency = JsonConvert.DeserializeObject<List<Currency>>(HttpContext.Session.GetString("SessionList"))
                 .Find(currency => currency.Id == Currency.Id);
             HttpContext.Session.SetString("SessionCurrency", JsonConvert.SerializeObject(Currency));
-            var response = await _aPIController
-                .ConvertCurrency("SEK", JsonConvert.DeserializeObject<Currency>
-                (HttpContext.Session.GetString("SessionCurrency")).Id);
-            var trimmedResponse = response.Substring(11, 7).Replace('.', ',');
-            conversionRate = Convert.ToDouble(trimmedResponse);
+            if (Currency.Id != "SEK")
+            {
+                var response = await _aPIController
+                    .ConvertCurrency("SEK", JsonConvert.DeserializeObject<Currency>
+                    (HttpContext.Session.GetString("SessionCurrency")).Id);
+                var trimmedResponse = response.Substring(11, 7).Replace('.', ',');
+                conversionRate = Convert.ToDouble(trimmedResponse);
+            }
+            else
+            {
+                conversionRate = 1;
+            }
             HttpContext.Session.SetString("SessionRate", JsonConvert.ToString(conversionRate));
             return Page();
         }

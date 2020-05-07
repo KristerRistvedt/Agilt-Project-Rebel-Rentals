@@ -12,7 +12,6 @@ namespace RebelRentals
 {
     public class APIController
     {
-        private readonly CurrencyConverter _currencyConverter;
         public APIController()
         {
         }
@@ -40,12 +39,6 @@ namespace RebelRentals
                 currencyList.Add(currency);
             }
             return currencyList;
-        }
-        public async Task<string> GetUsage()
-        {
-            var client = new Client(new Uri("https://free.currconv.com/others/usage?apiKey=d32dfcb72bf0f09defeb"));
-            var response = await client.GetAsync<string>();
-            return response;
         }
     }
 }

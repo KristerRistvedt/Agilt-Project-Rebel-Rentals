@@ -1,5 +1,7 @@
 ﻿@page
 @model RebelRentals.Pages.Ships.EditModel
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Edit";
@@ -51,7 +53,7 @@
                 <span asp-validation-for="Ship.Height" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ship.Price" class="control-label"></label>
+                <label asp-for="Ship.Price" class="control-label">Price(kr)</label>
                 <input asp-for="Ship.Price" class="form-control" />
                 <span asp-validation-for="Ship.Price" class="text-danger"></span>
             </div>
