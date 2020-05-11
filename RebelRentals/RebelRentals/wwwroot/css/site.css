@@ -80,6 +80,7 @@ tr {
     margin: auto !important;
 }
 
+/*Rebel Rentals specific styles*/
 #company-logo {
     width: 20%;
     min-width: 32px;
@@ -91,4 +92,15 @@ tr {
 #apod-image {
     max-width: 500px;
     height: auto;
+}
+
+@font-face {
+    font-family: 'scifi_adventureregular';
+    src: url('fonts/scifi_adventure-webfont.woff2') format('woff2'), url('fonts/scifi_adventure-webfont.woff') format('woff'), url('fonts/Scifi Adventure.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.scifi-font {
+    font-family: scifi_adventureregular;
 }
