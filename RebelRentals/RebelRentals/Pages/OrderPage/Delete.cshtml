@@ -1,7 +1,5 @@
 ﻿@page
 @model RebelRentals.Pages.OrderPage.DeleteModel
-@using Microsoft.AspNetCore.Http;
-@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Delete";
@@ -61,7 +59,7 @@
             @Html.DisplayNameFor(model => model.Ship.Price)
         </dt>
         <dd class="col-sm-10">
-            @(Math.Round(Model.Ship.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+            @Html.DisplayFor(model => model.Ship.Price)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Ship.About)
@@ -70,7 +68,7 @@
             @Html.DisplayFor(model => model.Ship.About)
         </dd>
     </dl>
-
+    
     <form method="post">
         <input type="hidden" asp-for="Ship.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
