@@ -1,5 +1,7 @@
 ﻿@page
 @model RebelRentals.Pages.OrderPage.SummaryModel
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Summary";
@@ -75,7 +77,7 @@
                         @Html.DisplayFor(modelItem => item.Ship.Class)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Ship.Price)
+                        @(Math.Round(item.Ship.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol) 
                     </td>
                     <td>
                         @item.Count
