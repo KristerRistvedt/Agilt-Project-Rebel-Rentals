@@ -1,5 +1,7 @@
 ﻿@page
 @model RebelRentals.Pages.OrderPage.IndexModel
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Index";
@@ -29,8 +31,8 @@
                     @Html.DisplayFor(modelItem => item.Model)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
+                    @(Math.Round(item.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+                </td> 
                 <td>
                     <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
                     <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
