@@ -8,9 +8,6 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table text-center">
     <thead>
         <tr>
@@ -76,11 +73,9 @@
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                         <form method="post" asp-page-handler="AddToShoppingCart" asp-route-id="@item.Id">
-                            <button>Add to Cart</button>
+                            <button class="btn btn-link text-danger">Add to Cart</button>
                         </form>
                     </td>
                 </tr>
