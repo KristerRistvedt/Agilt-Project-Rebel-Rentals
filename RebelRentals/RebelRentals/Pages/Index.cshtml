@@ -15,7 +15,7 @@
         <h5>@Model.Apod.Title</h5>
         @if (Model.Apod.Media_Type == "image")
         {
-            <img src="@Model.Apod.Url" />
+            <img id="apod-image" class="img-thumbnail" src="@Model.Apod.Url" />
         }
         else if (Model.Apod.Media_Type == "video")
         {

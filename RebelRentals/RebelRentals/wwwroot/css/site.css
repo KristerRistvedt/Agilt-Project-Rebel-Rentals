@@ -12,6 +12,10 @@ a.navbar-brand {
 .bg-dark {
     background: #252525 !important;
 }
+
+.footer-color {
+    background: black;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -74,4 +78,17 @@ html {
 tr {
     vertical-align: middle !important;
     margin: auto !important;
+}
+
+#company-logo {
+    width: 20%;
+    min-width: 32px;
+    max-width: 128px;
+    height: auto;
+    padding-top: 5px;
+}
+
+#apod-image {
+    max-width: 500px;
+    height: auto;
 }
