@@ -2,6 +2,7 @@
 for details on configuring this project to bundle and minify static web assets. */
 body {
     background: #262626 !important;
+    font-family: sciflysans !important;
 }
 a.navbar-brand {
   white-space: normal;
@@ -101,13 +102,19 @@ tr {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'sciflysans';
+    src: url('fonts/scifly-sans-webfont.woff2') format('woff2'), url('fonts/scifly-sans-webfont.woff') format('woff'), url(fonts/SciFly-Sans.ttf) format('ttf');
+}
+
 h1, h2, h3 {
     font-family: scifi_adventureregular !important;
     color: rgb(255,37,37);
 }
 
-h4, h5, h6, label, p, td, dd, dt, button {
+h4, h5, h6, label, p, td, dd, dt, th {
     color: white;
+    font-family: sciflysans !important;
 }
 
 .scifi-font {
