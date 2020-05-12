@@ -103,6 +103,11 @@ tr {
 
 h1, h2, h3 {
     font-family: scifi_adventureregular !important;
+    color: rgb(255,37,37);
+}
+
+h4, h5, h6, label, p, td, dd, dt, button {
+    color: white;
 }
 
 .scifi-font {
