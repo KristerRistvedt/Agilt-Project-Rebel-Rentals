@@ -82,6 +82,9 @@
         }
     </tbody>
 </table>
-<div class="text-center">
-    <a asp-page="./OrderPage/Index">Checkout</a>
-</div>
+@if (Model.Ships.Count > 0)
+{
+    <div class="text-center">
+        <a asp-page="./OrderPage/Index">Checkout</a>
+    </div>
+}
