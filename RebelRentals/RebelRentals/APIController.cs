@@ -47,6 +47,14 @@ namespace RebelRentals
             return result;
         }
 
+        public async Task<ChuckNorrisQuotesModel> ChuckNorrisQuote()
+        {
+            var client = new Client(new Uri("https://api.chucknorris.io/jokes/random"));
+            ChuckNorrisQuotesModel response = await client.GetAsync<ChuckNorrisQuotesModel>();
+
+            return response;
+        }
+
         public bool SendEmailToSupport(string name, string senderEmail, string message)
         {
             bool result;
