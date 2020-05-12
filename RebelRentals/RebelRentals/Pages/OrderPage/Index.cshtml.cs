@@ -21,7 +21,7 @@ namespace RebelRentals.Pages.OrderPage
         public ShoppingCart ShoppingCart { get; set; }
 
         [BindProperty]
-        public double? TotalCost { get; set; } = 0.0;
+        public double TotalCost { get; set; } = 0.0;
         public List<Ship> ListOfShipsInCart { get; set; }
         public bool CheckOutFailed { get; set; }
 
@@ -125,7 +125,7 @@ namespace RebelRentals.Pages.OrderPage
             return RedirectToPage("Summary");
         }
 
-        public async Task<RedirectToPageResult> OnPostClearCart()
+        public RedirectToPageResult OnPostClearCart()
         {
             ShoppingCart.ClearCart();
             return RedirectToPage("/Index");

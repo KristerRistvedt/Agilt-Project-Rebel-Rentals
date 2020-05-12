@@ -30,7 +30,7 @@ namespace RebelRentals.Pages.Ships
             Ship = _context.Ship.ToList();
         }
 
-        public async Task<IActionResult> OnPostAddToShoppingCart(int id)
+        public IActionResult OnPostAddToShoppingCart(int id)
         {
             Ship shipToAdd = _context.Ship.First(ship => ship.Id == id);
             if (shipToAdd != null) { _shoppingCart.AddShipToCart(shipToAdd); }
