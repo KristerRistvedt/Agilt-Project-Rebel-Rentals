@@ -101,6 +101,10 @@ tr {
     font-style: normal;
 }
 
+h1, h2, h3 {
+    font-family: scifi_adventureregular !important;
+}
+
 .scifi-font {
     font-family: scifi_adventureregular;
 }
