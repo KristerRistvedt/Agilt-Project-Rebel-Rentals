@@ -37,6 +37,10 @@ namespace RebelRentals
             services.AddRazorPages();
             services.AddSingleton<APIController>();
             services.AddSingleton<ShoppingCart>();
+            services.AddSingleton<CurrencyModel>();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddMvc();
             services.AddHttpContextAccessor();
         }
 
@@ -57,8 +61,9 @@ namespace RebelRentals
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseStaticFiles();
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();

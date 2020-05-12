@@ -1,5 +1,7 @@
 ﻿@page
 @model RebelRentals.Pages.ShoppingCartOverviewModel
+@using Newtonsoft.Json;
+@using Microsoft.AspNetCore.Http;
 
 @{
     ViewData["Title"] = "ShoppingCartOverview";
@@ -38,7 +40,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Ships[0].About)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -67,7 +68,7 @@
                     @Html.DisplayFor(modelItem => item.Height)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @(Math.Round(item.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 6)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.About)
