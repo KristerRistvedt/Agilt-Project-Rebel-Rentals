@@ -228,6 +228,24 @@ Clear the order list by clicking a button and get redirected to the Home Page
         Click Button                        xpath://html/body/div/main/form[1]/button
         Wait Until Page Contains            NASA's Daily Recommended Tourist Location
 
+Check if ship costs are listed in swedish crowns as default
+        Wait Until Page Contains            5000 kr
+
+Go to Profile Page and change the currency
+        Click Element                       xpath://html/body/header/nav/div/div/ul[1]/li[2]/a
+        Wait Until Page Contains            Manage your account
+        Click Button                        xpath://html/body/div/main/div/div/div[2]/div/div/div/form/button
+        Wait Until Element Is Visible       xpath://*[@id="Id"]
+        Click Element                       xpath://*[@id="Id"]
+        Click Element                       xpath://html/body/div/main/div/div/div[2]/div/div/div/form/select/option[99]
+        Click Button                        xpath://html/body/div/main/div/div/div[2]/div/div/div/form/button
+        Wait Until Page Contains            Current Currency:
+        Wait Until Page Contains            Japanese Yen
+
+Check if currency is now in Japanese Yen
+        Element Should Contain         xpath://html/body/div/main/table/tbody/tr[2]/td[5]       ¥
+        Element Should Not Contain     xpath://html/body/div/main/table/tbody/tr[2]/td[5]      kr
+
 
 End Agile Project Test
         Close Browser
@@ -399,3 +417,19 @@ User should be able to remove their shopping cart items by clearing their order 
     Go to cart
     Go to the Order Summary Page
     Clear the order list by clicking a button and get redirected to the Home Page
+
+User should be able to see a default currency in swedish crowns on the ships page
+    [Documentation]             Test: The ships page should have ship costs in swedish crowns as a default.
+    [Tags]                      Ship_Page      Currency
+    Go to Web Page
+    Go to Ships page
+
+User should be able to change currency in their profile and see it changed on the ships page
+    [Documentation]             Test: The ships page should have ship costs in whichever currency the user has chosen as their currency on their profile page.
+    [Tags]                      Ship_Page      Currency     Profile
+    Go to Web Page
+    Login to account
+    Go to Profile Page and change the currency
+    Go to Web Page
+    Go to Ships page
+    Check if currency is now in Japanese Yen
