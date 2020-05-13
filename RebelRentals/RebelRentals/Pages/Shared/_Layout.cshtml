@@ -11,26 +11,25 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
- 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <partial name="_LoginPartial" />
-                        <div class="d-flex flex-grow-1">
-                            <!--navbar-nav d-flex flex-grow-1-->
-                                <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Contact/Index">Contact</a>
-                                <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Ships/Index">Ships</a>
-                                <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/GalacticTranslator">Galactic Translator</a>
-                                <a asp-area="" asp-page="/Index">
-                                    <img id="company-logo" src="~/Images/Rebel_Rentals_Logo.gif" alt="Company animated logo" />
-                                </a>
-                        </div>
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <div class="d-flex flex-grow-1 navbar-nav">
+                        <a title="Home" asp-area="" asp-page="/Index">
+                            <img id="company-logo" src="~/Images/Rebel_Rentals_Logo.gif" alt="Company animated logo" />
+                        </a>
+                        <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Contact/Index">Contact</a>
+                        <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Ships/Index">Ships</a>
+                        <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/GalacticTranslator">Galactic Translator</a>
                     </div>
+                </div>
             </div>
-        </nav>
+</nav>
     </header>
     <div class="container p-5">
         <main role="main" class="pb-3">

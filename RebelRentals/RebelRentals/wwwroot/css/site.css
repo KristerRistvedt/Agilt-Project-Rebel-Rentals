@@ -83,11 +83,9 @@ tr {
 
 /*Rebel Rentals specific styles*/
 #company-logo {
-    width: 20%;
-    min-width: 32px;
-    max-width: 128px;
-    height: auto;
-    padding-top: 5px;
+    width: 64px;
+    height: 64px;
+    margin-right: 50px;
 }
 
 #apod-image {
@@ -119,4 +117,8 @@ h4, h5, h6, label, p, td, dd, dt, th {
 
 .scifi-font {
     font-family: scifi_adventureregular;
+}
+
+.centered {
+    left: 50%;
 }
