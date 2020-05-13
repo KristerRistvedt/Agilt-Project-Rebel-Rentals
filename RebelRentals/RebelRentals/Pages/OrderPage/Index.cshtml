@@ -1,5 +1,7 @@
 ﻿@page
 @model RebelRentals.Pages.OrderPage.IndexModel
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +10,9 @@
 
 <h1>Order summary</h1>
 
-<p>Total cost: @Model.TotalCost</p>
+<p>
+    Total cost: @(Math.Round(Model.TotalCost * JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+</p>
 
 <table class="table">
     <thead>
@@ -29,7 +33,7 @@
                     @Html.DisplayFor(modelItem => item.Model)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @(Math.Round(item.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
                 </td>
                 <td>
                     <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
@@ -40,12 +44,15 @@
         }
     </tbody>
 </table>
-<form method="post" asp-page-handler="ClearCart">
-    <button>Clear cart</button>
-</form>
-<form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
-    <button>Finalize order</button>
-</form>
+@if (Model.ListOfShipsInCart.First().Model != "You haven't added anything yet.")
+{
+    <form method="post" asp-page-handler="ClearCart">
+        <button>Clear cart</button>
+    </form>
+    <form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
+        <button>Finalize order</button>
+    </form>
+}
 @if (Model.CheckOutFailed)
 {
     <ul class="text-danger">

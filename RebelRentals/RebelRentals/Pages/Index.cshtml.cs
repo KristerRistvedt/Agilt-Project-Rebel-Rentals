@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using RebelRentals;
+using Newtonsoft.Json;
 using RebelRentals.Data;
 using RebelRentals.Models;
 using RebelRentals.Pages.Ships;
@@ -38,11 +39,33 @@ namespace RebelRentals.Pages
             }
         }
 
+        public Currency StartCurrency = new Currency()
+        {
+            Id = "SEK",
+            CurrencyName = "Swedish Krona",
+            CurrencySymbol = "kr"
+        };
+
+        public void OnGetAsync()
+        {
+            var sessionName = new Byte[20];
+            bool currencyExists = HttpContext.Session.TryGetValue("SessionCurrency", out sessionName);
+            if (!currencyExists)
+            {
+                HttpContext.Session.SetString("SessionCurrency", JsonConvert.SerializeObject(StartCurrency));
+            }
+            bool rateExists = HttpContext.Session.TryGetValue("SessionRate", out sessionName);
+            if (!rateExists)
+            {
+                HttpContext.Session.SetString("SessionRate", JsonConvert.ToString(1));
+            }
+        } 
         public async Task<bool> UpdateApod()
         {
           bool updated = await apiController.UpdateApod();
           Apod = apiController.Apod;
           return updated;
         }
+
     }
 }
