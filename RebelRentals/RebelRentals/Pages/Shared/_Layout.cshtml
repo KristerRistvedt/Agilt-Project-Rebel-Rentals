@@ -12,31 +12,23 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-               
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <div class="navbar-nav d-flex">
-                        <!--flex-grow-1-->
-                        <div class="nav-item">
-                            <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Ships/Index">Ships</a>
-                        </div>
-                        <div class="nav-item">
-                            <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/GalacticTranslator">Galactic Translator</a>
-                        </div>
-                        <div class="nav-item">
-                            <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Contact/Index">Contact</a>
-                        </div>
-                        <div class="nav-item justify-content-center">
-                            <a class="navbar-brand text-danger scifi-font" asp-area="" asp-page="/Index">Rebel Rentals</a>
+ 
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial" />
+                        <div class="d-flex flex-grow-1">
+                            <!--navbar-nav d-flex flex-grow-1-->
+                                <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Contact/Index">Contact</a>
+                                <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Ships/Index">Ships</a>
+                                <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/GalacticTranslator">Galactic Translator</a>
+                                <a asp-area="" asp-page="/Index">
+                                    <img id="company-logo" src="~/Images/Rebel_Rentals_Logo.gif" alt="Company animated logo" />
+                                </a>
                         </div>
                     </div>
-                   
-                </div>
-               
             </div>
         </nav>
     </header>
@@ -48,9 +40,6 @@
     <div class="p-5"></div>
     <footer class="border-top text-muted footer fixed-bottom text-center footer-color">
         <div class="container">
-            <div>
-                <img id="company-logo" src="~/Images/Rebel_Rentals_Logo.gif" alt="Company animated logo" />
-            </div>
             <div>
                 &copy; 2020 - RebelRentals - <a asp-area="" asp-page="/Privacy">Privacy</a>
             </div>
