@@ -33,7 +33,7 @@ Find Images
 
 Enter details
     Click Element                Xpath://div/main/table/tbody/tr[1]/td[6]/a[2]
-    Location Should Be          https://localhost:44353/Ships/Details?id=2
+    Location Should Be          https://localhost:44353/Ships/Details?id=1
 
 More Find Images
     Page Should Contain Image   Xpath://div/main/div[1]/img
@@ -124,6 +124,47 @@ Input Number Fail But Again
 
 Log Out Failsafe
     Click Element                           Xpath://nav/div/div/ul[1]/li[3]/form/button
+
+Translate Sith
+    Click Translator
+    Choose sith
+
+Click Translator
+    Click Element                           Xpath://nav/div/div/ul[2]/li[4]/a
+
+Choose Sith
+    Click Element                           Xpath://*[@id="SelectedLanguage"]
+    Click Element                           Xpath://*[@id="SelectedLanguage"]/option[1]
+    Input Text                              Xpath://*[@id="TextToTranslate"]        Hello
+    Click Element                           Xpath://div/main/div/form/button
+    Wait Until Page Contains                Hello
+Choose Gungan
+    Click Element                           Xpath://*[@id="SelectedLanguage"]
+    Click Element                           Xpath://*[@id="SelectedLanguage"]/option[2]
+    Input Text                              Xpath://*[@id="TextToTranslate"]        Hello
+    Click Element                           Xpath://div/main/div/form/button
+    Wait Until Page Contains                Hidoe
+
+Choose Yoda
+    Click Element                           Xpath://*[@id="SelectedLanguage"]
+    Click Element                           Xpath://*[@id="SelectedLanguage"]/option[3]
+    Input Text                              Xpath://*[@id="TextToTranslate"]        Hello
+    Click Element                           Xpath://div/main/div/form/button
+    Wait Until Page Contains                Force be with you
+
+Overload Check
+    Wait Until Page Contains                Too many requests, try again later.
+
+
+Click Chuck Norris Quotes
+    Click Element                           Xpath://div/div/ul[2]/li[5]/a
+    Location Should Be                      https://localhost:44353/ChuckNorris
+    Wait Until Page Contains                If you're sad and need a Chuck Norris quote to cheer you up, click this button:
+
+Change Quote
+    Click Element                           Xpath://div/main/form/button
+    Page Should Not Contain                 If you're sad and need a Chuck Norris quote to cheer you up, click this button:
+
 
 End webtest
     Close Browser
