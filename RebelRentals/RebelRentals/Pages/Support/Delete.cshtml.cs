@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using RebelRentals.Models;
 
 namespace RebelRentals.Pages.Support
 {
+    [Authorize(Roles = "Support")]
     public class DeleteModel : PageModel
     {
         private readonly RebelRentals.Data.ApplicationDbContext _context;
