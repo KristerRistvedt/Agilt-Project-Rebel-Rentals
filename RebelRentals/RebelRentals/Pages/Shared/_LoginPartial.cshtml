@@ -8,22 +8,24 @@
         </li>
         @if (SignInManager.IsSignedIn(User))
         {
-            <li class="nav-item">
-                <a class="nav-link text-danger scifi-font" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
-            </li>
-            <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                    <button type="submit" class="nav-link btn btn-link scifi-font text-danger">Logout</button>
-                </form>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle scifi-font text-danger" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item text-danger scifi-font" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
+                    <form class="form-inline dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <button type="submit" class="nav-link btn btn-link scifi-font text-danger">Logout</button>
+                    </form>
+                </div>
             </li>
         }
         else
         {
-            <li class="nav-item">
-                <a class="nav-link text-danger scifi-font" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle scifi-font text-danger" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item text-danger scifi-font" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                    <a class="dropdown-item text-danger scifi-font" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-danger scifi-font" asp-area="Identity" asp-page="/Account/Login">Login</a>
-            </li>
-        }
-    </ul>
+            }
+        </ul>
