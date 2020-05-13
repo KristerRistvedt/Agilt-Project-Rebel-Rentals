@@ -7,7 +7,7 @@
 <h1>Galactic Translator</h1>
 <div>
     <form method="post" asp-page-handler="Translation">
-        <select asp-for="SelectedLanguage"> 
+        <select asp-for="SelectedLanguage">
             @foreach (var item in Model.TranslationLanguages)
             {
                 <option value="@item">@item</option>
