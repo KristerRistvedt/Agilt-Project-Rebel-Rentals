@@ -93,6 +93,13 @@ tr {
     height: auto;
 }
 
+@media only screen and (max-width: 1024px) {
+    #apod-image {
+        max-width: 250px;
+        height: auto;
+    }
+}
+
 @font-face {
     font-family: 'scifi_adventureregular';
     src: url('fonts/scifi_adventure-webfont.woff2') format('woff2'), url('fonts/scifi_adventure-webfont.woff') format('woff'), url('fonts/Scifi Adventure.otf') format('otf');
