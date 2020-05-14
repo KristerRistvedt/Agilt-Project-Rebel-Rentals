@@ -131,6 +131,18 @@ h4, h5, h6, label, p, td, dd, dt, th {
     color: #CC1616
 }
 
+.invisible.fade {
+    opacity: 0;
+}
+
+.flip-vertical {
+    transform: scaleY(-1);
+}
+
+#lightsaber-one {
+    padding-bottom: 10px;
+}
+
 
 @media only screen and (max-width: 1024px) {
     #apod-image {
