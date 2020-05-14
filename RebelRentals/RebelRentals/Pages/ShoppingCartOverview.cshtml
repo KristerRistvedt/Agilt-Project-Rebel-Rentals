@@ -8,7 +8,7 @@
 <h1>Shopping Cart</h1>
 
 
-<table class="table">
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>
@@ -74,7 +74,7 @@
                 </td>
                 <td>
                     <form method="post">
-                        <button class="btn btn-link" asp-page-handler="RemoveFromCart" asp-route-id="@item.Id" value="@item.Id">Remove</button>
+                        <button class="btn btn-danger" asp-page-handler="RemoveFromCart" asp-route-id="@item.Id" value="@item.Id">Remove</button>
                     </form>
                 </td>
             </tr>

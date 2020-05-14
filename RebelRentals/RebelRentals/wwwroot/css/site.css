@@ -127,6 +127,11 @@ h4, h5, h6, label, p, td, dd, dt, th {
     color: #a71d2a !important;
 }
 
+.text-red {
+    color: #CC1616
+}
+
+
 @media only screen and (max-width: 1024px) {
     #apod-image {
         max-width: 250px;
