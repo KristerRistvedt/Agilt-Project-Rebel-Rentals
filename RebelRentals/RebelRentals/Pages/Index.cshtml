@@ -5,10 +5,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Rebel Rentals</h1>
+    <img class="invisible" id="lightsaber-one" src="~/Images/Lightsaber.gif" />
+    <h1 id="title" class="display-4">Rebel Rentals</h1>
+    <img class="invisible flip-vertical" id="lightsaber-two" src="~/Images/Lightsaber.gif" />
 </div>
 
-@if(Model.Apod != null)
+@if (Model.Apod != null)
 {
     <div class="text-center">
         <h4>NASA's Daily Recommended Tourist Location:</h4>
@@ -24,3 +26,21 @@
         <p>@Model.Apod.Description</p>
     </div>
 }
+
+<script>
+    const title = document.getElementById('title');
+    title.addEventListener('mouseover', removeTransparency);
+    title.addEventListener('mouseleave', addTransparency);
+    lightsaberOne = document.getElementById('lightsaber-one');
+    lightsaberTwo = document.getElementById('lightsaber-two');
+
+    function addTransparency() {
+        lightsaberOne.classList.add('invisible');
+        lightsaberTwo.classList.add('invisible');
+    }
+
+    function removeTransparency() {
+        lightsaberOne.classList.remove('invisible');
+        lightsaberTwo.classList.remove('invisible');
+    }
+</script>
