@@ -31,9 +31,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
-                <td>
-                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
-                </td>
             </tr>
         }
     </tbody>
@@ -44,6 +41,7 @@
 <form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
     <button>Finalize order</button>
 </form>
+<a asp-page="/ShoppingCartOverview">Back to cart</a>
 @if (Model.CheckOutFailed)
 {
     <ul class="text-danger">
