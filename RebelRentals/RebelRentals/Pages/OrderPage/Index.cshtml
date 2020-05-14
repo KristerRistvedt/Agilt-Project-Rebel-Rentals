@@ -63,10 +63,10 @@
     </tbody>
 </table>
 <form method="post" asp-page-handler="ClearCart">
-    <button>Clear cart</button>
+    <button class="btn btn-danger">Clear cart</button>
 </form>
 <form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
-    <button>Finalize order</button>
+    <button class="btn btn-primary">Finalize order</button>
 </form>
 <a asp-page="/ShoppingCartOverview">Back to cart</a>
 @if (Model.CheckOutFailed)
