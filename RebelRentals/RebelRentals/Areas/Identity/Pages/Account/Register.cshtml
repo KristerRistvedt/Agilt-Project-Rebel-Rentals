@@ -40,9 +40,10 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Type of user</label> <br>
-                <input type="radio" name="UserRole" value="Normal-User" checked="checked" /> Normal user<br>
-                <input type="radio" name="UserRole" value="Support" /> Support 
+                @foreach (var role in Model.Roles)
+                {
+                    <input type="radio" asp-for="Role" value="@role" id="Role@(role)" />@role<br />
+                }
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
