@@ -13,8 +13,8 @@
 @if (Model.Apod != null)
 {
     <div class="text-center">
-        <h4>NASA's Daily Recommended Tourist Location:</h4>
-        <h5>@Model.Apod.Title</h5>
+        <h4 class="pb-2">NASA's Daily Recommended Tourist Location:</h4>
+        <h5 class="pb-4">@Model.Apod.Title</h5>
         @if (Model.Apod.Media_Type == "image")
         {
             <img id="apod-image" class="img-thumbnail rounded" src="@Model.Apod.Url" />
@@ -23,7 +23,7 @@
         {
             <iframe src="@Model.Apod.Url"></iframe>
         }
-        <p>@Model.Apod.Description</p>
+        <p class="pt-5">@Model.Apod.Description</p>
     </div>
 }
 

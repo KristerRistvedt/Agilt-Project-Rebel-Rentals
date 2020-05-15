@@ -13,7 +13,7 @@ a.navbar-brand {
 }
 
 .bg-dark {
-    background: #252525 !important;
+    background: linear-gradient(#0d0d0d, #404040, #0d0d0d) !important; /*#252525*/
 }
 
 .footer-color {
