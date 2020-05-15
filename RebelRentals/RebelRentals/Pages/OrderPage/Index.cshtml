@@ -6,7 +6,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Order summary</h1>
+<h1 class="pb-5">Order summary</h1>
 
 <p>Total cost: @Model.TotalCost</p>
 
@@ -62,13 +62,21 @@
         }
     </tbody>
 </table>
-<form method="post" asp-page-handler="ClearCart">
-    <button class="btn btn-danger">Clear cart</button>
-</form>
-<form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
-    <button class="btn btn-primary">Finalize order</button>
-</form>
-<a asp-page="/ShoppingCartOverview">Back to cart</a>
+<table class="mb-4 ml-2 mt-2">
+    <tr>
+        <td>
+            <form method="post" asp-page-handler="ClearCart">
+                <button class="btn btn-danger">Clear cart</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
+                <button class="btn btn-primary ml-3">Finalize order</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<a class="ml-2" asp-page="/ShoppingCartOverview">Back to cart</a>
 @if (Model.CheckOutFailed)
 {
     <ul class="text-danger">

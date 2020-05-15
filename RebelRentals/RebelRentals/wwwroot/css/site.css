@@ -2,7 +2,6 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 body {
-    /*background: #262626 !important;*/
     font-family: sciflysans !important;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Images/blue-and-white-milky-way-3214110.jpg);
 }
@@ -13,7 +12,7 @@ a.navbar-brand {
 }
 
 .bg-dark {
-    background: linear-gradient(#0d0d0d, #404040, #0d0d0d) !important; /*#252525*/
+    background: #252525 !important;
 }
 
 .footer-color {
@@ -130,7 +129,7 @@ h4, h5, h6, label, p, td, dd, dt, th {
 }
 
 .text-red {
-    color: #CC1616
+    color: #CC1616;
 }
 
 .a-highlight:hover {
@@ -146,10 +145,13 @@ h4, h5, h6, label, p, td, dd, dt, th {
     transform: scaleY(-1);
 }
 
+.navbar-color {
+    background: linear-gradient(#0d0d0d, #404040, #0d0d0d) !important;
+}
+
 #lightsaber-one {
     padding-bottom: 10px;
 }
-
 
 @media only screen and (max-width: 1024px) {
     #apod-image {

@@ -6,10 +6,10 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1 class="pb-5">Details</h1>
 
 <div>
-    <h4>Ship</h4>
+    <h4 class="pb-2">Ship</h4>
     <hr />
     @{
         switch (Model.Ship.Model)
@@ -37,7 +37,7 @@
                 break;
         }
     }
-    <dl class="row">
+    <dl class="row pt-5">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Ship.Model)
         </dt>
@@ -95,5 +95,5 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a class="pt-1" asp-page="./Index">Back to List</a>
 </div>
