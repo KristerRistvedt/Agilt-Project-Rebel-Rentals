@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using RebelRentals;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace RebelRentals.Areas.Identity.Pages.Account.Manage
 {
@@ -35,6 +38,14 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
 
         [BindProperty]
         public InputModel Input { get; set; }
+        public List<Currency> CurrencyList { get; private set; }
+        public bool ShowingMenu;
+        private double conversionRate;
+
+        [BindProperty]
+        public Currency Currency { get; set; }
+        [BindProperty]
+        public string Id { get; set; }
 
         public class InputModel
         {
@@ -109,6 +120,37 @@ namespace RebelRentals.Areas.Identity.Pages.Account.Manage
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
+        }
+        public async Task<IActionResult> OnPostDisplayCurrencyChangeList()
+        {
+            bool listExists = HttpContext.Session.TryGetValue("SessionList", out _);
+            if (!listExists)
+            {
+                var currencyList = await _apiController.SetCurrencyList();
+                HttpContext.Session.SetString("SessionList", JsonConvert.SerializeObject(currencyList));
+            }
+            ShowingMenu = true;
+            return Page();
+        }
+        public async Task<PageResult> OnPostChangeCurrency()
+        {
+            Currency = JsonConvert.DeserializeObject<List<Currency>>(HttpContext.Session.GetString("SessionList"))
+                .Find(currency => currency.Id == Currency.Id);
+            HttpContext.Session.SetString("SessionCurrency", JsonConvert.SerializeObject(Currency));
+            if (Currency.Id != "SEK")
+            {
+                var response = await _apiController
+                    .ConvertCurrency("SEK", JsonConvert.DeserializeObject<Currency>
+                    (HttpContext.Session.GetString("SessionCurrency")).Id);
+                var trimmedResponse = response.Substring(11, 7).Replace('.', ',');
+                conversionRate = Convert.ToDouble(trimmedResponse);
+            }
+            else
+            {
+                conversionRate = 1;
+            }
+            HttpContext.Session.SetString("SessionRate", JsonConvert.ToString(conversionRate));
+            return Page();
         }
     }
 }

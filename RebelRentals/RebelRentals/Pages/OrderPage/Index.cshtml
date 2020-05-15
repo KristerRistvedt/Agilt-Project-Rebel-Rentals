@@ -1,5 +1,7 @@
 ﻿@page
 @model RebelRentals.Pages.OrderPage.IndexModel
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +10,9 @@
 
 <h1 class="pb-5">Order summary</h1>
 
-<p>Total cost: @Model.TotalCost</p>
+<p>
+    Total cost: @(Math.Round(Model.TotalCost * JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+</p>
 
 <table class="table table-responsive-md">
     <thead>
@@ -52,16 +56,23 @@
                         break;
                 }
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-        </tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @(Math.Round(item.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+                </td>
+                <td>
+                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+@if (Model.ListOfShipsInCart.First().Model != "You haven't added anything yet.")
+{
 <table class="mb-4 ml-2 mt-2">
     <tr>
         <td>
@@ -76,6 +87,7 @@
         </td>
     </tr>
 </table>
+}
 <a class="ml-2" asp-page="/ShoppingCartOverview">Back to cart</a>
 @if (Model.CheckOutFailed)
 {
