@@ -153,6 +153,14 @@ h4, h5, h6, label, p, td, dd, dt, th {
     padding-bottom: 10px;
 }
 
+.po-relative {
+    position: relative !important;
+}
+
+.po-absolute {
+    position: absolute !important;
+}
+
 @media only screen and (max-width: 1024px) {
     #apod-image {
         max-width: 250px;
