@@ -8,38 +8,38 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1 class="pb-5">Details</h1>
 
 <div>
-    <h4>Ship</h4>
+    <h4 class="pb-2">Ship</h4>
     <hr />
     @{
         switch (Model.Ship.Model)
         {
             case "X-Wing":
-                <img src="~/Images/XWing.jpg" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/XWing.jpg" height="300" width="300" />
                 break;
             case "A-Wing":
-                <img src="~/Images/AWing.png" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/AWing.png" height="300" width="300" />
                 break;
             case "Death Star":
-                <img src="~/Images/DeathStar.jpg" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/DeathStar.jpg" height="300" width="300" />
                 break;
             case "Salvation":
-                <img src="~/Images/Salvation.jpg" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/Salvation.jpg" height="300" width="300" />
                 break;
             case "Star Destroyer":
-                <img src="~/Images/StarDestroyer.jpeg" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/StarDestroyer.jpeg" height="300" width="300" />
                 break;
             case "Tie Fighter":
-                <img src="~/Images/TieFighter.jpg" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/TieFighter.jpg" height="300" width="300" />
                 break;
             case "Y-Wing":
-                <img src="~/Images/YWing.jpeg" height="300" width="300" />
+                <img class="img-thumbnail rounded" src="~/Images/YWing.jpeg" height="300" width="300" />
                 break;
         }
     }
-    <dl class="row">
+    <dl class="row pt-5">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Ship.Model)
         </dt>
@@ -97,6 +97,5 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Ship.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a class="pt-1" asp-page="./Index">Back to List</a>
 </div>
