@@ -154,12 +154,15 @@ h4, h5, h6, label, p, td, dd, dt, th {
     padding-bottom: 10px;
 }
 
-.po-relative {
-    position: relative !important;
+.dropdown-container {
+    position: relative;
 }
 
-.po-absolute {
-    position: absolute !important;
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Bottom of button */
+    width: 250px;
+    height: auto;
 }
 
 @media only screen and (max-width: 1024px) {
