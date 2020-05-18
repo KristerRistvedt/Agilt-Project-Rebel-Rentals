@@ -15,13 +15,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ShipOrder[0].Ship)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.UserSort">
+                    Username
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipOrder[0].Order)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ShipOrder[0].Ship.Class">
+                    Ship
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShipOrder[0].Count)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ShipOrder[0].OrderId">
+                    Order
+                </a>
+            </th>
+            <th>
+                Quantity
             </th>
         </tr>
     </thead>
@@ -29,6 +38,9 @@
 
 @foreach (var item in Model.ShipOrder) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.User.UserName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ship.Class)
             </td>
