@@ -33,9 +33,10 @@ namespace RebelRentals.Areas.Identity.Pages.Account
         public string Role { get; set; }
         public string[] Roles = new[] { "Customer", "Support" };
 
-
         public bool emailContainsProfanity;
         public bool? phoneNumberAccepted;
+        public bool? supportPasswordAccepted;
+        private readonly string theSupportPassword = "AllasMamma";
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -82,9 +83,9 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-            [DataType(DataType.Text)]
-            [Display(Name = "Type of customer:")]
-            public string UserRole { get; set; }
+            [DataType(DataType.Password)]
+            [Display(Name = "Support password")]
+            public string SupportPassword { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -100,10 +101,12 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             emailContainsProfanity = await _apiController.ContainsProfanity(Input.Email);
             if (Input.PhoneNumber != null) { phoneNumberAccepted = await _apiController.PhoneNumberValidation((int)Input.PhoneNumber); }
             else { phoneNumberAccepted = true; }
-            if (ModelState.IsValid && !emailContainsProfanity && phoneNumberAccepted == true)
+            if (Role == "Support" && Input.SupportPassword == theSupportPassword) { supportPasswordAccepted = true; }
+            else if (Role == "Support") { supportPasswordAccepted = false; }
+            if (ModelState.IsValid && !emailContainsProfanity && phoneNumberAccepted == true && supportPasswordAccepted != false)
             {
-                var user = new IdentityUser 
-                { 
+                var user = new IdentityUser
+                {
                     UserName = Input.Email,
                     Email = Input.Email,
                     PhoneNumber = Input.PhoneNumber.ToString(),
