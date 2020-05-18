@@ -18,26 +18,28 @@ namespace RebelRentals.Pages.Support
     public class IndexModel : PageModel
     {
         private readonly RebelRentals.Data.ApplicationDbContext _context;
-        public HttpContextAccessor _httpContextAccessor { get; set; }
 
-        public IndexModel(RebelRentals.Data.ApplicationDbContext context, HttpContextAccessor httpContextAccessor)
+        public IndexModel(RebelRentals.Data.ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
-            _httpContextAccessor = httpContextAccessor;
-            CurrentUserId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            CurrentUserId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             CurrentUser = _context.Users.Single(user => user.Id == CurrentUserId);
+            SetShipOrder();
         }
 
-        public IList<ShipOrder> ShipOrder { get;set; }
+        public List<ShipOrder> ShipOrder = new List<ShipOrder>();
         public AspNetRoleManager<IdentityUser> RoleManager { get; set; }
         public string CurrentUserId { get; set; }
         public IdentityUser CurrentUser { get; set; }
 
-        public async Task OnGetAsync()
+        public void OnGetAsync()
         {
-            ShipOrder = await _context.ShipOrder
+        }
+        public void SetShipOrder()
+        {
+            ShipOrder = _context.ShipOrder
                 .Include(s => s.Order)
-                .Include(s => s.Ship).ToListAsync();
+                .Include(s => s.Ship).ToList();
         }
     }
 }

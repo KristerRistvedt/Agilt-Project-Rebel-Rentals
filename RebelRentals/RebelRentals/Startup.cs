@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using RebelRentals.Models;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace RebelRentals
 {
@@ -27,25 +28,29 @@ namespace RebelRentals
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public async void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddRazorPages().AddRazorPagesOptions(options =>
-            {
-                options.Conventions.AuthorizeFolder("/Support", "Support");
-            });
+            services.AddRazorPages();
             services.AddSingleton<APIController>();
             services.AddSingleton<ShoppingCart>();
             services.AddSingleton<CurrencyModel>();
             services.AddDistributedMemoryCache();
             services.AddSession();
-            services.AddMvc();
-            services.AddHttpContextAccessor();
+            await CreateRoles(services);
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Support", "Support");
+            });
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,6 +81,24 @@ namespace RebelRentals
             {
                 endpoints.MapRazorPages();
             });
+        }
+        private async Task CreateRoles(IServiceCollection services)
+        {
+            //initializing custom roles 
+            var roleManager = services.BuildServiceProvider().
+                GetRequiredService<RoleManager<IdentityRole>>();
+            string[] roleNames = { "Support", "Customer" };
+            IdentityResult roleResult;
+
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await roleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    //create the roles and seed them to the database
+                    roleResult = await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
         }
     }
 }

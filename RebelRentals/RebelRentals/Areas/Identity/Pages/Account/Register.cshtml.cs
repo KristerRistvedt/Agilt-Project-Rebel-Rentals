@@ -27,6 +27,12 @@ namespace RebelRentals.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly APIController _apiController;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+        [BindProperty]
+        public string Role { get; set; }
+        public string[] Roles = new[] { "Customer", "Support" };
+
 
         public bool emailContainsProfanity;
         public bool? phoneNumberAccepted;
@@ -36,13 +42,15 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            APIController apiController)
+            APIController apiController,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
             _apiController = apiController;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -115,7 +123,7 @@ namespace RebelRentals.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                    await _userManager.AddToRoleAsync(user, Role);
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email });
