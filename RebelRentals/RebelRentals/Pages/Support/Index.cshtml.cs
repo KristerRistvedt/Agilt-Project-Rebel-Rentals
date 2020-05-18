@@ -31,15 +31,15 @@ namespace RebelRentals.Pages.Support
         public AspNetRoleManager<IdentityUser> RoleManager { get; set; }
         public string CurrentUserId { get; set; }
         public IdentityUser CurrentUser { get; set; }
-        public string UserSort { get; set; }
-        public string ShipSort { get; set; }
-        public string OrderSort { get; set; }
+        public string ShipIdSort { get; set; }
+        public string OrderIdSort { get; set; }
+        public string CountSort { get; set; }
 
-        public void OnGetAsync(string sortOrder)
+        public async Task OnGetAsync(string sortOrder)
         {
-            UserSort = sortOrder == "user" ? "user_desc" : "user";
-            ShipSort = sortOrder == "ship" ? "ship_desc" : "ship";
-            OrderSort = sortOrder == "order" ? "order_desc" : "order";
+            ShipIdSort = sortOrder == "ship" ? "ship_desc" : "ship";
+            OrderIdSort = sortOrder == "order" ? "order_desc" : "order";
+            CountSort = sortOrder == "count" ? "count_desc" : "count";
 
             IQueryable<ShipOrder> sortedShipOrders =
                 from ShipOrder
@@ -48,17 +48,17 @@ namespace RebelRentals.Pages.Support
 
             switch (sortOrder)
             {
-                case "user_desc":
-                    sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.Order.User.UserName);
+                case "count_desc":
+                    sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.Count);
                     break;
-                case "user":
-                    sortedShipOrders = sortedShipOrders.OrderBy(m => m.Order.User.UserName);
+                case "count":
+                    sortedShipOrders = sortedShipOrders.OrderBy(m => m.Count);
                     break;
                 case "ship_desc":
-                    sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.Ship.Class);
+                    sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.ShipId);
                     break;
                 case "ship":
-                    sortedShipOrders = sortedShipOrders.OrderBy(m => m.Ship.Class);
+                    sortedShipOrders = sortedShipOrders.OrderBy(m => m.ShipId);
                     break;
                 case "order_desc":
                     sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.OrderId);
@@ -67,9 +67,11 @@ namespace RebelRentals.Pages.Support
                     sortedShipOrders = sortedShipOrders.OrderBy(m => m.OrderId);
                     break;
                 default:
-                    sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.Order.User.UserName);
+                    sortedShipOrders = sortedShipOrders.OrderByDescending(m => m.OrderId);
                     break;
             }
+
+            ShipOrder = await sortedShipOrders.AsNoTracking().ToListAsync();
         }
 
         public void SetShipOrder()

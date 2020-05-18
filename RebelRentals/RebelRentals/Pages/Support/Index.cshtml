@@ -15,37 +15,32 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.UserSort">
-                    Username
+                <a asp-page="./Index" asp-route-sortOrder="@Model.OrderIdSort">
+                    @Html.DisplayNameFor(model => model.ShipOrder[0].OrderId)
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.ShipOrder[0].Ship.Class">
-                    Ship
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ShipIdSort">
+                    @Html.DisplayNameFor(model => model.ShipOrder[0].ShipId)
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.ShipOrder[0].OrderId">
-                    Order
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CountSort">
+                    @Html.DisplayNameFor(model => model.ShipOrder[0].Count)
                 </a>
-            </th>
-            <th>
-                Quantity
             </th>
         </tr>
     </thead>
     <tbody>
 
-@foreach (var item in Model.ShipOrder) {
+@{ foreach (var item in Model.ShipOrder)
+    {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Order.User.UserName)
+                @Html.DisplayFor(modelItem => item.OrderId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ship.Class)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order.Id)
+                @Html.DisplayFor(modelItem => item.ShipId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Count)
@@ -56,6 +51,7 @@
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
-}
+        }
+    }
     </tbody>
 </table>
