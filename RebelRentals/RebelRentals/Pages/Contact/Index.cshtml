@@ -10,29 +10,29 @@
 }
 else
 {
-    <h1>Contact Us</h1>
+    <h1 class="pb-5">Contact Us</h1>
 }
 
 <form method="post" asp-page-handler="SendEmailToSupport">
     @if (Model.sentMailResult != true)
     {
-        <div>
+        <div class="pt-3">
             <label asp-for="@Model.NameField"></label> <br />
             <input asp-for="@Model.NameField" />
             <span asp-validation-for="NameField" class="text-danger"></span>
         </div>
         <div>
-            <label asp-for="@Model.EmailField"></label> <br />
+            <label class="pt-2" asp-for="@Model.EmailField"></label> <br />
             <input asp-for="@Model.EmailField" />
             <span asp-validation-for="EmailField" class="text-danger"></span>
         </div>
         <div>
-            <label asp-for="@Model.MessageField"></label> <br />
+            <label class="pt-2" asp-for="@Model.MessageField"></label> <br />
             <textarea name="MessageField" rows="5" cols="50" asp-for="@Model.MessageField"></textarea>
             <span asp-validation-for="MessageField" class="text-danger"></span>
         </div>
-        <div>
-            <button>Send</button>
+        <div class="pt-4">
+            <button class="btn btn-primary">Send</button>
         </div>
     }
 </form>

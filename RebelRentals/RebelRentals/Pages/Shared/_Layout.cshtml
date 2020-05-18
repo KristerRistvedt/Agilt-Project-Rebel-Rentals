@@ -6,51 +6,47 @@
     <title>@ViewData["Title"] - RebelRentals</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/day-style.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">RebelRentals</a>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-dark navbar-color border-bottom box-shadow mb-3">
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse d-lg-inline-flex flex-sm-row-reverse dropdown show">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ships/Index">Ships</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Contact/Index">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/GalacticTranslator">Galactic Translator</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ChuckNorris">Chuck Norris Quotes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex flex-grow-1 navbar-nav">
+                        <a title="Home" asp-area="" asp-page="/Index">
+                            <img id="company-logo" src="~/Images/Rebel_Rentals_Logo.gif" alt="Company animated logo" />
+                        </a>
+                        <a class="nav-link text-danger scifi-font mt-2" asp-area="" asp-page="/Contact/Index">Contact</a>
+                        <a class="nav-link text-danger scifi-font mt-2" asp-area="" asp-page="/Ships/Index">Ships</a>
+                        <div class="dropdown-container">
+                            <a class="nav-link dropdown-toggle scifi-font text-danger cursor-pointer mt-2" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Extras</a>
+                            <div class="dropdown-menu bg-dark border-light" aria-labelledby="navbarDropdownMenuLink2">
+                                <a class="nav-link text-danger scifi-font mt-2" asp-area="" asp-page="/GalacticTranslator">Galactic Translator</a>
+                                <a class="nav-link text-danger scifi-font mt-2" asp-area="" asp-page="/ChuckNorris">Chuck Norris Quotes</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+</nav>
     </header>
-    <div class="container">
+    <div class="container p-5">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <div class="p-5"></div>
+    <footer class="border-top text-muted footer fixed-bottom text-center footer-color">
         <div class="container">
-            &copy; 2020 - RebelRentals - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div>
+                &copy; 2020 - RebelRentals - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
         </div>
     </footer>
 
