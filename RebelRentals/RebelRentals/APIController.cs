@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.Net;
 using MailMessage = System.Net.Mail.MailMessage;
 using System.Collections.Generic;
+using RebelRentals.API_Models;
 
 namespace RebelRentals
 {
@@ -122,6 +123,15 @@ namespace RebelRentals
                 currencyList.Add(currency);
             }
             return currencyList;
+        }
+
+        public async Task<string> GetIssInformation()
+        {
+            var client = new Client(new Uri("http://api.open-notify.org/iss-now.json"));
+            IssLocationModel response = await client.GetAsync<IssLocationModel>();
+            var latitude = response.Location.IssPosition.Latitude;
+            var longitude = response.Location.IssPosition.Longitude;
+            return latitude + longitude;
         }
     }
 }
