@@ -25,23 +25,26 @@ namespace RebelRentals.Pages.Support
         [BindProperty]
         public ShipOrder ShipOrder { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? comp, int? part)
         {
-            if (id == null)
+            if (comp == null || part == null)
             {
                 return NotFound();
             }
 
             ShipOrder = await _context.ShipOrder
                 .Include(s => s.Order)
-                .Include(s => s.Ship).FirstOrDefaultAsync(m => m.ShipId == id);
+                .Include(s => s.Count)
+                .Include(s => s.Ship).FirstOrDefaultAsync(m => m.ShipId == comp);
+
 
             if (ShipOrder == null)
             {
                 return NotFound();
             }
-           ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id");
-           ViewData["ShipId"] = new SelectList(_context.Ship, "Id", "Class");
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "Id");
+            ViewData["ShipId"] = new SelectList(_context.Ship, "Id", "Class");
+            ViewData["Count"] = new SelectList(_context.ShipOrder, "Count");
             return Page();
         }
 
@@ -62,7 +65,7 @@ namespace RebelRentals.Pages.Support
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ShipOrderExists(ShipOrder.ShipId))
+                if (!ShipOrderExists(ShipOrder.ShipId, ShipOrder.OrderId))
                 {
                     return NotFound();
                 }
@@ -75,9 +78,9 @@ namespace RebelRentals.Pages.Support
             return RedirectToPage("./Index");
         }
 
-        private bool ShipOrderExists(int id)
+        private bool ShipOrderExists(int? shipId, int? orderId)
         {
-            return _context.ShipOrder.Any(e => e.ShipId == id);
+            return _context.ShipOrder.Any(e => e.ShipId == shipId && e.OrderId == orderId);
         }
     }
 }

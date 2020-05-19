@@ -16,6 +16,11 @@
             <input type="hidden" asp-for="ShipOrder.ShipId" />
             <input type="hidden" asp-for="ShipOrder.OrderId" />
             <div class="form-group">
+                <label asp-for="ShipOrder.ShipId" class="control-label"></label>
+                <input asp-for="ShipOrder.ShipId" class="form-control" />
+                <span asp-validation-for="ShipOrder.ShipId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ShipOrder.Count" class="control-label"></label>
                 <input asp-for="ShipOrder.Count" class="form-control" />
                 <span asp-validation-for="ShipOrder.Count" class="text-danger"></span>
