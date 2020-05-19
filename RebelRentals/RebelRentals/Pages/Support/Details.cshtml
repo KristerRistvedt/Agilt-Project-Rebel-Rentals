@@ -1,0 +1,36 @@
+﻿@page
+@model RebelRentals.Pages.Support.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="pb-5">Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShipOrder.Ship)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShipOrder.Ship.Class)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShipOrder.Order)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShipOrder.Order.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShipOrder.Count)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShipOrder.Count)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-page="./Index">Back to List</a>
+</div>
