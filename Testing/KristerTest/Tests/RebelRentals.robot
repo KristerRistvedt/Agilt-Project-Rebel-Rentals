@@ -76,7 +76,7 @@ Login to account
         Input Text                          xpath://*[@id="Input_Email"]        ${USERNAME}
         Input Text                          xpath://*[@id="Input_Password"]     ${PASSWORD}
         Click Element                       xpath://html/body/div[1]/main/div/div/section/form/div[5]/button
-        Wait Until Page Contains            ${USERNAME}
+        Wait Until Page Contains            Profile
 
 Login to and logout from the site
         Login to account
@@ -100,7 +100,7 @@ Add ships to cart
         Click Button                        xpath://html/body/div[1]/main/table/tbody/tr[4]/td[6]/form/button
 
 Go to cart
-        Click Element                       xpath://html/body/header/nav/div/div/ul/li[1]/a/img
+        Click Element                       xpath://html/body/header/nav/div/div/ul/li[1]/a
         Wait Until Page Contains            Death Star
         Wait Until Page Contains            Star Destroyer
 
@@ -247,9 +247,39 @@ Go to Profile Page and change the currency
         Wait Until Page Contains            Japanese Yen
 
 Check if currency is now in Japanese Yen
-        Element Should Contain         xpath://html/body/div[1]/main/table/tbody/tr[1]/td[5]       ¥
-        Element Should Not Contain     xpath://html/body/div[1]/main/table/tbody/tr[1]/td[5]      kr
+        Element Should Contain              xpath://html/body/div[1]/main/table/tbody/tr[1]/td[5]       ¥
+        Element Should Not Contain          xpath://html/body/div[1]/main/table/tbody/tr[1]/td[5]      kr
 
+Register an account as support staff
+        Click Element                       xpath://*[@id="navbarDropdownMenuLink"]
+        Click Element                       xpath://html/body/header/nav/div/div/ul/li[2]/div/a[1]
+        Wait Until Page Contains            Create a new account.
+        Wait Until Element Is Visible       xpath://*[@id="Input_Email"]
+        Input Text                          xpath://*[@id="Input_Email"]        ${RANDOMSTRING}@email.com
+        Input Text                          xpath://*[@id="Input_PhoneNumber"]      0731234567
+        Input Text                          xpath://*[@id="Input_Password"]        ${PASSWORD}
+        Input Text                          xpath://*[@id="Input_ConfirmPassword"]      ${PASSWORD}
+        Click Element                       xpath://*[@id="RoleSupport"]
+        Wait Until Element Is Visible       xpath://*[@id="Input_SupportPassword"]
+        Input Text                          xpath://*[@id="Input_SupportPassword"]      AllasMamma
+        Click Element                       xpath://html/body/div[1]/main/div/div/form/button
+        Wait Until Page Contains            Click here to confirm your account
+        Click Element                       xpath://*[@id="confirm-link"]
+        Wait Until Page Contains            Thank you for confirming your email
+
+Check if you can reach the support staff page with your new account
+        Click Element                       xpath://*[@id="company-logo"]
+        Wait Until Page Contains            NASA's Daily Recommended Tourist Location
+        Click Element                       xpath://*[@id="navbarDropdownMenuLink"]
+        Click Element                       xpath://html/body/header/nav/div/div/ul/li[2]/div/a[2]
+        Wait Until Page Contains            Use a local account to log in.
+        Input Text                          xpath://*[@id="Input_Email"]        ${RANDOMSTRING}@email.com
+        Input Text                          xpath://*[@id="Input_Password"]     ${PASSWORD}
+        Click Element                       xpath://html/body/div[1]/main/div/div/section/form/div[5]/button
+        Wait Until Page Contains            Profile
+        Click Element                       xpath://*[@id="navbarDropdownMenuLink"]
+        Click Element                       xpath://html/body/header/nav/div/div/ul/li[2]/div/a[2]
+        Wait Until Page Contains Element    xpath://html/body/div[1]/main/table[1]/tbody/tr/td[1]/div/a
 
 End Agile Project Test
         Close Browser
@@ -438,4 +468,12 @@ User should be able to change currency in their profile and see it changed on th
     Go to Web Page
     Go to Ships page
     Check if currency is now in Japanese Yen
+
+User can create an account as support staff and go to the support page when logged in said account
+    [Documentation]             Test: After creating a new account flagged as support staff, a support page link should appear in the account dropdown menu in the navbar.
+    [Tags]                      Account     Support
+    Go to Web Page
+    Generate Email
+    Register an account as support staff
+    Check if you can reach the support staff page with your new account
 
