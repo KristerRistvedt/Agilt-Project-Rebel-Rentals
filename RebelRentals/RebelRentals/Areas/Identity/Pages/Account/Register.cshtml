@@ -67,8 +67,10 @@
 </div>
 
 <script>
+    const customerRadioButton = document.getElementById('RoleCustomer');
     const supportRadioButton = document.getElementById('RoleSupport');
     const supportPasswordDiv = document.getElementById('support-password');
+    customerRadioButton.checked = true;
     supportRadioButton.checked = false;
 
     function toggleSupportPasswordField() {
