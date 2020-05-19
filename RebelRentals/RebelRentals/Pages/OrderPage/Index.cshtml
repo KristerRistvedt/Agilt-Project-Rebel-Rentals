@@ -62,11 +62,6 @@
                 <td>
                     @(Math.Round(item.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
                 </td>
-                <td>
-                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
             </tr>
         }
     </tbody>
