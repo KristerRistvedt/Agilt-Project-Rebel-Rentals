@@ -15,6 +15,7 @@ namespace RebelRentals.Pages.Support
     public class CreateModel : PageModel
     {
         private readonly RebelRentals.Data.ApplicationDbContext _context;
+        public bool failed;
 
         public CreateModel(RebelRentals.Data.ApplicationDbContext context)
         {
@@ -40,8 +41,16 @@ namespace RebelRentals.Pages.Support
                 return Page();
             }
 
-            _context.ShipOrder.Add(ShipOrder);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.ShipOrder.Add(ShipOrder);
+                await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                failed = true;
+                return Page();
+            }
 
             return RedirectToPage("./Index");
         }
