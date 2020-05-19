@@ -74,3 +74,8 @@ tr {
     vertical-align: middle !important;
     margin: auto !important;
 }
+.coin-image
+{
+    height: 20em;
+    width: 20em;
+}

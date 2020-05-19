@@ -15,13 +15,18 @@ namespace RebelRentals.Pages
         {
             _apiController = apiController;
         }
+
+        public string Coin { get; private set; }
+
         public void OnGet()
         {
          
         }
-        public async void OnPostFlipCoin()
+        public async Task<PageResult> OnPostFlipCoin()
         {
-            await _apiController.FlipCoin();
+            string response = await _apiController.FlipCoin();
+            Coin = response.Substring(1, 5);
+            return Page();
         }
     }
 }
