@@ -24,16 +24,16 @@ namespace RebelRentals.Pages.Support
         [BindProperty]
         public ShipOrder ShipOrder { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int shipId, int orderId)
         {
-            if (id == null)
+            if (shipId == 0 || orderId == 0)
             {
                 return NotFound();
             }
 
             ShipOrder = await _context.ShipOrder
                 .Include(s => s.Order)
-                .Include(s => s.Ship).FirstOrDefaultAsync(m => m.ShipId == id);
+                .Include(s => s.Ship).FirstOrDefaultAsync(m => m.ShipId == shipId);
 
             if (ShipOrder == null)
             {
@@ -42,14 +42,14 @@ namespace RebelRentals.Pages.Support
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int shipId, int orderId)
         {
-            if (id == null)
+            if (shipId == 0 || orderId == 0)
             {
                 return NotFound();
             }
 
-            ShipOrder = await _context.ShipOrder.FindAsync(id);
+            ShipOrder = await _context.ShipOrder.FindAsync(shipId, orderId);
 
             if (ShipOrder != null)
             {

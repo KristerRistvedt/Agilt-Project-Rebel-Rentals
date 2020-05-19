@@ -80,5 +80,25 @@ namespace RebelRentals.Pages.Support
                 .Include(s => s.Order)
                 .Include(s => s.Ship).ToList();
         }
+
+        public async Task<IActionResult> OnPostEditNumberOfShips(int shipId, int orderId)
+        {
+            return RedirectToPage("Edit", new { shipId, orderId });
+        }
+
+        public async Task<IActionResult> OnPostDeleteOrder(int shipId, int orderId)
+        {
+            return RedirectToPage("Delete", new { shipId, orderId });
+        }
+
+        public async Task<IActionResult> OnPostWipeDatabase()
+        {
+            foreach (var item in _context.ShipOrder)
+            {
+                _context.Remove(item);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
     }
 }

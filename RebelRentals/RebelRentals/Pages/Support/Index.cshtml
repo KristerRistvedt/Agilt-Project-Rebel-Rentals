@@ -8,8 +8,12 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add ship to existing order</a>
 </p>
+
+<form method="post" asp-page-handler="WipeDatabase">
+    <button>Wipe all orders</button>
+</form>
 
 <table class="table">
     <thead>
@@ -33,25 +37,32 @@
     </thead>
     <tbody>
 
-@{ foreach (var item in Model.ShipOrder)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShipId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "OnGetAsync", new { comp = item.ShipId, part = item.OrderId  }, null) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+        @{ foreach (var item in Model.ShipOrder)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Count)
+                    </td>
+                    <td>
+                        <form method="post">
+                            <button asp-page-handler="EditNumberOfShips" asp-route-shipId="@item.ShipId" asp-route-orderId="@item.OrderId">
+                                Edit no. of ships
+                            </button>
+                        </form>
+                        <form method="post">
+                            <button asp-page-handler="DeleteOrder" asp-route-shipId="@item.ShipId" asp-route-orderId="@item.OrderId">
+                                Delete order
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
         }
-    }
     </tbody>
 </table>
