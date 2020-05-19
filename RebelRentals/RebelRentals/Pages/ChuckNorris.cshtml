@@ -5,22 +5,22 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h2>Chuck Norris Quotes</h2>
+<h2 class="pb-5">Chuck Norris Quotes</h2>
 
 @{
     if (Model.FetchedAPI == false)
     {
-        <img src="@Model.IconURL" width="100" height="100"/>
-        <p>@Model.Message</p>
+        <img class="img-thumbnail rounded mt-4" src="@Model.IconURL" width="100" height="100"/>
+        <p class="pt-5">@Model.Message</p>
         }
     }
 @{  if(Model.FetchedAPI == true)
     {
-        <img src="@Model.chuckNorrisQuotesModel.icon_url" />
-        <p>@Model.chuckNorrisQuotesModel.value</p>
+        <img class="mt-4" src="@Model.chuckNorrisQuotesModel.icon_url" />
+        <p class="pt-5">@Model.chuckNorrisQuotesModel.value</p>
     }
 }
 
 <form method="post" asp-page-handler="GetQuote">
-    <button>Anti sad measures</button>
+    <button class="mt-1">Anti sad measures</button>
 </form>

@@ -4,18 +4,18 @@
     ViewData["Title"] = "GalacticTranslator";
 }
 
-<h1>Galactic Translator</h1>
-<div>
+<h1 class="pb-5">Galactic Translator</h1>
+<div class="pt-5">
     <form method="post" asp-page-handler="Translation">
-        <select asp-for="SelectedLanguage">
+        <select class="mb-3" asp-for="SelectedLanguage"> 
             @foreach (var item in Model.TranslationLanguages)
             {
                 <option value="@item">@item</option>
             }
         </select><br />
-        <label>Enter text to translate:</label><br />
+        <label class="">Enter text to translate:</label><br />
         <textarea name="TextToTranslate" rows="5" cols="50" asp-for="@Model.TextToTranslate"></textarea><br />
-        <button>Translate!</button><br />
-        <label class="text-danger">@Model.TranslatedText</label>
+        <button class="btn btn-primary mt-3">Translate!</button><br />
+        <label class="text-danger pt-5">@Model.TranslatedText</label>
     </form>
 </div>
