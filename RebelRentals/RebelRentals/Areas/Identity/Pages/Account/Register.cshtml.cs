@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 
@@ -25,22 +26,31 @@ namespace RebelRentals.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly APIController _apiController;
+        private readonly RoleManager<IdentityRole> _roleManager;
+
+        [BindProperty]
+        public string Role { get; set; }
+        public string[] Roles = new[] { "Customer", "Support" };
 
         public bool emailContainsProfanity;
         public bool? phoneNumberAccepted;
+        public bool? supportPasswordAccepted;
+        private readonly string theSupportPassword = "AllasMamma";
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            APIController apiController)
+            APIController apiController,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
             _apiController = apiController;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -71,6 +81,10 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [DataType(DataType.Password)]
+            [Display(Name = "Support password")]
+            public string SupportPassword { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -86,9 +100,16 @@ namespace RebelRentals.Areas.Identity.Pages.Account
             emailContainsProfanity = await _apiController.ContainsProfanity(Input.Email);
             if (Input.PhoneNumber != null) { phoneNumberAccepted = await _apiController.PhoneNumberValidation((int)Input.PhoneNumber); }
             else { phoneNumberAccepted = true; }
-            if (ModelState.IsValid && !emailContainsProfanity && phoneNumberAccepted == true)
+            if (Role == "Support" && Input.SupportPassword == theSupportPassword) { supportPasswordAccepted = true; }
+            else if (Role == "Support") { supportPasswordAccepted = false; }
+            if (ModelState.IsValid && !emailContainsProfanity && phoneNumberAccepted == true && supportPasswordAccepted != false)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email, PhoneNumber = Input.PhoneNumber.ToString() };
+                var user = new IdentityUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    PhoneNumber = Input.PhoneNumber.ToString(),
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -104,7 +125,7 @@ namespace RebelRentals.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
+                    await _userManager.AddToRoleAsync(user, Role);
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email });

@@ -1,0 +1,78 @@
+﻿@page
+@model RebelRentals.Pages.Support.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="pb-5">Ship Orders</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <div class="pr-2 pb-3">
+                    <a class="btn btn-primary" asp-page="Create">Add ship to existing order</a>
+                </div>
+            </td>
+            <td>
+                <form class="pb-3" method="post" asp-page-handler="WipeDatabase">
+                    <button class="btn btn-danger">Wipe all orders</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.OrderIdSort">
+                    @Html.DisplayNameFor(model => model.ShipOrder[0].OrderId)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ShipIdSort">
+                    @Html.DisplayNameFor(model => model.ShipOrder[0].ShipId)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CountSort">
+                    @Html.DisplayNameFor(model => model.ShipOrder[0].Count)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{ foreach (var item in Model.ShipOrder)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Count)
+                    </td>
+                    <td>
+                        <form class="pb-1" method="post">
+                            <button class="btn btn-link text-red a-highlight" asp-page-handler="EditNumberOfShips" asp-route-shipId="@item.ShipId" asp-route-orderId="@item.OrderId">
+                                Edit no. of ships
+                            </button>
+                        </form>
+                        <form class="pb-1" method="post">
+                            <button class="btn btn-link text-red a-highlight" asp-page-handler="DeleteOrder" asp-route-shipId="@item.ShipId" asp-route-orderId="@item.OrderId">
+                                Delete order
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
