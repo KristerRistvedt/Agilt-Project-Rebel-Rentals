@@ -1,0 +1,26 @@
+﻿@page
+@model RebelRentals.Pages.ChuckNorrisModel
+@{
+    ViewData["Title"] = "ChuckNorrisQuotes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2 class="pb-5">Chuck Norris Quotes</h2>
+
+@{
+    if (Model.FetchedAPI == false)
+    {
+        <img class="img-thumbnail rounded mt-4" src="@Model.IconURL" width="100" height="100"/>
+        <p class="pt-5">@Model.Message</p>
+        }
+    }
+@{  if(Model.FetchedAPI == true)
+    {
+        <img class="mt-4" src="@Model.chuckNorrisQuotesModel.icon_url" />
+        <p class="pt-5">@Model.chuckNorrisQuotesModel.value</p>
+    }
+}
+
+<form method="post" asp-page-handler="GetQuote">
+    <button class="mt-1">Anti sad measures</button>
+</form>

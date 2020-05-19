@@ -1,12 +1,24 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+body {
+    font-family: sciflysans !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Images/blue-and-white-milky-way-3214110.jpg);
+    background-color: black;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
+.bg-dark {
+    background: #252525 !important;
+}
+
+.footer-color {
+    background: black;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -58,10 +70,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
 .footer {
   position: absolute;
   bottom: 0;
@@ -73,6 +81,103 @@ body {
 tr {
     vertical-align: middle !important;
     margin: auto !important;
+}
+
+/*Rebel Rentals specific styles*/
+#company-logo {
+    width: 64px;
+    height: 64px;
+    margin-right: 50px;
+}
+
+#apod-image {
+    max-width: 500px;
+    height: auto;
+}
+
+@font-face {
+    font-family: 'scifi_adventureregular';
+    src: url('fonts/scifi_adventure-webfont.woff2') format('woff2'), url('fonts/scifi_adventure-webfont.woff') format('woff'), url('fonts/Scifi Adventure.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sciflysans';
+    src: url('fonts/scifly-sans-webfont.woff2') format('woff2'), url('fonts/scifly-sans-webfont.woff') format('woff'), url(fonts/SciFly-Sans.ttf) format('ttf');
+}
+
+h1, h2, h3 {
+    font-family: scifi_adventureregular !important;
+    color: rgb(255,37,37);
+}
+
+h4, h5, h6, label, p, td, dd, dt, th {
+    color: white;
+    font-family: sciflysans !important;
+}
+
+.scifi-font {
+    font-family: scifi_adventureregular;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.logout:hover {
+    color: #a71d2a !important;
+}
+
+.text-red {
+    color: #CC1616;
+}
+
+.a-highlight:hover {
+    text-decoration: none;
+    color: #e82d2d;
+}
+
+.invisible.fade {
+    opacity: 0;
+}
+
+.flip-vertical {
+    transform: scaleY(-1);
+}
+
+.navbar-color {
+    background: linear-gradient(#0d0d0d, #404040, #0d0d0d) !important;
+}
+
+#lightsaber-one {
+    padding-bottom: 10px;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Bottom of button */
+    width: 250px;
+    height: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+    #apod-image {
+        max-width: 250px;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 30px !important;
+    }
+
+    h2 {
+        font-size: 25px !important;
+    }
 }
 .coin-image
 {
