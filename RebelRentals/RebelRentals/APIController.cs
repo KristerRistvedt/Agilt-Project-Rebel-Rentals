@@ -7,6 +7,8 @@ using System.Net;
 using MailMessage = System.Net.Mail.MailMessage;
 using System.Collections.Generic;
 using RebelRentals.API_Models;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace RebelRentals
 {
@@ -124,14 +126,24 @@ namespace RebelRentals
             }
             return currencyList;
         }
-
         public async Task<string> GetIssInformation()
         {
             var client = new Client(new Uri("http://api.open-notify.org/iss-now.json"));
-            IssLocationModel response = await client.GetAsync<IssLocationModel>();
-            var latitude = response.Location.IssPosition.Latitude;
-            var longitude = response.Location.IssPosition.Longitude;
-            return latitude + longitude;
+            var response = await client.GetAsync<string>();
+            string numberOnly = Regex.Replace(response.Body, "[^0-9.-]", "");
+            string trimmedNumberOnly = numberOnly.Remove(numberOnly.Length - 10);
+            int indexOfDot = numberOnly.IndexOf('.');
+            string latitude = trimmedNumberOnly.Substring(indexOfDot + 5);
+            var longitude = numberOnly.Remove(indexOfDot + 5);
+
+            return $"Latitude: {latitude} Longitude: {longitude}";
         }
+        //public async Task<string> GetPeopleInSpace()
+        //{
+        //    var client = new Client(new Uri("http://api.open-notify.org/astros.json"));
+        //    IssLocationModel response = await client.GetAsync<IssLocationModel>();
+        //    var people = response.People;
+        //    return people.ToString();
+        //}
     }
 }
