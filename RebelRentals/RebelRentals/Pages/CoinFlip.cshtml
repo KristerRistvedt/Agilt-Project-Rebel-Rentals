@@ -4,19 +4,19 @@
     ViewData["Title"] = "CoinFlip";
 }
 
-<h1>CoinFlip</h1>
-
-<form method="post">
-    <button asp-page-handler="FlipCoin"></button>
-</form>
+<h1 class="pb-5">CoinFlip</h1>
 
 @if (Model.Coin == "Heads")
 {
-    <img src="https://www.riksbank.se/imagevault/publishedmedia/vu4codslosaewry2o0ea/2-krona_-mindre-.png" alt="Alternate Text" class="coin-image" />
-    <p>You got heads!</p>
+    <img  src="https://www.riksbank.se/imagevault/publishedmedia/vu4codslosaewry2o0ea/2-krona_-mindre-.png" alt="Alternate Text" class="coin-image rounded" />
+    <h3>You got heads!</h3>
 }
 else if (Model.Coin == "Tails")
 {
     <img src="https://www.riksbank.se/imagevault/publishedmedia/ejwy72qaywdl6wnjhjeo/1-krona__baksida.png" alt="Alternate Text" class="coin-image" />
-    <p>You got tails!</p>
+    <h3>You got tails!</h3>
 }
+
+<form method="post">
+    <button class="btn btn-primary mt-3" asp-page-handler="FlipCoin">Flip Coin</button>
+</form>
