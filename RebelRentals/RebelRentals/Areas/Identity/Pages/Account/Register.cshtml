@@ -13,10 +13,17 @@
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                @if (Model.emailContainsProfanity)
-                {
-                    <ul class="text-danger"><li>Profanity not allowed!</li></ul>
-                }
+
+                <ul class="text-danger">
+                    @if (Model.emailContainsProfanity)
+                    {
+                        <li>Profanity not allowed!</li>
+                    }
+                    @if (Model.supportPasswordAccepted == false)
+                    {
+                        <li>The support password is incorrect</li>
+                    }
+                </ul>
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -39,11 +46,39 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                @foreach (var role in Model.Roles)
+                {
+                    <input onclick="toggleSupportPasswordField()" type="radio" asp-for="Role" value="@role" id="Role@(role)" />@role
+                    @if (role == "Support")
+                    {
+                        <div style="display:none" id="support-password" class="form-group">
+                            <label asp-for="Input.SupportPassword"></label>
+                            <input asp-for="Input.SupportPassword" class="form-control" />
+                            <span asp-validation-for="Input.SupportPassword" class="text-danger"></span>
+                        </div>
+                    }
+                    <br />
+                }
+            </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>
 </div>
 
+<script>
+    const customerRadioButton = document.getElementById('RoleCustomer');
+    const supportRadioButton = document.getElementById('RoleSupport');
+    const supportPasswordDiv = document.getElementById('support-password');
+    customerRadioButton.checked = true;
+    supportRadioButton.checked = false;
+
+    function toggleSupportPasswordField() {
+        supportPasswordDiv.style.display = supportRadioButton.checked ? "block" : "none";
+    }
+</script>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+

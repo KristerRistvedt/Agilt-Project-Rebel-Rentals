@@ -117,7 +117,6 @@ namespace RebelRentals.Pages.OrderPage
                 Console.WriteLine(e.Message);
             }
 
-
             await _context.SaveChangesAsync();
             ShoppingCart.OrderedShips.AddRange(shipOrders);
             // Should relocate this v

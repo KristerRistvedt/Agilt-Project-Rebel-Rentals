@@ -75,7 +75,7 @@ namespace RebelRentals
                 client.Send(messageObject);
                 result = true;
             }
-            catch (Exception e)
+            catch
             {
                 result = false;
             }
