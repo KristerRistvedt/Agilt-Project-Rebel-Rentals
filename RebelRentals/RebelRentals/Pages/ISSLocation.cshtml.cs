@@ -17,11 +17,19 @@ namespace RebelRentals.Pages.Ships
         }
 
         public string currentLocation;
-       
+        public bool showImage = false;
+        public string issImage = "https://cdn.pixabay.com/photo/2015/01/15/16/01/iss-600459_960_720.jpg";
+        public string showIss;
         public async Task<IActionResult> OnPostISSLocation()
         {
             
-            currentLocation = await _apiController.GetIssInformation(); //await _apiController.GetPeopleInSpace();
+            currentLocation = await _apiController.GetIssInformation();
+            return Page();
+        }
+        public async Task<IActionResult> OnPostShowImage()
+        {
+            showImage = true;
+            showIss = issImage;
             return Page();
         }
     }
