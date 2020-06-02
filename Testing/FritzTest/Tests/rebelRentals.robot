@@ -19,17 +19,32 @@ ${INVALID_PHONE_NUMBER2} =   07681999999
 *** Test Cases ***
 
 
-
-
-WEB-89 Test 3
-    [Documentation]           This is the test case that is going to test if you can change your already exisisting phone number and that yu cant use more than 10 numbers
-    [Tags]                    Test WEB-89-3
+Web1-67 Test
     Page Loaded
-    Log In
-    Generate Phonenumber
-    Input Number
-    Input Number Fail
-    Input Number Fail But Again
+    Click Chuck Norris Quotes
+    Change Quote
+
+
+
+WEB-81 Test
+   [Documentation]            This is the test case that is going to test the functionality of the translator.
+   [Tags]                     Test WEB-81
+   Page Loaded
+   Log In
+   Click Translator
+   Choose Sith
+   Choose Gungan
+   Choose Yoda
+   Choose Sith
+   Choose Gungan
+   Choose Yoda
+   Choose Sith
+   Choose Gungan
+   Choose Yoda
+   Overload Check
+
+
+
 
 
 

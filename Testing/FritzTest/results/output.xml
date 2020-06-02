@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.1 on win32)" generated="20200505 14:13:35.539" rpa="false">
-<suite id="s1" name="Tests" source="C:\Users\fritz\PycharmProjects\RebelRentals\tests">
-<suite id="s1-s1" name="rebelRentals" source="C:\Users\fritz\PycharmProjects\RebelRentals\tests\rebelRentals.robot">
-<test id="s1-s1-t1" name="WEB1-25 test">
+<robot generator="Robot 3.1.2 (Python 3.8.1 on win32)" generated="20200319 14:38:09.891" rpa="false">
+<suite id="s1" name="Tests" source="C:\Users\fritz\PycharmProjects\CarRentalTest\Tests">
+<suite id="s1-s1" name="carRental" source="C:\Users\fritz\PycharmProjects\CarRentalTest\Tests\carRental.robot">
 <kw name="Begin Webtest" library="keywords" type="setup">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
@@ -10,11 +9,222 @@
 <arg>about:blank</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20200505 14:13:35.914" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20200505 14:13:35.914" endtime="20200505 14:13:41.447"></status>
+<msg timestamp="20200319 14:38:10.234" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200319 14:38:10.234" endtime="20200319 14:38:15.555"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:35.914" endtime="20200505 14:13:41.447"></status>
+<status status="PASS" starttime="20200319 14:38:10.234" endtime="20200319 14:38:15.555"></status>
 </kw>
+<test id="s1-s1-t1" name="An Email Should not be Used Twice">
+<kw name="Given Page Loaded" library="keywords">
+<kw name="Load Page" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:15.559" level="INFO">Opening url 'http://rental15.infotiv.net'</msg>
+<status status="PASS" starttime="20200319 14:38:15.559" endtime="20200319 14:38:16.009"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:15.559" endtime="20200319 14:38:16.009"></status>
+</kw>
+<kw name="Verify Rental Page Loaded" library="keywords">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://rental15.infotiv.net/</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.021" level="INFO">Current location is 'http://rental15.infotiv.net/'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.010" endtime="20200319 14:38:16.021"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:16.010" endtime="20200319 14:38:16.021"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:15.558" endtime="20200319 14:38:16.021"></status>
+</kw>
+<kw name="And Create User Has Been Selected" library="keywords">
+<kw name="Selecting Create User" library="keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="createUser"]</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.023" level="INFO">Clicking button '//*[@id="createUser"]'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.023" endtime="20200319 14:38:16.391"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:16.023" endtime="20200319 14:38:16.391"></status>
+</kw>
+<kw name="Verify Create User Loaded" library="keywords">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Create a new user</arg>
+</arguments>
+<status status="PASS" starttime="20200319 14:38:16.392" endtime="20200319 14:38:16.410"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:16.391" endtime="20200319 14:38:16.410"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:16.022" endtime="20200319 14:38:16.410"></status>
+</kw>
+<kw name="When Invalid Data Has Been Inserted" library="keywords">
+<arguments>
+<arg>frizz</arg>
+<arg>Molin</arg>
+<arg>0012312390</arg>
+<arg>Fri@yahoo.com</arg>
+<arg>Fri@yahoo.com</arg>
+<arg>Brah1239</arg>
+<arg>Brah1239</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:name</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.413" level="INFO">Typing text 'frizz' into text field 'id:name'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.411" endtime="20200319 14:38:16.527"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:last</arg>
+<arg>${last_name}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.527" level="INFO">Typing text 'Molin' into text field 'id:last'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.527" endtime="20200319 14:38:16.637"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:phone</arg>
+<arg>${phone_number}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.638" level="INFO">Typing text '0012312390' into text field 'id:phone'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.637" endtime="20200319 14:38:16.759"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:emailCreate</arg>
+<arg>${e_mail}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.760" level="INFO">Typing text 'Fri@yahoo.com' into text field 'id:emailCreate'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.760" endtime="20200319 14:38:16.898"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:confirmEmail</arg>
+<arg>${confirm_email}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:16.899" level="INFO">Typing text 'Fri@yahoo.com' into text field 'id:confirmEmail'.</msg>
+<status status="PASS" starttime="20200319 14:38:16.898" endtime="20200319 14:38:17.029"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:passwordCreate</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:17.030" level="INFO">Typing text 'Brah1239' into text field 'id:passwordCreate'.</msg>
+<status status="PASS" starttime="20200319 14:38:17.029" endtime="20200319 14:38:17.186"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:confirmPassword</arg>
+<arg>${confirm_password}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:17.187" level="INFO">Typing text 'Brah1239' into text field 'id:confirmPassword'.</msg>
+<status status="PASS" starttime="20200319 14:38:17.186" endtime="20200319 14:38:17.369"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:16.411" endtime="20200319 14:38:17.369"></status>
+</kw>
+<kw name="And Creation Has Been Confirmed" library="keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="create"]</arg>
+</arguments>
+<msg timestamp="20200319 14:38:17.371" level="INFO">Clicking button '//*[@id="create"]'.</msg>
+<status status="PASS" starttime="20200319 14:38:17.371" endtime="20200319 14:38:18.103"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:17.370" endtime="20200319 14:38:18.104"></status>
+</kw>
+<kw name="Then An Error Should Show Up" library="keywords">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>That E-mail is already taken</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200319 14:38:23.587" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-139.png"&gt;&lt;img src="selenium-screenshot-139.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200319 14:38:23.244" endtime="20200319 14:38:23.587"></status>
+</kw>
+<msg timestamp="20200319 14:38:23.587" level="FAIL">Text 'That E-mail is already taken' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20200319 14:38:18.107" endtime="20200319 14:38:23.587"></status>
+</kw>
+<status status="FAIL" starttime="20200319 14:38:18.106" endtime="20200319 14:38:23.587"></status>
+</kw>
+<doc>An email should not be able to be used for two different accounts</doc>
+<tags>
+<tag>Test 1; The email test</tag>
+</tags>
+<status status="FAIL" starttime="20200319 14:38:15.555" endtime="20200319 14:38:23.587" critical="yes">Text 'That E-mail is already taken' did not appear in 5 seconds.</status>
+</test>
+<test id="s1-s1-t2" name="User can create an account">
+<kw name="Given Page Loaded" library="keywords">
+<kw name="Load Page" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200319 14:38:23.603" level="INFO">Opening url 'http://rental15.infotiv.net'</msg>
+<status status="PASS" starttime="20200319 14:38:23.603" endtime="20200319 14:38:23.895"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:23.603" endtime="20200319 14:38:23.895"></status>
+</kw>
+<kw name="Verify Rental Page Loaded" library="keywords">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://rental15.infotiv.net/</arg>
+</arguments>
+<msg timestamp="20200319 14:38:23.903" level="INFO">Current location is 'http://rental15.infotiv.net/'.</msg>
+<status status="PASS" starttime="20200319 14:38:23.897" endtime="20200319 14:38:23.903"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:23.896" endtime="20200319 14:38:23.903"></status>
+</kw>
+<status status="PASS" starttime="20200319 14:38:23.587" endtime="20200319 14:38:23.903"></status>
+</kw>
+<kw name="And Create User Has Been Selected" library="keywords">
+<kw name="Selecting Create User" library="keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="createUser"]</arg>
+</arguments>
+<msg timestamp="20200319 14:38:23.907" level="INFO">Clicking button '//*[@id="createUser"]'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200319 14:38:24.254" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-140.png"&gt;&lt;img src="selenium-screenshot-140.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200319 14:38:23.933" endtime="20200319 14:38:24.254"></status>
+</kw>
+<msg timestamp="20200319 14:38:24.254" level="FAIL">Button with locator '//*[@id="createUser"]' not found.</msg>
+<status status="FAIL" starttime="20200319 14:38:23.907" endtime="20200319 14:38:24.254"></status>
+</kw>
+<status status="FAIL" starttime="20200319 14:38:23.905" endtime="20200319 14:38:24.254"></status>
+</kw>
+<status status="FAIL" starttime="20200319 14:38:23.904" endtime="20200319 14:38:24.254"></status>
+</kw>
+<doc>User should be able to create an account by filling in all the required fields, according to the requirement list.</doc>
+<tags>
+<tag>Test 2; user creation</tag>
+</tags>
+<status status="FAIL" starttime="20200319 14:38:23.587" endtime="20200319 14:38:24.254" critical="yes">Button with locator '//*[@id="createUser"]' not found.</status>
+</test>
+<test id="s1-s1-t3" name="User Should Be Able To Log in">
 <kw name="Page Loaded" library="keywords">
 <kw name="Load Page" library="keywords">
 <kw name="Go To" library="SeleniumLibrary">
@@ -22,129 +232,50 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200505 14:13:41.447" level="INFO">Opening url 'https://localhost:44353/'</msg>
-<status status="PASS" starttime="20200505 14:13:41.447" endtime="20200505 14:13:44.010"></status>
+<msg timestamp="20200319 14:38:24.254" level="INFO">Opening url 'http://rental15.infotiv.net'</msg>
+<status status="PASS" starttime="20200319 14:38:24.254" endtime="20200319 14:38:24.519"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:41.447" endtime="20200505 14:13:44.010"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:13:44.026" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.010" endtime="20200505 14:13:44.026"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:44.010" endtime="20200505 14:13:44.026"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:41.447" endtime="20200505 14:13:44.026"></status>
+<status status="PASS" starttime="20200319 14:38:24.254" endtime="20200319 14:38:24.519"></status>
 </kw>
 <kw name="Verify Rental Page Loaded" library="keywords">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current URL is exactly ``url``.</doc>
 <arguments>
-<arg>https://localhost:44353/</arg>
+<arg>http://rental15.infotiv.net/</arg>
 </arguments>
-<msg timestamp="20200505 14:13:44.034" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.030" endtime="20200505 14:13:44.034"></status>
+<msg timestamp="20200319 14:38:24.531" level="INFO">Current location is 'http://rental15.infotiv.net/'.</msg>
+<status status="PASS" starttime="20200319 14:38:24.520" endtime="20200319 14:38:24.531"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:44.026" endtime="20200505 14:13:44.034"></status>
+<status status="PASS" starttime="20200319 14:38:24.519" endtime="20200319 14:38:24.531"></status>
 </kw>
-<kw name="Press Ships" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20200319 14:38:24.254" endtime="20200319 14:38:24.533"></status>
+</kw>
+<kw name="Log Out" library="keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>Xpath://div/div/ul[2]/li[2]/a</arg>
+<arg>//*[@id="logout"]</arg>
 </arguments>
-<msg timestamp="20200505 14:13:44.034" level="INFO">Clicking element 'Xpath://div/div/ul[2]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.034" endtime="20200505 14:13:44.432"></status>
+<msg timestamp="20200319 14:38:24.533" level="INFO">Clicking button '//*[@id="logout"]'.</msg>
+<status status="PASS" starttime="20200319 14:38:24.533" endtime="20200319 14:38:25.064"></status>
 </kw>
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" starttime="20200319 14:38:24.533" endtime="20200319 14:38:25.065"></status>
+</kw>
+<kw name="Attempt To Log In">
 <arguments>
-<arg>https://localhost:44353/Ships</arg>
+<arg>Fritz.molin@live.se</arg>
+<arg>Brah123</arg>
 </arguments>
-<msg timestamp="20200505 14:13:44.440" level="INFO">Current location is 'https://localhost:44353/Ships'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.432" endtime="20200505 14:13:44.440"></status>
+<msg timestamp="20200319 14:38:25.082" level="FAIL">No keyword with name 'Attempt To Log In' found.</msg>
+<status status="FAIL" starttime="20200319 14:38:25.082" endtime="20200319 14:38:25.083"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:44.034" endtime="20200505 14:13:44.440"></status>
-</kw>
-<kw name="Find Images" library="keywords">
-<kw name="Page Should Contain Image" library="SeleniumLibrary">
-<doc>Verifies image identified by ``locator`` is found from current page.</doc>
-<arguments>
-<arg>Xpath://div/main/table/tbody/tr[2]/td[1]/img</arg>
-</arguments>
-<msg timestamp="20200505 14:13:44.476" level="INFO">Current page contains image 'Xpath://div/main/table/tbody/tr[2]/td[1]/img'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.440" endtime="20200505 14:13:44.476"></status>
-</kw>
-<kw name="Page Should Contain Image" library="SeleniumLibrary">
-<doc>Verifies image identified by ``locator`` is found from current page.</doc>
-<arguments>
-<arg>Xpath://div/main/table/tbody/tr[1]/td[1]/img</arg>
-</arguments>
-<msg timestamp="20200505 14:13:44.511" level="INFO">Current page contains image 'Xpath://div/main/table/tbody/tr[1]/td[1]/img'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.476" endtime="20200505 14:13:44.511"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:44.440" endtime="20200505 14:13:44.511"></status>
-</kw>
-<kw name="Enter details" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>Xpath://div/main/table/tbody/tr[1]/td[6]/a[2]</arg>
-</arguments>
-<msg timestamp="20200505 14:13:44.516" level="INFO">Clicking element 'Xpath://div/main/table/tbody/tr[1]/td[6]/a[2]'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.516" endtime="20200505 14:13:44.675"></status>
-</kw>
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/Ships/Details?id=2</arg>
-</arguments>
-<msg timestamp="20200505 14:13:44.687" level="INFO">Current location is 'https://localhost:44353/Ships/Details?id=2'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.675" endtime="20200505 14:13:44.687"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:44.511" endtime="20200505 14:13:44.687"></status>
-</kw>
-<kw name="More Find Images" library="keywords">
-<kw name="Page Should Contain Image" library="SeleniumLibrary">
-<doc>Verifies image identified by ``locator`` is found from current page.</doc>
-<arguments>
-<arg>Xpath://div/main/div[1]/img</arg>
-</arguments>
-<msg timestamp="20200505 14:13:44.715" level="INFO">Current page contains image 'Xpath://div/main/div[1]/img'.</msg>
-<status status="PASS" starttime="20200505 14:13:44.687" endtime="20200505 14:13:44.715"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:44.687" endtime="20200505 14:13:44.715"></status>
-</kw>
-<kw name="End webtest" library="keywords" type="teardown">
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200505 14:13:44.715" endtime="20200505 14:13:49.634"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:44.715" endtime="20200505 14:13:49.634"></status>
-</kw>
-<doc>This is the test case that is going to test the functionality of the list of ships.</doc>
+<doc>User should be able to log in with an already created account, according to the requirement list.</doc>
 <tags>
-<tag>Test WEB1-25</tag>
+<tag>Test 3;The log-in Test</tag>
 </tags>
-<status status="PASS" starttime="20200505 14:13:35.899" endtime="20200505 14:13:49.634" critical="yes"></status>
+<status status="FAIL" starttime="20200319 14:38:24.254" endtime="20200319 14:38:25.083" critical="yes">No keyword with name 'Attempt To Log In' found.</status>
 </test>
-<test id="s1-s1-t2" name="WEB1-87 Test">
-<kw name="Begin Webtest" library="keywords" type="setup">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20200505 14:13:49.634" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20200505 14:13:49.634" endtime="20200505 14:13:55.082"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:49.634" endtime="20200505 14:13:55.082"></status>
-</kw>
+<test id="s1-s1-t4" name="The Credit Card Input Should Not Accept More Or Less Than 16 Numbers">
 <kw name="Page Loaded" library="keywords">
 <kw name="Load Page" library="keywords">
 <kw name="Go To" library="SeleniumLibrary">
@@ -152,72 +283,48 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200505 14:13:55.082" level="INFO">Opening url 'https://localhost:44353/'</msg>
-<status status="PASS" starttime="20200505 14:13:55.082" endtime="20200505 14:13:58.232"></status>
+<msg timestamp="20200319 14:38:25.091" level="INFO">Opening url 'http://rental15.infotiv.net'</msg>
+<status status="PASS" starttime="20200319 14:38:25.091" endtime="20200319 14:38:25.320"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:55.082" endtime="20200505 14:13:58.232"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:13:58.248" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:13:58.236" endtime="20200505 14:13:58.248"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:58.232" endtime="20200505 14:13:58.248"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:13:55.082" endtime="20200505 14:13:58.252"></status>
+<status status="PASS" starttime="20200319 14:38:25.089" endtime="20200319 14:38:25.320"></status>
 </kw>
 <kw name="Verify Rental Page Loaded" library="keywords">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current URL is exactly ``url``.</doc>
 <arguments>
-<arg>https://localhost:44353/</arg>
+<arg>http://rental15.infotiv.net/</arg>
 </arguments>
-<msg timestamp="20200505 14:13:58.256" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:13:58.252" endtime="20200505 14:13:58.256"></status>
+<msg timestamp="20200319 14:38:25.337" level="INFO">Current location is 'http://rental15.infotiv.net/'.</msg>
+<status status="PASS" starttime="20200319 14:38:25.320" endtime="20200319 14:38:25.338"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:58.252" endtime="20200505 14:13:58.256"></status>
+<status status="PASS" starttime="20200319 14:38:25.320" endtime="20200319 14:38:25.339"></status>
 </kw>
-<kw name="Check If Travelspot Is Not Present" library="keywords">
-<kw name="Page Should Not Contain" library="SeleniumLibrary">
-<doc>Verifies the current page does not contain ``text``.</doc>
+<status status="PASS" starttime="20200319 14:38:25.088" endtime="20200319 14:38:25.339"></status>
+</kw>
+<kw name="Log Out" library="keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>Big, bright, beautiful spiral, Messier 106 dominates this cosmic vista. The nearly two degree wide telescopic field of view looks toward the well-trained constellation Canes Venatici, near the handle of the Big Dipper. Also known as NGC 4258, M106 is about 80,000 light-years across and 23.5 million light-years away, the largest member of the Canes II galaxy group. For a far far away galaxy, the distance to M106 is well-known in part because it can be directly measured by tracking this galaxy's remarkable maser, or microwave laser emission. Very rare but naturally occurring, the maser emission is produced by water molecules in molecular clouds orbiting its active galactic nucleus. Another prominent spiral galaxy on the scene, viewed nearly edge-on, is NGC 4217 below and right of M106. The distance to NGC 4217 is much less well-known, estimated to be about 60 million light-years, but the bright spiky stars are in the foreground, well inside our own Milky Way galaxy. Even the existence of galaxies beyond the Milky Way was questioned 100 years ago in astronomy's Great Debate.</arg>
+<arg>//*[@id="logout"]</arg>
 </arguments>
-<msg timestamp="20200505 14:13:58.288" level="INFO">Current page does not contain text 'Big, bright, beautiful spiral, Messier 106 dominates this cosmic vista. The nearly two degree wide telescopic field of view looks toward the well-trained constellation Canes Venatici, near the handle of the Big Dipper. Also known as NGC 4258, M106 is about 80,000 light-years across and 23.5 million light-years away, the largest member of the Canes II galaxy group. For a far far away galaxy, the distance to M106 is well-known in part because it can be directly measured by tracking this galaxy's remarkable maser, or microwave laser emission. Very rare but naturally occurring, the maser emission is produced by water molecules in molecular clouds orbiting its active galactic nucleus. Another prominent spiral galaxy on the scene, viewed nearly edge-on, is NGC 4217 below and right of M106. The distance to NGC 4217 is much less well-known, estimated to be about 60 million light-years, but the bright spiky stars are in the foreground, well inside our own Milky Way galaxy. Even the existence of galaxies beyond the Milky Way was questioned 100 years ago in astronomy's Great Debate.'.</msg>
-<status status="PASS" starttime="20200505 14:13:58.260" endtime="20200505 14:13:58.288"></status>
+<msg timestamp="20200319 14:38:25.344" level="INFO">Clicking button '//*[@id="logout"]'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200319 14:38:25.695" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-141.png"&gt;&lt;img src="selenium-screenshot-141.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200319 14:38:25.379" endtime="20200319 14:38:25.695"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:58.260" endtime="20200505 14:13:58.288"></status>
+<msg timestamp="20200319 14:38:25.696" level="FAIL">Button with locator '//*[@id="logout"]' not found.</msg>
+<status status="FAIL" starttime="20200319 14:38:25.344" endtime="20200319 14:38:25.697"></status>
 </kw>
-<kw name="End webtest" library="keywords" type="teardown">
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200505 14:13:58.288" endtime="20200505 14:14:00.584"></status>
+<status status="FAIL" starttime="20200319 14:38:25.343" endtime="20200319 14:38:25.697"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:13:58.288" endtime="20200505 14:14:00.584"></status>
-</kw>
-<doc>This is the test case that us going to test the functionality of the NASA API</doc>
+<doc>According to the requirements list, the credit card bar should ask for 16 numbers, but what happens if more or less numbers are inputed</doc>
 <tags>
-<tag>Test WEB-87</tag>
+<tag>Test 4; The credit card test</tag>
 </tags>
-<status status="PASS" starttime="20200505 14:13:49.634" endtime="20200505 14:14:00.584" critical="yes"></status>
+<status status="FAIL" starttime="20200319 14:38:25.085" endtime="20200319 14:38:25.698" critical="yes">Button with locator '//*[@id="logout"]' not found.</status>
 </test>
-<test id="s1-s1-t3" name="WEB1-42 Test">
-<kw name="Begin Webtest" library="keywords" type="setup">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:00.584" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20200505 14:14:00.584" endtime="20200505 14:14:06.071"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:00.584" endtime="20200505 14:14:06.071"></status>
-</kw>
+<test id="s1-s1-t5" name="User Can Book A Car">
 <kw name="Page Loaded" library="keywords">
 <kw name="Load Page" library="keywords">
 <kw name="Go To" library="SeleniumLibrary">
@@ -225,579 +332,86 @@
 <arguments>
 <arg>${URL}</arg>
 </arguments>
-<msg timestamp="20200505 14:14:06.071" level="INFO">Opening url 'https://localhost:44353/'</msg>
-<status status="PASS" starttime="20200505 14:14:06.071" endtime="20200505 14:14:09.352"></status>
+<msg timestamp="20200319 14:38:25.702" level="INFO">Opening url 'http://rental15.infotiv.net'</msg>
+<status status="PASS" starttime="20200319 14:38:25.702" endtime="20200319 14:38:25.968"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:14:06.071" endtime="20200505 14:14:09.352"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:14:09.372" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:14:09.352" endtime="20200505 14:14:09.372"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:09.352" endtime="20200505 14:14:09.372"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:06.071" endtime="20200505 14:14:09.372"></status>
+<status status="PASS" starttime="20200319 14:38:25.702" endtime="20200319 14:38:25.968"></status>
 </kw>
 <kw name="Verify Rental Page Loaded" library="keywords">
 <kw name="Location Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current URL is exactly ``url``.</doc>
 <arguments>
-<arg>https://localhost:44353/</arg>
+<arg>http://rental15.infotiv.net/</arg>
 </arguments>
-<msg timestamp="20200505 14:14:09.380" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:14:09.372" endtime="20200505 14:14:09.380"></status>
+<msg timestamp="20200319 14:38:25.979" level="INFO">Current location is 'http://rental15.infotiv.net/'.</msg>
+<status status="PASS" starttime="20200319 14:38:25.968" endtime="20200319 14:38:25.979"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:14:09.372" endtime="20200505 14:14:09.380"></status>
+<status status="PASS" starttime="20200319 14:38:25.968" endtime="20200319 14:38:25.980"></status>
 </kw>
-<kw name="Press Ships" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20200319 14:38:25.701" endtime="20200319 14:38:25.980"></status>
+</kw>
+<kw name="Log Out" library="keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>Xpath://div/div/ul[2]/li[2]/a</arg>
+<arg>//*[@id="logout"]</arg>
 </arguments>
-<msg timestamp="20200505 14:14:09.380" level="INFO">Clicking element 'Xpath://div/div/ul[2]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200505 14:14:09.380" endtime="20200505 14:14:09.782"></status>
+<msg timestamp="20200319 14:38:25.981" level="INFO">Clicking button '//*[@id="logout"]'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200319 14:38:26.319" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-142.png"&gt;&lt;img src="selenium-screenshot-142.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200319 14:38:26.002" endtime="20200319 14:38:26.319"></status>
 </kw>
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/Ships</arg>
-</arguments>
-<msg timestamp="20200505 14:14:09.786" level="INFO">Current location is 'https://localhost:44353/Ships'.</msg>
-<status status="PASS" starttime="20200505 14:14:09.782" endtime="20200505 14:14:09.790"></status>
+<msg timestamp="20200319 14:38:26.319" level="FAIL">Button with locator '//*[@id="logout"]' not found.</msg>
+<status status="FAIL" starttime="20200319 14:38:25.981" endtime="20200319 14:38:26.319"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:14:09.380" endtime="20200505 14:14:09.790"></status>
+<status status="FAIL" starttime="20200319 14:38:25.980" endtime="20200319 14:38:26.319"></status>
 </kw>
-<kw name="Place An Order" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>Xpath://div/main/table/tbody/tr[1]/td[6]/form/button</arg>
-</arguments>
-<msg timestamp="20200505 14:14:09.790" level="INFO">Clicking element 'Xpath://div/main/table/tbody/tr[1]/td[6]/form/button'.</msg>
-<status status="PASS" starttime="20200505 14:14:09.790" endtime="20200505 14:14:10.017"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>Xpath://div/main/table/tbody/tr[2]/td[6]/form/button</arg>
-</arguments>
-<msg timestamp="20200505 14:14:10.017" level="INFO">Clicking element 'Xpath://div/main/table/tbody/tr[2]/td[6]/form/button'.</msg>
-<status status="PASS" starttime="20200505 14:14:10.017" endtime="20200505 14:14:10.217"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:09.790" endtime="20200505 14:14:10.217"></status>
-</kw>
-<kw name="Go To Order Page" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>Xpath://nav/div/div/ul[1]/li[1]/a/img</arg>
-</arguments>
-<msg timestamp="20200505 14:14:10.221" level="INFO">Clicking element 'Xpath://nav/div/div/ul[1]/li[1]/a/img'.</msg>
-<status status="PASS" starttime="20200505 14:14:10.221" endtime="20200505 14:14:10.405"></status>
-</kw>
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/ShoppingCartOverview</arg>
-</arguments>
-<msg timestamp="20200505 14:14:10.417" level="INFO">Current location is 'https://localhost:44353/ShoppingCartOverview'.</msg>
-<status status="PASS" starttime="20200505 14:14:10.405" endtime="20200505 14:14:10.417"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:10.221" endtime="20200505 14:14:10.417"></status>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<doc>Verifies that current page contains ``text``.</doc>
-<arguments>
-<arg>A-Wing</arg>
-</arguments>
-<msg timestamp="20200505 14:14:10.437" level="INFO">Current page contains text 'A-Wing'.</msg>
-<status status="PASS" starttime="20200505 14:14:10.417" endtime="20200505 14:14:10.437"></status>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<doc>Verifies that current page contains ``text``.</doc>
-<arguments>
-<arg>Death Star</arg>
-</arguments>
-<msg timestamp="20200505 14:14:10.457" level="INFO">Current page contains text 'Death Star'.</msg>
-<status status="PASS" starttime="20200505 14:14:10.437" endtime="20200505 14:14:10.457"></status>
-</kw>
+<doc>This tests the functionality of booking a car. Which means that all the steps: Selection ga car, inserting credit card information and that it shows up on My Page.</doc>
+<tags>
+<tag>Test 5; The Car booking functionality test</tag>
+</tags>
+<status status="FAIL" starttime="20200319 14:38:25.700" endtime="20200319 14:38:26.319" critical="yes">Button with locator '//*[@id="logout"]' not found.</status>
+</test>
 <kw name="End webtest" library="keywords" type="teardown">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200505 14:14:10.459" endtime="20200505 14:14:12.741"></status>
+<status status="PASS" starttime="20200319 14:38:26.319" endtime="20200319 14:38:28.587"></status>
 </kw>
-<status status="PASS" starttime="20200505 14:14:10.457" endtime="20200505 14:14:12.741"></status>
+<status status="PASS" starttime="20200319 14:38:26.319" endtime="20200319 14:38:28.587"></status>
 </kw>
-<doc>This is the test case that is going to test the functionality of the order page.</doc>
-<tags>
-<tag>Test WEB-42</tag>
-</tags>
-<status status="PASS" starttime="20200505 14:14:00.584" endtime="20200505 14:14:12.741" critical="yes"></status>
-</test>
-<test id="s1-s1-t4" name="WEB-89 Test">
-<kw name="Begin Webtest" library="keywords" type="setup">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:12.741" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20200505 14:14:12.741" endtime="20200505 14:14:18.301"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:12.741" endtime="20200505 14:14:18.301"></status>
-</kw>
-<kw name="Page Loaded" library="keywords">
-<kw name="Load Page" library="keywords">
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:18.305" level="INFO">Opening url 'https://localhost:44353/'</msg>
-<status status="PASS" starttime="20200505 14:14:18.305" endtime="20200505 14:14:21.298"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:18.305" endtime="20200505 14:14:21.302"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.318" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:14:21.302" endtime="20200505 14:14:21.318"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:21.302" endtime="20200505 14:14:21.318"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:18.305" endtime="20200505 14:14:21.318"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.330" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:14:21.318" endtime="20200505 14:14:21.330"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:21.318" endtime="20200505 14:14:21.330"></status>
-</kw>
-<kw name="Generate Phonenumber" library="keywords">
-<kw name="Generate Random String" library="String">
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<arguments>
-<arg>7</arg>
-<arg>[NUMBERS]</arg>
-</arguments>
-<assign>
-<var>${PHONENUMBER}</var>
-</assign>
-<msg timestamp="20200505 14:14:21.334" level="INFO">${PHONENUMBER} = 4805726</msg>
-<status status="PASS" starttime="20200505 14:14:21.334" endtime="20200505 14:14:21.334"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${PHONENUMBER}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.334" level="INFO">${PHONENUMBER} = 4805726</msg>
-<status status="PASS" starttime="20200505 14:14:21.334" endtime="20200505 14:14:21.334"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:21.334" endtime="20200505 14:14:21.334"></status>
-</kw>
-<kw name="Generate Email" library="keywords">
-<kw name="Generate Random String" library="String">
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<arguments>
-<arg>6</arg>
-<arg>[NUMBERS]abcdef</arg>
-</arguments>
-<assign>
-<var>${RANDOMSTRING}</var>
-</assign>
-<msg timestamp="20200505 14:14:21.338" level="INFO">${RANDOMSTRING} = fff6e6</msg>
-<status status="PASS" starttime="20200505 14:14:21.338" endtime="20200505 14:14:21.338"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${RANDOMSTRING}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.338" level="INFO">${RANDOMSTRING} = fff6e6</msg>
-<status status="PASS" starttime="20200505 14:14:21.338" endtime="20200505 14:14:21.338"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:21.334" endtime="20200505 14:14:21.338"></status>
-</kw>
-<kw name="Register an account" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.338" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200505 14:14:21.338" endtime="20200505 14:14:21.590"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Create a new account</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:21.590" endtime="20200505 14:14:21.612"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Email"]</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:21.612" endtime="20200505 14:14:21.649"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Email"]</arg>
-<arg>${RANDOMSTRING}@email.com</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.649" level="INFO">Typing text 'fff6e6@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:21.649" endtime="20200505 14:14:21.873"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Password"]</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:21.873" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:21.873" endtime="20200505 14:14:22.059"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:22.063" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:22.059" endtime="20200505 14:14:22.295"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_PhoneNumber"]</arg>
-<arg>073${PHONENUMBER}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:22.295" level="INFO">Typing text '0734805726' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:22.295" endtime="20200505 14:14:22.490"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
-</arguments>
-<msg timestamp="20200505 14:14:22.490" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200505 14:14:22.490" endtime="20200505 14:14:23.410"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Register confirmation</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:23.410" endtime="20200505 14:14:23.442"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="confirm-link"]</arg>
-</arguments>
-<msg timestamp="20200505 14:14:23.442" level="INFO">Clicking element 'xpath://*[@id="confirm-link"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:23.442" endtime="20200505 14:14:23.704"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Thank you for confirming your email</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:23.708" endtime="20200505 14:14:23.740"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:21.338" endtime="20200505 14:14:23.740"></status>
-</kw>
-<kw name="End webtest" library="keywords" type="teardown">
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200505 14:14:23.740" endtime="20200505 14:14:26.093"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:23.740" endtime="20200505 14:14:26.093"></status>
-</kw>
-<doc>This is the test case that us going to test the functionality of the phone number validator</doc>
-<tags>
-<tag>Test WEB-89-1</tag>
-</tags>
-<status status="PASS" starttime="20200505 14:14:12.741" endtime="20200505 14:14:26.093" critical="yes"></status>
-</test>
-<test id="s1-s1-t5" name="WEB-89 Test 2">
-<kw name="Begin Webtest" library="keywords" type="setup">
-<kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<arguments>
-<arg>about:blank</arg>
-<arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:26.093" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
-<status status="PASS" starttime="20200505 14:14:26.093" endtime="20200505 14:14:31.573"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:26.093" endtime="20200505 14:14:31.573"></status>
-</kw>
-<kw name="Page Loaded" library="keywords">
-<kw name="Load Page" library="keywords">
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:31.585" level="INFO">Opening url 'https://localhost:44353/'</msg>
-<status status="PASS" starttime="20200505 14:14:31.585" endtime="20200505 14:14:34.051"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:31.581" endtime="20200505 14:14:34.051"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.067" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.051" endtime="20200505 14:14:34.067"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:34.051" endtime="20200505 14:14:34.067"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:31.581" endtime="20200505 14:14:34.067"></status>
-</kw>
-<kw name="Verify Rental Page Loaded" library="keywords">
-<kw name="Location Should Be" library="SeleniumLibrary">
-<doc>Verifies that the current URL is exactly ``url``.</doc>
-<arguments>
-<arg>https://localhost:44353/</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.075" level="INFO">Current location is 'https://localhost:44353/'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.071" endtime="20200505 14:14:34.075"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:34.067" endtime="20200505 14:14:34.075"></status>
-</kw>
-<kw name="Generate Email" library="keywords">
-<kw name="Generate Random String" library="String">
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<arguments>
-<arg>6</arg>
-<arg>[NUMBERS]abcdef</arg>
-</arguments>
-<assign>
-<var>${RANDOMSTRING}</var>
-</assign>
-<msg timestamp="20200505 14:14:34.075" level="INFO">${RANDOMSTRING} = 51803a</msg>
-<status status="PASS" starttime="20200505 14:14:34.075" endtime="20200505 14:14:34.075"></status>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<arguments>
-<arg>${RANDOMSTRING}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.079" level="INFO">${RANDOMSTRING} = 51803a</msg>
-<status status="PASS" starttime="20200505 14:14:34.075" endtime="20200505 14:14:34.079"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:34.075" endtime="20200505 14:14:34.079"></status>
-</kw>
-<kw name="Register an account FAil" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.079" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.079" endtime="20200505 14:14:34.324"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Create a new account</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:34.324" endtime="20200505 14:14:34.344"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Email"]</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:34.344" endtime="20200505 14:14:34.388"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Email"]</arg>
-<arg>${RANDOMSTRING}@email.com</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.388" level="INFO">Typing text '51803a@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.388" endtime="20200505 14:14:34.607"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Password"]</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.607" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.607" endtime="20200505 14:14:34.796"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.796" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.796" endtime="20200505 14:14:34.972"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_PhoneNumber"]</arg>
-<arg>${INVALID_PHONE_NUMBER1}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:34.972" level="INFO">Typing text '076819999' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:34.972" endtime="20200505 14:14:35.155"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
-</arguments>
-<msg timestamp="20200505 14:14:35.155" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200505 14:14:35.155" endtime="20200505 14:14:35.997"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Only Swedish phone numbers are accepted at the moment</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:35.997" endtime="20200505 14:14:36.041"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:34.079" endtime="20200505 14:14:36.041"></status>
-</kw>
-<kw name="Register an account Fail Again" library="keywords">
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
-</arguments>
-<msg timestamp="20200505 14:14:36.045" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
-<status status="PASS" starttime="20200505 14:14:36.041" endtime="20200505 14:14:36.249"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>Create a new account</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:36.253" endtime="20200505 14:14:36.277"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Email"]</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:36.277" endtime="20200505 14:14:36.321"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Email"]</arg>
-<arg>${RANDOMSTRING}@email.com</arg>
-</arguments>
-<msg timestamp="20200505 14:14:36.321" level="INFO">Typing text '51803a@email.com' into text field 'xpath://*[@id="Input_Email"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:36.321" endtime="20200505 14:14:36.561"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_Password"]</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:36.561" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_Password"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:36.561" endtime="20200505 14:14:36.783"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_ConfirmPassword"]</arg>
-<arg>${PASSWORD}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:36.783" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:36.783" endtime="20200505 14:14:36.995"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://*[@id="Input_PhoneNumber"]</arg>
-<arg>${INVALID_PHONE_NUMBER2}</arg>
-</arguments>
-<msg timestamp="20200505 14:14:36.995" level="INFO">Typing text '07681999999' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
-<status status="PASS" starttime="20200505 14:14:36.995" endtime="20200505 14:14:37.291"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://html/body/div/main/div/div[1]/form/button</arg>
-</arguments>
-<msg timestamp="20200505 14:14:37.291" level="INFO">Clicking element 'xpath://html/body/div/main/div/div[1]/form/button'.</msg>
-<status status="PASS" starttime="20200505 14:14:37.291" endtime="20200505 14:14:37.863"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on the current page.</doc>
-<arguments>
-<arg>The value '07681999999' is not valid for Phone Number.</arg>
-</arguments>
-<status status="PASS" starttime="20200505 14:14:37.863" endtime="20200505 14:14:37.911"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:36.041" endtime="20200505 14:14:37.911"></status>
-</kw>
-<kw name="End webtest" library="keywords" type="teardown">
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20200505 14:14:37.915" endtime="20200505 14:14:40.299"></status>
-</kw>
-<status status="PASS" starttime="20200505 14:14:37.911" endtime="20200505 14:14:40.299"></status>
-</kw>
-<doc>This is the test case that us going to test that the phone number validator takes exactly 10 numbers</doc>
-<tags>
-<tag>Test WEB-89-2</tag>
-</tags>
-<status status="PASS" starttime="20200505 14:14:26.093" endtime="20200505 14:14:40.299" critical="yes"></status>
-</test>
-<doc>This is some basic info about the whole test suite</doc>
-<status status="PASS" starttime="20200505 14:13:35.586" endtime="20200505 14:14:40.299"></status>
+<doc>This test suite is designed to test the car rental function at rental15.infotiv.net</doc>
+<status status="FAIL" starttime="20200319 14:38:09.938" endtime="20200319 14:38:28.587"></status>
 </suite>
-<status status="PASS" starttime="20200505 14:13:35.539" endtime="20200505 14:14:40.330"></status>
+<status status="FAIL" starttime="20200319 14:38:09.891" endtime="20200319 14:38:28.587"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0">Critical Tests</stat>
-<stat pass="5" fail="0">All Tests</stat>
+<stat pass="0" fail="5">Critical Tests</stat>
+<stat pass="0" fail="5">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">Test WEB-42</stat>
-<stat pass="1" fail="0">Test WEB-87</stat>
-<stat pass="1" fail="0">Test WEB-89-1</stat>
-<stat pass="1" fail="0">Test WEB-89-2</stat>
-<stat pass="1" fail="0">Test WEB1-25</stat>
+<stat pass="0" fail="1">Test 1; The email test</stat>
+<stat pass="0" fail="1">Test 2; user creation</stat>
+<stat pass="0" fail="1">Test 3;The log-in Test</stat>
+<stat pass="0" fail="1">Test 4; The credit card test</stat>
+<stat pass="0" fail="1">Test 5; The Car booking functionality test</stat>
 </tag>
 <suite>
-<stat pass="5" fail="0" id="s1" name="Tests">Tests</stat>
-<stat pass="5" fail="0" id="s1-s1" name="rebelRentals">Tests.rebelRentals</stat>
+<stat pass="0" fail="5" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="5" id="s1-s1" name="carRental">Tests.carRental</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20200319 14:38:10.234" level="ERROR">Error in file 'C:\Users\fritz\PycharmProjects\CarRentalTest\Tests\carRental.robot': Importing test library 'Seleniumlibrary' failed: ModuleNotFoundError: No module named 'Seleniumlibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\fritz\AppData\Local\Programs\Python\Python38-32\Scripts\robot.exe
+  c:\users\fritz\appdata\local\programs\python\python38-32\python38.zip
+  c:\users\fritz\appdata\local\programs\python\python38-32\DLLs
+  c:\users\fritz\appdata\local\programs\python\python38-32\lib
+  c:\users\fritz\appdata\local\programs\python\python38-32
+  c:\users\fritz\appdata\local\programs\python\python38-32\lib\site-packages</msg>
 </errors>
 </robot>
