@@ -147,5 +147,11 @@ namespace RebelRentals
 
             return $"Latitude: {latitude} Longitude: {longitude}";
         }
+        public async Task<string> FlipCoin()
+        {
+            var client = new Client(new Uri("http://flipacoinapi.com/json"));
+            var response = await client.GetAsync<string>();
+            return response.Body;
+        }
     }
 }

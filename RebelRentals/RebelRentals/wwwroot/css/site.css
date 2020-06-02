@@ -179,3 +179,8 @@ h4, h5, h6, label, p, td, dd, dt, th {
         font-size: 25px !important;
     }
 }
+.coin-image
+{
+    height: 20em;
+    width: 20em;
+}

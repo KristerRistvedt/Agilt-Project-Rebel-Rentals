@@ -1,0 +1,23 @@
+﻿@page
+@model RebelRentals.Pages.CoinFlipModel
+@{
+    ViewData["Title"] = "CoinFlip";
+}
+
+<h1 class="pb-5">CoinFlip</h1>
+
+@if (Model.Coin == "Heads")
+{
+    <img src="~/Images/RebelHeads.png" alt="Alternate Text" class="coin-image rounded" />
+    <h3>You got heads!</h3>
+}
+else if (Model.Coin == "Tails")
+{
+    <img src="~/Images/RebelTails.png" alt="Alternate Text" class="coin-image" />
+    <h3>You got tails!</h3>
+}
+
+
+<form method="post">
+    <button class="btn btn-primary mt-3" asp-page-handler="FlipCoin">Flip Coin</button>
+</form>
