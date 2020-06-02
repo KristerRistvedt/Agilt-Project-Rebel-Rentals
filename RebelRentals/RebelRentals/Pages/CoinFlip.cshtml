@@ -4,17 +4,17 @@
     ViewData["Title"] = "CoinFlip";
 }
 
-<h1 class="pb-5">CoinFlip</h1>
+<h1 class="pb-5">Coin Flip</h1>
 
 @if (Model.Coin == "Heads")
 {
     <img src="~/Images/RebelHeads.png" alt="Alternate Text" class="coin-image rounded" />
-    <h3>You got heads!</h3>
+    <h3 class="pt-5">You got heads!</h3>
 }
 else if (Model.Coin == "Tails")
 {
     <img src="~/Images/RebelTails.png" alt="Alternate Text" class="coin-image" />
-    <h3>You got tails!</h3>
+    <h3 class="pt-5">You got tails!</h3>
 }
 
 
