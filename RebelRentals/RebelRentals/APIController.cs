@@ -6,6 +6,9 @@ using System.Net.Mail;
 using System.Net;
 using MailMessage = System.Net.Mail.MailMessage;
 using System.Collections.Generic;
+using RebelRentals.API_Models;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace RebelRentals
 {
@@ -46,6 +49,14 @@ namespace RebelRentals
             return result;
         }
 
+        public async Task<ChuckNorrisQuotesModel> ChuckNorrisQuote()
+        {
+            var client = new Client(new Uri("https://api.chucknorris.io/jokes/random"));
+            ChuckNorrisQuotesModel response = await client.GetAsync<ChuckNorrisQuotesModel>();
+
+            return response;
+        }
+
         public bool SendEmailToSupport(string name, string senderEmail, string message)
         {
             bool result;
@@ -64,7 +75,7 @@ namespace RebelRentals
                 client.Send(messageObject);
                 result = true;
             }
-            catch (Exception e)
+            catch
             {
                 result = false;
             }
@@ -114,6 +125,33 @@ namespace RebelRentals
                 currencyList.Add(currency);
             }
             return currencyList;
+        }
+        public async Task<string> GetIssInformation()
+        {
+            var client = new Client(new Uri("http://api.open-notify.org/iss-now.json"));
+            var response = await client.GetAsync<string>();
+            var json = response.Body;
+            //Latitude
+            int latitudeIndex = json.IndexOf("latitude");
+            int latitudeNumberIndex = latitudeIndex + 12;
+            string latitude = json.Substring(latitudeNumberIndex);
+            int numberEndingIndex = latitude.IndexOf('\"');
+            latitude = latitude.Substring(0, numberEndingIndex);
+
+            //Longitude
+            int longitudeIndex = json.IndexOf("longitude");
+            int longitudeNumberIndex = longitudeIndex + 13;
+            string longitude = json.Substring(longitudeNumberIndex);
+            numberEndingIndex = longitude.IndexOf('\"');
+            longitude = longitude.Substring(0, numberEndingIndex);
+
+            return $"Latitude: {latitude} Longitude: {longitude}";
+        }
+        public async Task<string> FlipCoin()
+        {
+            var client = new Client(new Uri("http://flipacoinapi.com/json"));
+            var response = await client.GetAsync<string>();
+            return response.Body;
         }
     }
 }

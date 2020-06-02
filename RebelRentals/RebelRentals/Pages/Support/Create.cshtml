@@ -1,0 +1,50 @@
+﻿@page
+@model RebelRentals.Pages.Support.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="pb-5">Add ship to order</h1>
+
+@if (Model.failed)
+{
+    <ul class="text-danger">
+        <li>Could not process your request. Does the ship you've chosen already exist in this order?</li>
+    </ul>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ShipOrder.ShipId" class="control-label"></label>
+                    <select asp-for="ShipOrder.ShipId" class="form-control" asp-items="ViewBag.ShipId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShipOrder.OrderId" class="control-label"></label>
+                    <select asp-for="ShipOrder.OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShipOrder.Count" class="control-label"></label>
+                    <input asp-for="ShipOrder.Count" class="form-control" />
+                    <span asp-validation-for="ShipOrder.Count" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+<hr />
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

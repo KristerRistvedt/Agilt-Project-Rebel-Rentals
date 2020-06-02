@@ -8,13 +8,16 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Order summary</h1>
+<h1 class="pb-5">Order summary</h1>
 
-<p>Total cost: @Model.TotalCost</p>
+<p>
+    Total cost: @(Math.Round(Model.TotalCost * JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+</p>
 
-<table class="table">
+<table class="table table-responsive-md">
     <thead>
         <tr>
+            <th></th>
             <th>
                 Model
             </th>
@@ -26,28 +29,61 @@
     <tbody>
         @foreach (var item in Model.ListOfShipsInCart)
         {
-            <tr>
+        <tr>
+            <td>
+                @switch (item.Model)
+                {
+                    case "X-Wing":
+                        <img class="img-thumbnail rounded" src="~/Images/XWing.jpg" height="100" width="100" />
+                        break;
+                    case "A-Wing":
+                        <img class="img-thumbnail rounded" src="~/Images/AWing.png" height="100" width="100" />
+                        break;
+                    case "Death Star":
+                        <img class="img-thumbnail rounded" src="~/Images/DeathStar.jpg" height="100" width="100" />
+                        break;
+                    case "Salvation":
+                        <img class="img-thumbnail rounded" src="~/Images/Salvation.jpg" height="100" width="100" />
+                        break;
+                    case "Star Destroyer":
+                        <img class="img-thumbnail rounded" src="~/Images/StarDestroyer.jpeg" height="100" width="100" />
+                        break;
+                    case "Tie Fighter":
+                        <img class="img-thumbnail rounded" src="~/Images/TieFighter.jpg" height="100" width="100" />
+                        break;
+                    case "Y-Wing":
+                        <img class="img-thumbnail rounded" src="~/Images/YWing.jpeg" height="100" width="100" />
+                        break;
+                }
+            </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Model)
                 </td>
                 <td>
                     @(Math.Round(item.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
-                </td> 
-                <td>
-                    <a asp-page="./ShoppingCartOverview" asp-route-id="@item.Id">Back to cart</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<form method="post" asp-page-handler="ClearCart">
-    <button>Clear cart</button>
-</form>
-<form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
-    <button>Finalize order</button>
-</form>
+@if (Model.ListOfShipsInCart.First().Model != "You haven't added anything yet.")
+{
+<table class="mb-4 ml-2 mt-2">
+    <tr>
+        <td>
+            <form method="post" asp-page-handler="ClearCart">
+                <button class="btn btn-danger">Clear cart</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" asp-route-id="" asp-page-handler="FinalizeOrder">
+                <button class="btn btn-primary ml-3">Finalize order</button>
+            </form>
+        </td>
+    </tr>
+</table>
+}
+<a class="ml-2" asp-page="/ShoppingCartOverview">Back to cart</a>
 @if (Model.CheckOutFailed)
 {
     <ul class="text-danger">

@@ -31,16 +31,16 @@
         </form>
         
 
-        <div class="form-group">
+        <div class="form-group pt-3">
             @if (Model.ShowingMenu == false)
             {
-            <h5>
+            <h5 class="pb-2">
                 Current Currency: <br>
                 @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencyName)
             </h5>
 
                 <form method="post">
-                    <button asp-page-handler="DisplayCurrencyChangeList">
+                    <button class="btn btn-primary" asp-page-handler="DisplayCurrencyChangeList">
                         Change currency
                     </button>
                 </form>
@@ -54,7 +54,7 @@
                             <option value="@currency.Id">@currency.Id  ||  @currency.CurrencyName  ||  @currency.CurrencySymbol</option>
                         }
                     </select>
-                    <button asp-page-handler="ChangeCurrency">
+                    <button class="btn btn-primary mt-3" asp-page-handler="ChangeCurrency">
                         Submit Currency-change
                     </button>
                 </form>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.1 on win32)" generated="20200505 13:48:28.629" rpa="false">
+<suite id="s1" name="rebelRentals" source="C:\Users\fritz\PycharmProjects\RebelRentals\Tests\rebelRentals.robot">
+<test id="s1-t1" name="WEB-89 Test 3">
+<kw name="Begin Webtest" library="keywords" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20200505 13:48:29.004" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20200505 13:48:29.004" endtime="20200505 13:48:34.629"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:29.004" endtime="20200505 13:48:34.629"></status>
+</kw>
+<kw name="Page Loaded" library="keywords">
+<kw name="Load Page" library="keywords">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20200505 13:48:34.633" level="INFO">Opening url 'https://localhost:44353/'</msg>
+<status status="PASS" starttime="20200505 13:48:34.633" endtime="20200505 13:48:37.231"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:34.629" endtime="20200505 13:48:37.231"></status>
+</kw>
+<kw name="Verify Rental Page Loaded" library="keywords">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<arguments>
+<arg>https://localhost:44353/</arg>
+</arguments>
+<msg timestamp="20200505 13:48:37.251" level="INFO">Current location is 'https://localhost:44353/'.</msg>
+<status status="PASS" starttime="20200505 13:48:37.235" endtime="20200505 13:48:37.251"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:37.231" endtime="20200505 13:48:37.251"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:34.629" endtime="20200505 13:48:37.251"></status>
+</kw>
+<kw name="Log In" library="keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://nav/div/div/ul[1]/li[3]/a</arg>
+</arguments>
+<msg timestamp="20200505 13:48:37.255" level="INFO">Clicking element 'Xpath://nav/div/div/ul[1]/li[3]/a'.</msg>
+<status status="PASS" starttime="20200505 13:48:37.251" endtime="20200505 13:48:37.517"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://*[@id="Input_Email"]</arg>
+<arg>Bruh.Bruh@Bruh.com</arg>
+</arguments>
+<msg timestamp="20200505 13:48:37.517" level="INFO">Typing text 'Bruh.Bruh@Bruh.com' into text field 'Xpath://*[@id="Input_Email"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:37.517" endtime="20200505 13:48:37.956"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="Input_Password"]</arg>
+<arg>Bruh1234!</arg>
+</arguments>
+<msg timestamp="20200505 13:48:37.956" level="INFO">Typing text 'Bruh1234!' into text field 'xpath://*[@id="Input_Password"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:37.956" endtime="20200505 13:48:38.322"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://*[@id="account"]/div[5]/button</arg>
+</arguments>
+<msg timestamp="20200505 13:48:38.326" level="INFO">Clicking element 'Xpath://*[@id="account"]/div[5]/button'.</msg>
+<status status="PASS" starttime="20200505 13:48:38.326" endtime="20200505 13:48:38.666"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:37.251" endtime="20200505 13:48:38.666"></status>
+</kw>
+<kw name="Generate Phonenumber" library="keywords">
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>7</arg>
+<arg>[NUMBERS]</arg>
+</arguments>
+<assign>
+<var>${PHONENUMBER}</var>
+</assign>
+<msg timestamp="20200505 13:48:38.670" level="INFO">${PHONENUMBER} = 2101779</msg>
+<status status="PASS" starttime="20200505 13:48:38.666" endtime="20200505 13:48:38.670"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${PHONENUMBER}</arg>
+</arguments>
+<msg timestamp="20200505 13:48:38.670" level="INFO">${PHONENUMBER} = 2101779</msg>
+<status status="PASS" starttime="20200505 13:48:38.670" endtime="20200505 13:48:38.670"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:38.666" endtime="20200505 13:48:38.670"></status>
+</kw>
+<kw name="Input Number" library="keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://html/body/header/nav/div/div/ul[1]/li[2]/a</arg>
+</arguments>
+<msg timestamp="20200505 13:48:38.674" level="INFO">Clicking element 'xpath://html/body/header/nav/div/div/ul[1]/li[2]/a'.</msg>
+<status status="PASS" starttime="20200505 13:48:38.674" endtime="20200505 13:48:39.046"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Manage your account</arg>
+</arguments>
+<status status="PASS" starttime="20200505 13:48:39.046" endtime="20200505 13:48:39.074"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="Input_PhoneNumber"]</arg>
+<arg>073${PHONENUMBER}</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20200505 13:48:39.074" level="INFO">Typing text '0732101779' into text field 'xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:39.074" endtime="20200505 13:48:39.304"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://*[@id="update-profile-button"]</arg>
+</arguments>
+<msg timestamp="20200505 13:48:39.304" level="INFO">Clicking button 'xpath://*[@id="update-profile-button"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:39.304" endtime="20200505 13:48:40.001"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Your profile has been updated</arg>
+</arguments>
+<status status="PASS" starttime="20200505 13:48:40.001" endtime="20200505 13:48:40.036"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:38.674" endtime="20200505 13:48:40.036"></status>
+</kw>
+<kw name="Input Number Fail" library="keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://nav/div/div/ul/li[2]/a</arg>
+</arguments>
+<msg timestamp="20200505 13:48:40.036" level="INFO">Clicking element 'Xpath://nav/div/div/ul/li[2]/a'.</msg>
+<status status="PASS" starttime="20200505 13:48:40.036" endtime="20200505 13:48:40.236"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://*[@id="Input_PhoneNumber"]</arg>
+<arg>${INVALID_PHONE_NUMBER1}</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20200505 13:48:40.236" level="INFO">Typing text '076819999' into text field 'Xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:40.236" endtime="20200505 13:48:40.428"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://*[@id="update-profile-button"]</arg>
+</arguments>
+<msg timestamp="20200505 13:48:40.428" level="INFO">Clicking element 'Xpath://*[@id="update-profile-button"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:40.428" endtime="20200505 13:48:41.028"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Invalid phone number</arg>
+</arguments>
+<status status="PASS" starttime="20200505 13:48:41.028" endtime="20200505 13:48:41.060"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:40.036" endtime="20200505 13:48:41.060"></status>
+</kw>
+<kw name="Input Number Fail But Again" library="keywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://nav/div/div/ul/li[2]/a</arg>
+</arguments>
+<msg timestamp="20200505 13:48:41.060" level="INFO">Clicking element 'Xpath://nav/div/div/ul/li[2]/a'.</msg>
+<status status="PASS" starttime="20200505 13:48:41.060" endtime="20200505 13:48:41.211"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://*[@id="Input_PhoneNumber"]</arg>
+<arg>${INVALID_PHONE_NUMBER2}</arg>
+<arg>True</arg>
+</arguments>
+<msg timestamp="20200505 13:48:41.215" level="INFO">Typing text '07681999999' into text field 'Xpath://*[@id="Input_PhoneNumber"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:41.211" endtime="20200505 13:48:41.389"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>Xpath://*[@id="update-profile-button"]</arg>
+</arguments>
+<msg timestamp="20200505 13:48:41.389" level="INFO">Clicking element 'Xpath://*[@id="update-profile-button"]'.</msg>
+<status status="PASS" starttime="20200505 13:48:41.389" endtime="20200505 13:48:41.709"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Invalid phone number</arg>
+</arguments>
+<status status="PASS" starttime="20200505 13:48:41.709" endtime="20200505 13:48:41.725"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:41.060" endtime="20200505 13:48:41.725"></status>
+</kw>
+<kw name="End webtest" library="keywords" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200505 13:48:41.725" endtime="20200505 13:48:44.827"></status>
+</kw>
+<status status="PASS" starttime="20200505 13:48:41.725" endtime="20200505 13:48:44.827"></status>
+</kw>
+<doc>This is the test case that is going to test if you can change your already exisisting phone number and that yu cant use more than 10 numbers</doc>
+<tags>
+<tag>Test WEB-89-fail</tag>
+</tags>
+<status status="PASS" starttime="20200505 13:48:29.004" endtime="20200505 13:48:44.827" critical="yes"></status>
+</test>
+<doc>This is some basic info about the whole test suite</doc>
+<status status="PASS" starttime="20200505 13:48:28.629" endtime="20200505 13:48:44.827"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Test WEB-89-fail</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="rebelRentals">rebelRentals</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

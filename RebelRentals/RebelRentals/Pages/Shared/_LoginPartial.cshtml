@@ -4,26 +4,32 @@
 
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-page="/ShoppingCartOverview" title="Shopping Cart"><img src="~/Images/ShoppingCart.png" /></a>
+            <a class="nav-link text-danger pr-5" asp-page="/ShoppingCartOverview" title="Shopping Cart"><img src="~/Images/DroidShoppingCart.gif" alt="shopping-cart-link" /></a>
         </li>
         @if (SignInManager.IsSignedIn(User))
         {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
-            </li>
-            <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                </form>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-            </li>
-        }
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle scifi-font text-danger cursor-pointer mt-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="nav-link text-danger scifi-font" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
+                    @if (User.IsInRole("Support"))
+                    {
+                        <a class="nav-link text-danger scifi-font" asp-area="" asp-page="/Support/Index">Support</a>
+                    }
+                    <form class="bg-dark" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <button type="submit" class="logout nav-link btn btn-link scifi-font text-danger">Logout</button>
+                    </form>
+                    </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle scifi-font text-danger cursor-pointer mt-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                        <div class="dropdown-menu dropdown-menu-right bg-dark border-light" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="nav-link text-danger scifi-font" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            <a class="nav-link text-danger scifi-font" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </div>
+                    </li>
+                }
     </ul>

@@ -24,7 +24,7 @@ namespace RebelRentals.Pages
 
         public List<Ship> Ships { get;set; }
 
-        public async Task<IActionResult> OnPostRemoveFromCart(int id)
+        public IActionResult OnPostRemoveFromCart(int id)
         {
             Ship shipToRemove = Ships.First(ship => ship.Id == id);
             _shoppingCart.RemoveShipFromCart(shipToRemove);
