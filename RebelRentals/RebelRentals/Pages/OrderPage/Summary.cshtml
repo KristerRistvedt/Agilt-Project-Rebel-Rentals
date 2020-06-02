@@ -10,7 +10,10 @@
 
 <h1 class="pb-5">Summary</h1>
 
-<p>Total cost: @Model.TotalCost</p>
+<p>
+    Total cost: @(Math.Round(Model.TotalCost*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+</p>
+
 
 <table class="table text-center table-responsive-md">
     <thead>
@@ -40,51 +43,51 @@
         {
             <tr>
 
-                    <td>
-                        @switch (item.Ship.Model)
-                        {
-                            case "X-Wing":
-                                <img class="img-thumbnail rounded" src="~/Images/XWing.jpg" height="100" width="100" />
-                                break;
-                            case "A-Wing":
-                                <img class="img-thumbnail rounded" src="~/Images/AWing.png" height="100" width="100" />
-                                break;
-                            case "Death Star":
-                                <img class="img-thumbnail rounded" src="~/Images/DeathStar.jpg" height="100" width="100" />
-                                break;
-                            case "Salvation":
-                                <img class="img-thumbnail rounded" src="~/Images/Salvation.jpg" height="100" width="100" />
-                                break;
-                            case "Star Destroyer":
-                                <img class="img-thumbnail rounded" src="~/Images/StarDestroyer.jpeg" height="100" width="100" />
-                                break;
-                            case "Tie Fighter":
-                                <img class="img-thumbnail rounded" src="~/Images/TieFighter.jpg" height="100" width="100" />
-                                break;
-                            case "Y-Wing":
-                                <img class="img-thumbnail rounded" src="~/Images/YWing.jpeg" height="100" width="100" />
-                                break;
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ship.Model)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ship.NumberOfPopulation)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ship.Class)
-                    </td>
-                    <td>
-                        @(Math.Round(item.Ship.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol) 
-                    </td>
-                    <td>
-                        @item.Count
-                    </td>
-                </tr>
-            }
-            }
-        </tbody>
+                <td>
+                    @switch (item.Ship.Model)
+                    {
+                        case "X-Wing":
+                            <img class="img-thumbnail rounded" src="~/Images/XWing.jpg" height="100" width="100" />
+                            break;
+                        case "A-Wing":
+                            <img class="img-thumbnail rounded" src="~/Images/AWing.png" height="100" width="100" />
+                            break;
+                        case "Death Star":
+                            <img class="img-thumbnail rounded" src="~/Images/DeathStar.jpg" height="100" width="100" />
+                            break;
+                        case "Salvation":
+                            <img class="img-thumbnail rounded" src="~/Images/Salvation.jpg" height="100" width="100" />
+                            break;
+                        case "Star Destroyer":
+                            <img class="img-thumbnail rounded" src="~/Images/StarDestroyer.jpeg" height="100" width="100" />
+                            break;
+                        case "Tie Fighter":
+                            <img class="img-thumbnail rounded" src="~/Images/TieFighter.jpg" height="100" width="100" />
+                            break;
+                        case "Y-Wing":
+                            <img class="img-thumbnail rounded" src="~/Images/YWing.jpeg" height="100" width="100" />
+                            break;
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ship.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ship.NumberOfPopulation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ship.Class)
+                </td>
+                <td>
+                    @(Math.Round(item.Ship.Price*JsonConvert.DeserializeObject<double>(HttpContext.Session.GetString("SessionRate")), 3)) @(JsonConvert.DeserializeObject<Currency>(HttpContext.Session.GetString("SessionCurrency")).CurrencySymbol)
+                </td>
+                <td>
+                    @item.Count
+                </td>
+            </tr>
+        }
+        }
+    </tbody>
 </table>
 <div>
     <a asp-page="/Ships/Index">Back to List</a>
