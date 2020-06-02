@@ -1,0 +1,19 @@
+﻿@page
+@model RebelRentals.Pages.Ships.ISSLocationModel
+@{
+    ViewData["Title"] = "ISSLocation";
+}
+
+<h1 class="pb-5">ISS Location</h1>
+<form method="post" asp-page-handler="ShowImage">
+    <button class="btn btn-primary">Show ISS</button>
+</form>
+@if (Model.showImage)
+{
+    <img class="img-thumbnail rounded mb-5 mt-5" src="@Model.showIss" width="300" height="300" />
+}
+<form method="post" asp-page-handler="ISSLocation">
+    <button class="btn btn-primary mt-3">Get location</button>
+    <p class="pt-5">@Model.currentLocation</p>
+</form>
+
